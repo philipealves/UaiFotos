@@ -12,7 +12,7 @@
 		870CAF3B1FD717E00087A29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF391FD717E00087A29A /* Main.storyboard */; };
 		870CAF3D1FD717E00087A29A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF3C1FD717E00087A29A /* Assets.xcassets */; };
 		870CAF401FD717E00087A29A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF3E1FD717E00087A29A /* LaunchScreen.storyboard */; };
-		873EAE431FD741DB00DE52A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 873EAE421FD741DB00DE52A6 /* GoogleService-Info.plist */; };
+		87642D721FD74AA800F17D71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87642D711FD74AA800F17D71 /* GoogleService-Info.plist */; };
 		DB79DBEA678E4A949D861501 /* Pods_UaiTreino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE2D58DA4B7E0E294BC5072 /* Pods_UaiTreino.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		870CAF3C1FD717E00087A29A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		870CAF3F1FD717E00087A29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		870CAF411FD717E00087A29A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		873EAE421FD741DB00DE52A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87642D711FD74AA800F17D71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6EE309A33502B7F23C691B7 /* Pods-UaiTreino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UaiTreino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +78,7 @@
 				870CAF3C1FD717E00087A29A /* Assets.xcassets */,
 				870CAF3E1FD717E00087A29A /* LaunchScreen.storyboard */,
 				870CAF411FD717E00087A29A /* Info.plist */,
-				873EAE421FD741DB00DE52A6 /* GoogleService-Info.plist */,
+				87642D711FD74AA800F17D71 /* GoogleService-Info.plist */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				870CAF401FD717E00087A29A /* LaunchScreen.storyboard in Resources */,
-				873EAE431FD741DB00DE52A6 /* GoogleService-Info.plist in Resources */,
+				87642D721FD74AA800F17D71 /* GoogleService-Info.plist in Resources */,
 				870CAF3D1FD717E00087A29A /* Assets.xcassets in Resources */,
 				870CAF3B1FD717E00087A29A /* Main.storyboard in Resources */,
 			);

@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		870CAF361FD717E00087A29A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870CAF351FD717E00087A29A /* AppDelegate.swift */; };
-		870CAF381FD717E00087A29A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870CAF371FD717E00087A29A /* ViewController.swift */; };
 		870CAF3B1FD717E00087A29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF391FD717E00087A29A /* Main.storyboard */; };
 		870CAF3D1FD717E00087A29A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF3C1FD717E00087A29A /* Assets.xcassets */; };
 		870CAF401FD717E00087A29A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF3E1FD717E00087A29A /* LaunchScreen.storyboard */; };
 		87642D721FD74AA800F17D71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87642D711FD74AA800F17D71 /* GoogleService-Info.plist */; };
+		87642D741FD74C6E00F17D71 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87642D731FD74C6E00F17D71 /* LoginViewController.swift */; };
 		DB79DBEA678E4A949D861501 /* Pods_UaiTreino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE2D58DA4B7E0E294BC5072 /* Pods_UaiTreino.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,12 +21,12 @@
 		7AAFAA8CEAAC019B91D48E8C /* Pods-UaiTreino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UaiTreino.release.xcconfig"; path = "Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino.release.xcconfig"; sourceTree = "<group>"; };
 		870CAF321FD717E00087A29A /* UaiTreino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UaiTreino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		870CAF351FD717E00087A29A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		870CAF371FD717E00087A29A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		870CAF3A1FD717E00087A29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		870CAF3C1FD717E00087A29A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		870CAF3F1FD717E00087A29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		870CAF411FD717E00087A29A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87642D711FD74AA800F17D71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87642D731FD74C6E00F17D71 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D6EE309A33502B7F23C691B7 /* Pods-UaiTreino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UaiTreino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,8 +93,8 @@
 		87D8A1B81FD71A4000AFA2A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				870CAF371FD717E00087A29A /* ViewController.swift */,
 				870CAF391FD717E00087A29A /* Main.storyboard */,
+				87642D731FD74C6E00F17D71 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +204,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/Genome/Genome.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
@@ -218,6 +219,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Genome.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
@@ -273,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				870CAF381FD717E00087A29A /* ViewController.swift in Sources */,
+				87642D741FD74C6E00F17D71 /* LoginViewController.swift in Sources */,
 				870CAF361FD717E00087A29A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

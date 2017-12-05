@@ -17,6 +17,7 @@ pod 'Hero', '~> 1.0.1'
 pod 'SwiftyAvatar', '~> 1.1'
 pod 'RAMAnimatedTabBarController', '~> 3.0.1'
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 #pod 'RxSwift',    '~> 4.0'
 #pod 'RxCocoa',    '~> 4.0'
 end

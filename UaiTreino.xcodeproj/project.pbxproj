@@ -12,9 +12,12 @@
 		870CAF3B1FD717E00087A29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF391FD717E00087A29A /* Main.storyboard */; };
 		870CAF3D1FD717E00087A29A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF3C1FD717E00087A29A /* Assets.xcassets */; };
 		870CAF401FD717E00087A29A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870CAF3E1FD717E00087A29A /* LaunchScreen.storyboard */; };
+		DB79DBEA678E4A949D861501 /* Pods_UaiTreino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE2D58DA4B7E0E294BC5072 /* Pods_UaiTreino.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AE2D58DA4B7E0E294BC5072 /* Pods_UaiTreino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UaiTreino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AAFAA8CEAAC019B91D48E8C /* Pods-UaiTreino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UaiTreino.release.xcconfig"; path = "Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino.release.xcconfig"; sourceTree = "<group>"; };
 		870CAF321FD717E00087A29A /* UaiTreino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UaiTreino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		870CAF351FD717E00087A29A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		870CAF371FD717E00087A29A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		870CAF3C1FD717E00087A29A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		870CAF3F1FD717E00087A29A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		870CAF411FD717E00087A29A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6EE309A33502B7F23C691B7 /* Pods-UaiTreino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UaiTreino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB79DBEA678E4A949D861501 /* Pods_UaiTreino.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				870CAF341FD717E00087A29A /* UaiTreino */,
 				870CAF331FD717E00087A29A /* Products */,
+				DD03C723FD621E2AE54AFABF /* Pods */,
+				F8AF1435676FF82DFD702AE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		DD03C723FD621E2AE54AFABF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6EE309A33502B7F23C691B7 /* Pods-UaiTreino.debug.xcconfig */,
+				7AAFAA8CEAAC019B91D48E8C /* Pods-UaiTreino.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F8AF1435676FF82DFD702AE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AE2D58DA4B7E0E294BC5072 /* Pods_UaiTreino.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 870CAF441FD717E00087A29A /* Build configuration list for PBXNativeTarget "UaiTreino" */;
 			buildPhases = (
+				C6E982B54F05255C9BF10DE8 /* [CP] Check Pods Manifest.lock */,
 				870CAF2E1FD717E00087A29A /* Sources */,
 				870CAF2F1FD717E00087A29A /* Frameworks */,
 				870CAF301FD717E00087A29A /* Resources */,
+				07A619EFD567CB109E5C2B80 /* [CP] Embed Pods Frameworks */,
+				93106FBB7C5DFE45B2C60E8B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +189,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07A619EFD567CB109E5C2B80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93106FBB7C5DFE45B2C60E8B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UaiTreino/Pods-UaiTreino-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6E982B54F05255C9BF10DE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UaiTreino-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		870CAF2E1FD717E00087A29A /* Sources */ = {
@@ -304,6 +385,7 @@
 		};
 		870CAF451FD717E00087A29A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6EE309A33502B7F23C691B7 /* Pods-UaiTreino.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +400,7 @@
 		};
 		870CAF461FD717E00087A29A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AAFAA8CEAAC019B91D48E8C /* Pods-UaiTreino.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

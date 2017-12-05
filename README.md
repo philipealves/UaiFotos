@@ -5,7 +5,7 @@ Turma:
 
 - Elifazio  - https://github.com/elifazio
 - Leandro Jabur - https://github.com/jaburbr
-- Daniel  - https://github.com/danielgarciasantos
+- Daniel Garcia  - https://github.com/danielgarciasantos
 - Danillo - https://github.com/danilloaraujo
 - Jean Carlo - https://github.com/jcjeancarloudi
 - Juliano   -  https://github.com/julianoeloilima

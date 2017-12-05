@@ -7,5 +7,14 @@ target 'UaiTreino' do
 
   # Pods for UaiTreino
 
+pod 'IQKeyboardManagerSwift', '5.0.0'
 pod 'Alamofire', '~> 4.5'
+pod 'ObjectMapper', '~> 2.2'
+pod 'Eureka', '~> 4.0.1'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+pod 'Kingfisher', '~> 4.5.0'
+pod 'Hero', '~> 1.0.1'
+pod 'SwiftyAvatar', '~> 1.1'
+#pod 'RxSwift',    '~> 4.0'
+#pod 'RxCocoa',    '~> 4.0'
 end

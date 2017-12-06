@@ -16,12 +16,13 @@ pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'Kingfisher', '~> 4.5.0'
 pod 'Hero', '~> 1.0.1'
 pod 'SwiftyAvatar', '~> 1.1'
-pod 'RAMAnimatedTabBarController', '~> 3.0.1'
 pod 'SwiftMessages'
+pod 'SVPullToRefresh'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 #pod 'RxSwift',    '~> 4.0'
 #pod 'RxCocoa',    '~> 4.0'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 end
 
 

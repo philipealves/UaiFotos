@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import SwiftMessages
+import BFKit
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // swift messages
         SwiftMessages.defaultConfig.presentationStyle = .top
         SwiftMessages.defaultConfig.duration = .seconds(seconds: 3)
-        //SwiftMessages.defaultConfig.dimMode = .gray(interactive: true)
+        SwiftMessages.defaultConfig.dimMode = .gray(interactive: true)
+        
+        // theme
+        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = primaryColor
+        UITabBar.appearance().tintColor = Color.white
         
         return true
     }

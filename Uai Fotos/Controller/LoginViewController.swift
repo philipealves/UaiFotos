@@ -53,6 +53,9 @@ class LoginViewController: FormViewController {
     
     private func performLogin(_ email: String, _ password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+        
+            }
             print(error)
             print(user)
         }

@@ -1,7 +1,7 @@
 # Uai Fotos
 Aplicativo mineiro de fotos, movido a pão de queijo e doce de leite.
 
-##Turma:
+#Turma:
 
 - Elifazio  - https://github.com/elifazio
 - Leandro Jabur - https://github.com/jaburbr

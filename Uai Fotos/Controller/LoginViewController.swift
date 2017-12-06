@@ -10,6 +10,7 @@ import UIKit
 import Eureka
 import IQKeyboardManagerSwift
 import FirebaseAuth
+import SwiftMessages
 
 class LoginViewController: FormViewController {
     
@@ -35,10 +36,16 @@ class LoginViewController: FormViewController {
 
                 row.onCellSelection({ (_, _) in
                     let emailRow: TextRow? = self.form.rowBy(tag: "email")
-                    let email = emailRow!.value!
+                    guard let email = emailRow?.value else {
+                        SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo e-mail é obrigatório")
+                        return
+                    }
                     
                     let passwordRow: TextRow? = self.form.rowBy(tag: "password")
-                    let password = passwordRow!.value!
+                    guard let password = passwordRow?.value else {
+                        SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo senha é obrigatório")
+                        return
+                    }
                     
                     self.performLogin(email, password)
                 })
@@ -54,9 +61,8 @@ class LoginViewController: FormViewController {
     private func performLogin(_ email: String, _ password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
-        
+                SwiftMessages.infoMessage(title: "Importante:", body: error!.localizedDescription)
             }
-            print(error)
             print(user)
         }
     }

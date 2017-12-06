@@ -14,6 +14,8 @@
 		87C233071FD8637B00964C0F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C233011FD8637B00964C0F /* Login.storyboard */; };
 		87C233081FD8637B00964C0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C233031FD8637B00964C0F /* ViewController.swift */; };
 		87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C233041FD8637B00964C0F /* LoginViewController.swift */; };
+		87C2330B1FD8678200964C0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87C2330A1FD8678200964C0F /* GoogleService-Info.plist */; };
+		87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E79CAB1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift */; };
 		F470855863BB0C9DE3597389 /* Pods_Uai_Fotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		87C233011FD8637B00964C0F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		87C233031FD8637B00964C0F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87C233041FD8637B00964C0F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		87C2330A1FD8678200964C0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87E79CAB1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMessagesExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				87C233021FD8637B00964C0F /* Controller */,
 				87C233051FD8637B00964C0F /* Model */,
 				87C232FF1FD8637B00964C0F /* View */,
+				87E79CAA1FD86F5700A23DF7 /* Extensions */,
 				87A037961FD8554A00E7420B /* Target Support Files */,
 			);
 			path = "Uai Fotos";
@@ -88,6 +93,7 @@
 				87A0378B1FD854C000E7420B /* Assets.xcassets */,
 				87A0378D1FD854C000E7420B /* LaunchScreen.storyboard */,
 				87A037901FD854C000E7420B /* Info.plist */,
+				87C2330A1FD8678200964C0F /* GoogleService-Info.plist */,
 			);
 			name = "Target Support Files";
 			sourceTree = "<group>";
@@ -115,6 +121,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		87E79CAA1FD86F5700A23DF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				87E79CAB1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E955EF3442FE7D56D6A6AF6D /* Pods */ = {
@@ -190,6 +204,7 @@
 			files = (
 				87C233071FD8637B00964C0F /* Login.storyboard in Resources */,
 				87C233061FD8637B00964C0F /* Main.storyboard in Resources */,
+				87C2330B1FD8678200964C0F /* GoogleService-Info.plist in Resources */,
 				87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */,
 				87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */,
 			);
@@ -227,13 +242,12 @@
 				"${BUILT_PRODUCTS_DIR}/Genome/Genome.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyAvatar/SwiftyAvatar.framework",
-				"${BUILT_PRODUCTS_DIR}/TSMessages/TSMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -245,13 +259,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Genome.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyAvatar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */,
+				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
 				87C233081FD8637B00964C0F /* ViewController.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 			);

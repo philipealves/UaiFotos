@@ -12,9 +12,13 @@
 		87A0378A1FD854C000E7420B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A037881FD854C000E7420B /* Main.storyboard */; };
 		87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378B1FD854C000E7420B /* Assets.xcassets */; };
 		87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378D1FD854C000E7420B /* LaunchScreen.storyboard */; };
+		F470855863BB0C9DE3597389 /* Pods_Uai_Fotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.debug.xcconfig"; sourceTree = "<group>"; };
+		314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.release.xcconfig"; sourceTree = "<group>"; };
+		67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uai_Fotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A037811FD854BF00E7420B /* Uai Fotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uai Fotos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A037841FD854BF00E7420B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A037861FD854BF00E7420B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F470855863BB0C9DE3597389 /* Pods_Uai_Fotos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64E354A97D7359DB395B489F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		87A037781FD854BF00E7420B = {
 			isa = PBXGroup;
 			children = (
 				87A037831FD854BF00E7420B /* Uai Fotos */,
 				87A037821FD854BF00E7420B /* Products */,
+				E955EF3442FE7D56D6A6AF6D /* Pods */,
+				64E354A97D7359DB395B489F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +87,15 @@
 			name = "Target Support Files";
 			sourceTree = "<group>";
 		};
+		E955EF3442FE7D56D6A6AF6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */,
+				314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87A037931FD854C000E7420B /* Build configuration list for PBXNativeTarget "Uai Fotos" */;
 			buildPhases = (
+				FBF25A501FC01E322C05BE39 /* [CP] Check Pods Manifest.lock */,
 				87A0377D1FD854BF00E7420B /* Sources */,
 				87A0377E1FD854BF00E7420B /* Frameworks */,
 				87A0377F1FD854BF00E7420B /* Resources */,
+				C3D64EE12E9A27DEFAC25ABC /* [CP] Embed Pods Frameworks */,
+				3B08299DC4476A78B6C4E5BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,6 +165,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B08299DC4476A78B6C4E5BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3D64EE12E9A27DEFAC25ABC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BFKit-Swift/BFKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/Genome/Genome.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyAvatar/SwiftyAvatar.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BFKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Genome.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyAvatar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBF25A501FC01E322C05BE39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Uai Fotos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87A0377D1FD854BF00E7420B /* Sources */ = {
@@ -280,6 +385,7 @@
 		};
 		87A037941FD854C000E7420B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -294,6 +400,7 @@
 		};
 		87A037951FD854C000E7420B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

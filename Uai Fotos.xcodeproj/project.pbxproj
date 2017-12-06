@@ -19,7 +19,9 @@
 		87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E79CAD1FD88B5000A23DF7 /* colors.swift */; };
 		87E79CB01FD89AAB00A23DF7 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CAF1FD89AAB00A23DF7 /* Feed.storyboard */; };
 		87E79CB21FD89ED200A23DF7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E79CB11FD89ED200A23DF7 /* MainTabBarViewController.swift */; };
-		87E79CB41FD8A7F800A23DF7 /* ColorTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E79CB31FD8A7F800A23DF7 /* ColorTabBarItem.swift */; };
+		87E79CB61FD8B30A00A23DF7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CB51FD8B30A00A23DF7 /* Profile.storyboard */; };
+		87E79CB81FD8B3F600A23DF7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CB71FD8B3F600A23DF7 /* Search.storyboard */; };
+		87E79CBA1FD8B4C200A23DF7 /* Heart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CB91FD8B4C200A23DF7 /* Heart.storyboard */; };
 		F470855863BB0C9DE3597389 /* Pods_Uai_Fotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +43,9 @@
 		87E79CAD1FD88B5000A23DF7 /* colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
 		87E79CAF1FD89AAB00A23DF7 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		87E79CB11FD89ED200A23DF7 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
-		87E79CB31FD8A7F800A23DF7 /* ColorTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTabBarItem.swift; sourceTree = "<group>"; };
+		87E79CB51FD8B30A00A23DF7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		87E79CB71FD8B3F600A23DF7 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		87E79CB91FD8B4C200A23DF7 /* Heart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Heart.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +117,9 @@
 				87C233001FD8637B00964C0F /* Main.storyboard */,
 				87C233011FD8637B00964C0F /* Login.storyboard */,
 				87E79CAF1FD89AAB00A23DF7 /* Feed.storyboard */,
-				87E79CB31FD8A7F800A23DF7 /* ColorTabBarItem.swift */,
+				87E79CB51FD8B30A00A23DF7 /* Profile.storyboard */,
+				87E79CB71FD8B3F600A23DF7 /* Search.storyboard */,
+				87E79CB91FD8B4C200A23DF7 /* Heart.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,8 +223,11 @@
 				87C233071FD8637B00964C0F /* Login.storyboard in Resources */,
 				87C233061FD8637B00964C0F /* Main.storyboard in Resources */,
 				87E79CB01FD89AAB00A23DF7 /* Feed.storyboard in Resources */,
+				87E79CBA1FD8B4C200A23DF7 /* Heart.storyboard in Resources */,
 				87C2330B1FD8678200964C0F /* GoogleService-Info.plist in Resources */,
 				87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */,
+				87E79CB61FD8B30A00A23DF7 /* Profile.storyboard in Resources */,
+				87E79CB81FD8B3F600A23DF7 /* Search.storyboard in Resources */,
 				87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +324,6 @@
 				87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
-				87E79CB41FD8A7F800A23DF7 /* ColorTabBarItem.swift in Sources */,
 				87E79CB21FD89ED200A23DF7 /* MainTabBarViewController.swift in Sources */,
 				87C233081FD8637B00964C0F /* ViewController.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,

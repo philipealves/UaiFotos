@@ -10,22 +10,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Feed Table View Controller-->
         <scene sceneID="wgf-zb-zBt">
             <objects>
-                <viewController storyboardIdentifier="feedViewController" id="DA3-rz-jAf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="feedViewController" id="DA3-rz-jAf" customClass="FeedTableViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vZT-30-0E9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rXu-7k-tf5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DA3-rz-jAf" id="JnD-lf-4Bc"/>
+                                    <outlet property="delegate" destination="DA3-rz-jAf" id="k0d-YN-MBH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rXu-7k-tf5" firstAttribute="top" secondItem="aqI-1e-tcA" secondAttribute="top" id="1B2-WV-l38"/>
+                            <constraint firstItem="rXu-7k-tf5" firstAttribute="bottom" secondItem="aqI-1e-tcA" secondAttribute="bottom" id="JAZ-9Z-1FI"/>
+                            <constraint firstItem="rXu-7k-tf5" firstAttribute="leading" secondItem="aqI-1e-tcA" secondAttribute="leading" id="deE-O4-ASZ"/>
+                            <constraint firstItem="rXu-7k-tf5" firstAttribute="trailing" secondItem="aqI-1e-tcA" secondAttribute="trailing" id="fJj-uG-O8b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aqI-1e-tcA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home-variant" id="wIU-CJ-AoA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="rXu-7k-tf5" id="iSv-JU-8Gw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp0-rk-ttg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="102"/>
+            <point key="canvasLocation" x="64.799999999999997" y="101.19940029985008"/>
         </scene>
     </scenes>
     <resources>

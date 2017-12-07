@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedPhotoTableViewCell" rowHeight="708" id="HsJ-dg-fsS" customClass="FeedPhotoTableViewCell" customModule="Uai_Fotos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="708"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HsJ-dg-fsS" id="jvg-dc-9Ti">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="707.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-male" translatesAutoresizingMaskIntoConstraints="NO" id="o2P-rw-Ief" customClass="SwiftyAvatar" customModule="SwiftyAvatar">
+                        <rect key="frame" x="20" y="20" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="o2P-rw-Ief" secondAttribute="height" multiplier="1:1" id="28f-iY-yqN"/>
+                            <constraint firstAttribute="width" constant="40" id="fjY-d4-D89"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="roundness">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano ciclano e beltrano" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0o-fg-FQN">
+                        <rect key="frame" x="68" y="33" width="392" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-iU-A3J">
+                        <rect key="frame" x="0.0" y="68" width="480" height="480"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qfQ-iU-A3J" secondAttribute="height" multiplier="1:1" id="w25-nQ-px0"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39.491 visualizações" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRJ-xb-Whr">
+                        <rect key="frame" x="20" y="603" width="440" height="15.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BfB-m5-9Ra">
+                        <rect key="frame" x="20" y="556" width="440" height="39"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYl-gl-96j">
+                                <rect key="frame" x="0.0" y="4.5" width="46" height="30"/>
+                                <state key="normal" image="heart-outline"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzf-2a-qQR">
+                                <rect key="frame" x="56" y="4.5" width="30" height="30"/>
+                                <state key="normal" image="message-text-outline"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLg-oY-ljH">
+                                <rect key="frame" x="96" y="4.5" width="30" height="30"/>
+                                <state key="normal" image="share-variant"/>
+                            </button>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ang-tX-bvL">
+                                <rect key="frame" x="136" y="0.0" width="264" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-N4-2ey">
+                                <rect key="frame" x="410" y="4.5" width="30" height="30"/>
+                                <state key="normal" image="bookmark-outline"/>
+                            </button>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-vF-vN2">
+                        <rect key="frame" x="20" y="626.5" width="440" height="61"/>
+                        <attributedString key="attributedText">
+                            <fragment content="fulano">
+                                <attributes>
+                                    <font key="NSFont" size="13" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" ">
+                                <attributes>
+                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment>
+                                <string key="content">Mussum Ipsum, cacilds vidis litro abertis. Detraxit consequat et quo num tendi nada. Quem num gosta di mim que vai caçá sua turmis! Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. A ordem dos tratores não altera o pão duris.</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.27059" green="0.27059" blue="0.27059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xRJ-xb-Whr" firstAttribute="top" secondItem="BfB-m5-9Ra" secondAttribute="bottom" constant="8" symbolic="YES" id="2rZ-qy-zTs"/>
+                    <constraint firstAttribute="trailing" secondItem="g0o-fg-FQN" secondAttribute="trailing" constant="20" symbolic="YES" id="6Kx-hk-LW6"/>
+                    <constraint firstItem="o2P-rw-Ief" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" constant="20" symbolic="YES" id="7x5-Pj-IiX"/>
+                    <constraint firstItem="g0o-fg-FQN" firstAttribute="centerY" secondItem="o2P-rw-Ief" secondAttribute="centerY" id="9Tj-Zw-hZa"/>
+                    <constraint firstAttribute="bottom" secondItem="9B4-vF-vN2" secondAttribute="bottom" constant="20" symbolic="YES" id="Aq0-SQ-O6b"/>
+                    <constraint firstItem="9B4-vF-vN2" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="Gge-Ew-CSb"/>
+                    <constraint firstItem="qfQ-iU-A3J" firstAttribute="top" secondItem="o2P-rw-Ief" secondAttribute="bottom" constant="8" symbolic="YES" id="IuL-Oj-TGb"/>
+                    <constraint firstItem="o2P-rw-Ief" firstAttribute="top" secondItem="jvg-dc-9Ti" secondAttribute="top" constant="20" symbolic="YES" id="OmC-rq-T5r"/>
+                    <constraint firstItem="BfB-m5-9Ra" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="PbW-qQ-dY2"/>
+                    <constraint firstAttribute="trailing" secondItem="qfQ-iU-A3J" secondAttribute="trailing" id="TAE-eW-vdT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BfB-m5-9Ra" secondAttribute="trailing" id="a5x-6Q-Ilc"/>
+                    <constraint firstItem="g0o-fg-FQN" firstAttribute="leading" secondItem="o2P-rw-Ief" secondAttribute="trailing" constant="8" symbolic="YES" id="bD7-f6-kzC"/>
+                    <constraint firstItem="qfQ-iU-A3J" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" id="bkj-1p-j2y"/>
+                    <constraint firstItem="xRJ-xb-Whr" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="dCd-rg-MYw"/>
+                    <constraint firstItem="xRJ-xb-Whr" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="fCA-lJ-KSa"/>
+                    <constraint firstItem="BfB-m5-9Ra" firstAttribute="top" secondItem="qfQ-iU-A3J" secondAttribute="bottom" constant="8" symbolic="YES" id="g4z-ZE-KJ8"/>
+                    <constraint firstItem="9B4-vF-vN2" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="ttL-pZ-EuY"/>
+                    <constraint firstItem="9B4-vF-vN2" firstAttribute="top" secondItem="xRJ-xb-Whr" secondAttribute="bottom" constant="8" symbolic="YES" id="zHo-Zz-W9F"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="photo" destination="qfQ-iU-A3J" id="viS-7D-63K"/>
+                <outlet property="photoCaption" destination="xRJ-xb-Whr" id="8FC-Qu-xpS"/>
+                <outlet property="photoDescription" destination="9B4-vF-vN2" id="kjd-5L-eyy"/>
+                <outlet property="userAvatar" destination="o2P-rw-Ief" id="dEX-fO-GA6"/>
+                <outlet property="userName" destination="g0o-fg-FQN" id="n9s-Vd-fDd"/>
+            </connections>
+            <point key="canvasLocation" x="-74" y="816"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avatar-male" width="400" height="400"/>
+        <image name="bookmark-outline" width="30" height="30"/>
+        <image name="heart-outline" width="30" height="30"/>
+        <image name="image-placeholder" width="1280" height="960"/>
+        <image name="message-text-outline" width="30" height="30"/>
+        <image name="share-variant" width="30" height="30"/>
+    </resources>
+</document>

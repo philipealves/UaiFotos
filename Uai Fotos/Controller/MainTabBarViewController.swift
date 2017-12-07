@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Hero
 
 class MainTabBarViewController: UITabBarController {
     
@@ -26,6 +27,8 @@ class MainTabBarViewController: UITabBarController {
                          NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
 
         self.navigationController?.navigationBar.titleTextAttributes = attributes
+        
+        self.heroTabBarAnimationType = .zoom
     }
     
     override func didReceiveMemoryWarning() {

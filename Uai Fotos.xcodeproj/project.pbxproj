@@ -11,6 +11,11 @@
 		875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */; };
 		875BA3F81FD9A95D0059C038 /* FeedPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */; };
 		875BA3FA1FD9B6C40059C038 /* FeedPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA3F91FD9B6C40059C038 /* FeedPhotoTableViewCell.swift */; };
+		875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA3FF1FD9C9840059C038 /* AvatarListTableViewCell.swift */; };
+		875BA4021FD9C9840059C038 /* AvatarListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875BA4001FD9C9840059C038 /* AvatarListTableViewCell.xib */; };
+		875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA4031FD9D2FA0059C038 /* AvatarCollectionData.swift */; };
+		875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA4051FD9D4430059C038 /* AvatarCollectionViewCell.swift */; };
+		875BA4081FD9D4430059C038 /* AvatarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875BA4061FD9D4430059C038 /* AvatarCollectionViewCell.xib */; };
 		87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A037841FD854BF00E7420B /* AppDelegate.swift */; };
 		87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378B1FD854C000E7420B /* Assets.xcassets */; };
 		87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378D1FD854C000E7420B /* LaunchScreen.storyboard */; };
@@ -37,6 +42,11 @@
 		875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPhotoCell.xib; sourceTree = "<group>"; };
 		875BA3F91FD9B6C40059C038 /* FeedPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPhotoTableViewCell.swift; sourceTree = "<group>"; };
+		875BA3FF1FD9C9840059C038 /* AvatarListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarListTableViewCell.swift; sourceTree = "<group>"; };
+		875BA4001FD9C9840059C038 /* AvatarListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarListTableViewCell.xib; sourceTree = "<group>"; };
+		875BA4031FD9D2FA0059C038 /* AvatarCollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionData.swift; sourceTree = "<group>"; };
+		875BA4051FD9D4430059C038 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
+		875BA4061FD9D4430059C038 /* AvatarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarCollectionViewCell.xib; sourceTree = "<group>"; };
 		87A037811FD854BF00E7420B /* Uai Fotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uai Fotos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A037841FD854BF00E7420B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A0378B1FD854C000E7420B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +141,10 @@
 				87E79CB91FD8B4C200A23DF7 /* Heart.storyboard */,
 				875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */,
 				875BA3F91FD9B6C40059C038 /* FeedPhotoTableViewCell.swift */,
+				875BA4001FD9C9840059C038 /* AvatarListTableViewCell.xib */,
+				875BA3FF1FD9C9840059C038 /* AvatarListTableViewCell.swift */,
+				875BA4061FD9D4430059C038 /* AvatarCollectionViewCell.xib */,
+				875BA4051FD9D4430059C038 /* AvatarCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +156,7 @@
 				87C233041FD8637B00964C0F /* LoginViewController.swift */,
 				87E79CB11FD89ED200A23DF7 /* MainTabBarViewController.swift */,
 				875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */,
+				875BA4031FD9D2FA0059C038 /* AvatarCollectionData.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,7 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C233071FD8637B00964C0F /* Login.storyboard in Resources */,
+				875BA4081FD9D4430059C038 /* AvatarCollectionViewCell.xib in Resources */,
 				87C233061FD8637B00964C0F /* Main.storyboard in Resources */,
+				875BA4021FD9C9840059C038 /* AvatarListTableViewCell.xib in Resources */,
 				87E79CB01FD89AAB00A23DF7 /* Feed.storyboard in Resources */,
 				875BA3F81FD9A95D0059C038 /* FeedPhotoCell.xib in Resources */,
 				87E79CBA1FD8B4C200A23DF7 /* Heart.storyboard in Resources */,
@@ -340,9 +357,12 @@
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
+				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,
 				87E79CB21FD89ED200A23DF7 /* MainTabBarViewController.swift in Sources */,
 				87C233081FD8637B00964C0F /* ViewController.swift in Sources */,
+				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
+				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,6 +510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";

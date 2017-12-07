@@ -10,10 +10,19 @@ import UIKit
 
 class FeedTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    let avatarCollectionData = AvatarCollectionData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "FeedPhotoCell", bundle: nil), forCellReuseIdentifier: FeedPhotoTableViewCell.identifier)
+        
+        // cabeçalho da tableview com a lista de usuários...
+        if let avatarListTableViewCell = Bundle.main.loadNibNamed("AvatarListTableViewCell", owner: self, options: nil)?.first as? AvatarListTableViewCell {
+            avatarListTableViewCell.avatarCollection.delegate = self.avatarCollectionData
+            avatarListTableViewCell.avatarCollection.dataSource = self.avatarCollectionData
+            
+            self.tableView.tableHeaderView = avatarListTableViewCell
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,15 +35,31 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return 10
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+/*        if indexPath.row == 0 {
+            if let avatarListTableViewCell = Bundle.main.loadNibNamed("AvatarListTableViewCell", owner: self, options: nil)?.first as? AvatarListTableViewCell {
+                avatarListTableViewCell.avatarCollection.delegate = self.avatarCollectionData
+                avatarListTableViewCell.avatarCollection.dataSource = self.avatarCollectionData
+                return avatarListTableViewCell
+            }
+        }*/
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedPhotoTableViewCell.identifier, for: indexPath)
         
         // Configure the cell...
         
         return cell
-    }
+    }/*
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let avatarListTableViewCell = Bundle.main.loadNibNamed("AvatarListTableViewCell", owner: self, options: nil)?.first as? AvatarListTableViewCell {
+            avatarListTableViewCell.avatarCollection.delegate = self.avatarCollectionData
+            avatarListTableViewCell.avatarCollection.dataSource = self.avatarCollectionData
+            return avatarListTableViewCell
+        }
+        
+        return nil
+    }
+    */
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

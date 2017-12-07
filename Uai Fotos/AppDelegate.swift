@@ -28,11 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftMessages.defaultConfig.dimMode = .gray(interactive: true)
         
         // theme
-        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)
-        UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().barTintColor = primaryColor
-        UITabBar.appearance().tintColor = Color.white
-        
+//        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)
         return true
     }
 

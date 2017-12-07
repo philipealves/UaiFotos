@@ -15,6 +15,17 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = primaryDarkColor
+        //self.navigationController?.navigationBar.titleTextAttributes?.append(contrastColor, forKey: NSAttributedStringKey.foregroundColor)
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = primaryColor
+        UITabBar.appearance().tintColor = UIColor.white
+        
+        let attributes = [NSAttributedStringKey.foregroundColor: primaryDarkColor,
+                         NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
+
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
     }
     
     override func didReceiveMemoryWarning() {

@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHK-A6-tS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="226"/>
+            <point key="canvasLocation" x="703" y="327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8m8-vR-nwM">
@@ -45,7 +45,7 @@
         <!--Uai Fotos-->
         <scene sceneID="8E6-5h-Qnx">
             <objects>
-                <tabBarController id="TNI-GD-moD" sceneMemberID="viewController">
+                <tabBarController id="TNI-GD-moD" customClass="MainTabBarViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Uai Fotos" id="TGy-P8-461">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="compact_camera" id="z5N-bL-rhn"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="rocket" id="2Jm-ax-9aF"/>
@@ -58,9 +58,6 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" red="0.61176470588235299" green="0.30196078431372547" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -84,7 +81,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPf-Hs-Mh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-485" y="769"/>
+            <point key="canvasLocation" x="-485" y="762"/>
         </scene>
         <!--Heart-->
         <scene sceneID="C1p-Jd-0LU">
@@ -94,7 +91,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRB-HP-2tJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31" y="762"/>
+            <point key="canvasLocation" x="-86" y="762"/>
         </scene>
         <!--Profile-->
         <scene sceneID="VMw-0W-X2G">
@@ -104,7 +101,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WS7-q8-KxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="748"/>
+            <point key="canvasLocation" x="67" y="762"/>
         </scene>
         <!--Search-->
         <scene sceneID="mho-bu-hW0">
@@ -114,7 +111,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lg8-p4-8nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-254" y="768"/>
+            <point key="canvasLocation" x="-335" y="762"/>
         </scene>
     </scenes>
     <resources>

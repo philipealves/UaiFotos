@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		875BA3F41FD9A1020059C038 /* Mural-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F31FD99F040059C038 /* Mural-Script.ttf */; };
 		87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A037841FD854BF00E7420B /* AppDelegate.swift */; };
 		87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378B1FD854C000E7420B /* Assets.xcassets */; };
 		87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378D1FD854C000E7420B /* LaunchScreen.storyboard */; };
@@ -29,6 +30,7 @@
 		0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.debug.xcconfig"; sourceTree = "<group>"; };
 		314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.release.xcconfig"; sourceTree = "<group>"; };
 		67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uai_Fotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		875BA3F31FD99F040059C038 /* Mural-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mural-Script.ttf"; sourceTree = "<group>"; };
 		87A037811FD854BF00E7420B /* Uai Fotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Uai Fotos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A037841FD854BF00E7420B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A0378B1FD854C000E7420B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		87A037961FD8554A00E7420B /* Target Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				875BA3F31FD99F040059C038 /* Mural-Script.ttf */,
 				87E79CAD1FD88B5000A23DF7 /* colors.swift */,
 				87A037841FD854BF00E7420B /* AppDelegate.swift */,
 				87A0378B1FD854C000E7420B /* Assets.xcassets */,
@@ -229,6 +232,7 @@
 				87E79CB61FD8B30A00A23DF7 /* Profile.storyboard in Resources */,
 				87E79CB81FD8B3F600A23DF7 /* Search.storyboard in Resources */,
 				87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */,
+				875BA3F41FD9A1020059C038 /* Mural-Script.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

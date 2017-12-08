@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.6.0)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
   - BFKit-Swift (3.0.0)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
@@ -23,16 +26,6 @@ PODS:
   - FirebaseCore (4.0.12):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (2.0.7)
-  - Genome (3.2.1):
-    - Genome/Default (= 3.2.1)
-  - Genome/Core (3.2.1):
-    - Genome/Packages
-  - Genome/Default (3.2.1):
-    - Genome/Core
-    - Genome/Foundation
-  - Genome/Foundation (3.2.1):
-    - Genome/Core
-  - Genome/Packages (3.2.1)
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
@@ -52,25 +45,35 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - ObjectMapper (3.1.0)
+  - RxAlamofire (4.0.0):
+    - RxAlamofire/Core (= 4.0.0)
+  - RxAlamofire/Core (4.0.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
   - Spring (1.0.3)
   - SVPullToRefresh (0.4.1)
   - SwiftMessages (4.1.0)
+  - SwiftRandom (1.0.0)
   - SwiftyAvatar (1.1.3)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
+  - AlamofireObjectMapper (~> 5.0)
   - BFKit-Swift
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Eureka (~> 4.0.1)
   - Firebase/Auth
   - Firebase/Core
-  - Genome (~> 3.2.1)
   - Hero (~> 1.0.1)
   - IQKeyboardManagerSwift (= 5.0.0)
   - Kingfisher (~> 4.5.0)
+  - RxAlamofire
+  - RxSwift (~> 4.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SVPullToRefresh
   - SwiftMessages
+  - SwiftRandom
   - SwiftyAvatar (~> 1.1)
 
 EXTERNAL SOURCES:
@@ -89,6 +92,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   BFKit-Swift: 3961ac2e3db77308061c66478e35320730d5806d
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
@@ -97,18 +101,21 @@ SPEC CHECKSUMS:
   FirebaseAuth: cdeee95b528958dbb7dcf220ad0fb804d3a284b0
   FirebaseCore: 6cf108b63997bc08c04a1ffa55a3ac0d71a59ffc
   FirebaseInstanceID: 148c25c986c8699e67304b114e365713dce467f2
-  Genome: e4580f825985c836e68c15f4969f9449734c8dad
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   Hero: cee286821578e170d8c0c9c9cda7897357401112
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   Kingfisher: 26ae0473102b77b575da51960c932431e3745407
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  RxAlamofire: 6ea579ac53bf14cb4bc7049a3866e5a769989b1d
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   SwiftMessages: 1bacc783c8f10bdfdc57c14860cae8a1f1fa6591
+  SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   SwiftyAvatar: 33aecda825c91851cac2aabd06b33f3698b2414c
 
-PODFILE CHECKSUM: d600ca797398f7d3ed3741b15d7c55e01ee69408
+PODFILE CHECKSUM: bbc1e0437d2daf852614bc1ec9afc395e06a8bbb
 
 COCOAPODS: 1.3.1

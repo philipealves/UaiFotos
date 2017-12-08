@@ -29,6 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // theme
 //        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)
+        
+/*        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }*/
         return true
     }
 

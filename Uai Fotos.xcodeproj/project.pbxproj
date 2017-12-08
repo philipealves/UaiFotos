@@ -31,6 +31,13 @@
 		87E79CB61FD8B30A00A23DF7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CB51FD8B30A00A23DF7 /* Profile.storyboard */; };
 		87E79CB81FD8B3F600A23DF7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CB71FD8B3F600A23DF7 /* Search.storyboard */; };
 		87E79CBA1FD8B4C200A23DF7 /* Heart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E79CB91FD8B4C200A23DF7 /* Heart.storyboard */; };
+		87F820891FDA038C0047C2CD /* Randoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F820881FDA038C0047C2CD /* Randoms.swift */; };
+		87F8208C1FDAEBA80047C2CD /* PicsumImageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8208B1FDAEBA80047C2CD /* PicsumImageDTO.swift */; };
+		87F8208F1FDAF1420047C2CD /* PicsumApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8208E1FDAF1420047C2CD /* PicsumApi.swift */; };
+		87F820931FDAFD5E0047C2CD /* UaiFotosDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F820921FDAFD5E0047C2CD /* UaiFotosDataStore.swift */; };
+		87F820951FDAFD940047C2CD /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F820941FDAFD940047C2CD /* UserDTO.swift */; };
+		87F820971FDAFDED0047C2CD /* PhotoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F820961FDAFDED0047C2CD /* PhotoDTO.swift */; };
+		87F820991FDB155D0047C2CD /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F820981FDB155D0047C2CD /* AttributedString.swift */; };
 		F470855863BB0C9DE3597389 /* Pods_Uai_Fotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +71,13 @@
 		87E79CB51FD8B30A00A23DF7 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		87E79CB71FD8B3F600A23DF7 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		87E79CB91FD8B4C200A23DF7 /* Heart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Heart.storyboard; sourceTree = "<group>"; };
+		87F820881FDA038C0047C2CD /* Randoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Randoms.swift; sourceTree = "<group>"; };
+		87F8208B1FDAEBA80047C2CD /* PicsumImageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumImageDTO.swift; sourceTree = "<group>"; };
+		87F8208E1FDAF1420047C2CD /* PicsumApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumApi.swift; sourceTree = "<group>"; };
+		87F820921FDAFD5E0047C2CD /* UaiFotosDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UaiFotosDataStore.swift; sourceTree = "<group>"; };
+		87F820941FDAFD940047C2CD /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		87F820961FDAFDED0047C2CD /* PhotoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDTO.swift; sourceTree = "<group>"; };
+		87F820981FDB155D0047C2CD /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 		87A037831FD854BF00E7420B /* Uai Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				87F8208D1FDAF10B0047C2CD /* RestApi */,
 				87C233021FD8637B00964C0F /* Controller */,
 				87C233051FD8637B00964C0F /* Model */,
 				87C232FF1FD8637B00964C0F /* View */,
@@ -164,6 +179,8 @@
 		87C233051FD8637B00964C0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87F8208A1FDAEB810047C2CD /* DTO */,
+				87F820921FDAFD5E0047C2CD /* UaiFotosDataStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,8 +189,28 @@
 			isa = PBXGroup;
 			children = (
 				87E79CAB1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift */,
+				87F820881FDA038C0047C2CD /* Randoms.swift */,
+				87F820981FDB155D0047C2CD /* AttributedString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		87F8208A1FDAEB810047C2CD /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				87F8208B1FDAEBA80047C2CD /* PicsumImageDTO.swift */,
+				87F820941FDAFD940047C2CD /* UserDTO.swift */,
+				87F820961FDAFDED0047C2CD /* PhotoDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		87F8208D1FDAF10B0047C2CD /* RestApi */ = {
+			isa = PBXGroup;
+			children = (
+				87F8208E1FDAF1420047C2CD /* PicsumApi.swift */,
+			);
+			path = RestApi;
 			sourceTree = "<group>";
 		};
 		E955EF3442FE7D56D6A6AF6D /* Pods */ = {
@@ -289,36 +326,44 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BFKit-Swift/BFKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/Genome/Genome.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftRandom/SwiftRandom.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyAvatar/SwiftyAvatar.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BFKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Genome.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRandom.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyAvatar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -352,14 +397,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87F820991FDB155D0047C2CD /* AttributedString.swift in Sources */,
 				875BA3FA1FD9B6C40059C038 /* FeedPhotoTableViewCell.swift in Sources */,
+				87F8208F1FDAF1420047C2CD /* PicsumApi.swift in Sources */,
 				87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */,
+				87F820931FDAFD5E0047C2CD /* UaiFotosDataStore.swift in Sources */,
+				87F820951FDAFD940047C2CD /* UserDTO.swift in Sources */,
+				87F820971FDAFDED0047C2CD /* PhotoDTO.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
 				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,
+				87F8208C1FDAEBA80047C2CD /* PicsumImageDTO.swift in Sources */,
 				87E79CB21FD89ED200A23DF7 /* MainTabBarViewController.swift in Sources */,
 				87C233081FD8637B00964C0F /* ViewController.swift in Sources */,
+				87F820891FDA038C0047C2CD /* Randoms.swift in Sources */,
 				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,

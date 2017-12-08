@@ -86,22 +86,9 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-vF-vN2">
                         <rect key="frame" x="20" y="626.5" width="440" height="61"/>
                         <attributedString key="attributedText">
-                            <fragment content="fulano">
-                                <attributes>
-                                    <font key="NSFont" size="13" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" ">
-                                <attributes>
-                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
                             <fragment>
-                                <string key="content">Mussum Ipsum, cacilds vidis litro abertis. Detraxit consequat et quo num tendi nada. Quem num gosta di mim que vai caçá sua turmis! Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. A ordem dos tratores não altera o pão duris.</string>
+                                <string key="content">fulano Mussum Ipsum, cacilds vidis litro abertis. Detraxit consequat et quo num tendi nada. Quem num gosta di mim que vai caçá sua turmis! Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. A ordem dos tratores não altera o pão duris.</string>
                                 <attributes>
-                                    <color key="NSColor" red="0.27059" green="0.27059" blue="0.27059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="13" name="HelveticaNeue"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>

@@ -30,6 +30,16 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             self.tableView.tableHeaderView = avatarListTableViewCell
         }
+        
+        self.loadDataStore()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func loadDataStore() {
         // carrega a lista de fotos do serviço
         PicsumApi().photoList()
             .subscribe(onNext: {
@@ -38,12 +48,11 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 uaifotosDS.generateFeed(photoNumber: Int.random())
                 self.feedData = uaifotosDS.feedPhotos
                 self.tableView.reloadData()
+                // reaload na collectionview de amigos
+                if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
+                    avatarListTableViewCell.avatarCollection.reloadData()
+                }
             },onError: { print($0) }).disposed(by: self.disposeBag)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -57,6 +66,7 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
         // Configure the cell...
         if let feedItem = self.feedData?[indexPath.row] {
             cell.userName.text = feedItem.friend.name
+            cell.userTitle.text = feedItem.friend.title
             cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name!): ").normal(feedItem.photo.description ?? "")
             cell.photoCaption.text = feedItem.photo.photoCaption
             

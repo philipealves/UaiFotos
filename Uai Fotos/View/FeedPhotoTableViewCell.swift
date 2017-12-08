@@ -13,6 +13,7 @@ class FeedPhotoTableViewCell: UITableViewCell {
     static let identifier = "feedPhotoTableViewCell"
     @IBOutlet weak var userAvatar: SwiftyAvatar!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userTitle: UILabel!
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var photoCaption: UILabel!
     @IBOutlet weak var photoDescription: UILabel!

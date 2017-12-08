@@ -8,10 +8,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
@@ -41,7 +43,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano ciclano e beltrano" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0o-fg-FQN">
-                        <rect key="frame" x="68" y="33" width="392" height="15.5"/>
+                        <rect key="frame" x="68" y="24.5" width="392" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -96,25 +98,34 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgs-eM-6tg">
+                        <rect key="frame" x="68" y="42.5" width="392" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="top" secondItem="BfB-m5-9Ra" secondAttribute="bottom" constant="8" symbolic="YES" id="2rZ-qy-zTs"/>
                     <constraint firstAttribute="trailing" secondItem="g0o-fg-FQN" secondAttribute="trailing" constant="20" symbolic="YES" id="6Kx-hk-LW6"/>
                     <constraint firstItem="o2P-rw-Ief" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" constant="20" symbolic="YES" id="7x5-Pj-IiX"/>
-                    <constraint firstItem="g0o-fg-FQN" firstAttribute="centerY" secondItem="o2P-rw-Ief" secondAttribute="centerY" id="9Tj-Zw-hZa"/>
+                    <constraint firstItem="g0o-fg-FQN" firstAttribute="centerY" secondItem="o2P-rw-Ief" secondAttribute="centerY" multiplier="0.8" id="9Tj-Zw-hZa"/>
                     <constraint firstAttribute="bottom" secondItem="9B4-vF-vN2" secondAttribute="bottom" constant="20" symbolic="YES" id="Aq0-SQ-O6b"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="Gge-Ew-CSb"/>
                     <constraint firstItem="qfQ-iU-A3J" firstAttribute="top" secondItem="o2P-rw-Ief" secondAttribute="bottom" constant="8" symbolic="YES" id="IuL-Oj-TGb"/>
                     <constraint firstItem="o2P-rw-Ief" firstAttribute="top" secondItem="jvg-dc-9Ti" secondAttribute="top" constant="20" symbolic="YES" id="OmC-rq-T5r"/>
                     <constraint firstItem="BfB-m5-9Ra" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="PbW-qQ-dY2"/>
+                    <constraint firstAttribute="trailing" secondItem="Vgs-eM-6tg" secondAttribute="trailing" constant="20" symbolic="YES" id="Sdo-4K-9EP"/>
                     <constraint firstAttribute="trailing" secondItem="qfQ-iU-A3J" secondAttribute="trailing" id="TAE-eW-vdT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="BfB-m5-9Ra" secondAttribute="trailing" id="a5x-6Q-Ilc"/>
                     <constraint firstItem="g0o-fg-FQN" firstAttribute="leading" secondItem="o2P-rw-Ief" secondAttribute="trailing" constant="8" symbolic="YES" id="bD7-f6-kzC"/>
+                    <constraint firstItem="Vgs-eM-6tg" firstAttribute="baseline" secondItem="o2P-rw-Ief" secondAttribute="baseline" multiplier="0.9" id="bSL-Xg-aJw"/>
                     <constraint firstItem="qfQ-iU-A3J" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" id="bkj-1p-j2y"/>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="dCd-rg-MYw"/>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="fCA-lJ-KSa"/>
                     <constraint firstItem="BfB-m5-9Ra" firstAttribute="top" secondItem="qfQ-iU-A3J" secondAttribute="bottom" constant="8" symbolic="YES" id="g4z-ZE-KJ8"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="ttL-pZ-EuY"/>
+                    <constraint firstItem="Vgs-eM-6tg" firstAttribute="leading" secondItem="o2P-rw-Ief" secondAttribute="trailing" constant="8" symbolic="YES" id="v7l-IF-7dN"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="top" secondItem="xRJ-xb-Whr" secondAttribute="bottom" constant="8" symbolic="YES" id="zHo-Zz-W9F"/>
                 </constraints>
             </tableViewCellContentView>
@@ -124,6 +135,7 @@
                 <outlet property="photoDescription" destination="9B4-vF-vN2" id="kjd-5L-eyy"/>
                 <outlet property="userAvatar" destination="o2P-rw-Ief" id="dEX-fO-GA6"/>
                 <outlet property="userName" destination="g0o-fg-FQN" id="n9s-Vd-fDd"/>
+                <outlet property="userTitle" destination="Vgs-eM-6tg" id="sCS-m1-5zz"/>
             </connections>
             <point key="canvasLocation" x="-74" y="816"/>
         </tableViewCell>

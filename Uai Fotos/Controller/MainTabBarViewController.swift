@@ -26,6 +26,30 @@ class MainTabBarViewController: UITabBarController {
                          NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
 
         self.navigationController?.navigationBar.titleTextAttributes = attributes
+        
+        // Swipe Gesture (Right / Left)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc func swiped(_ gesture: UISwipeGestureRecognizer) {
+        if gesture.direction == .left {
+            if self.selectedIndex < 5 {
+                self.selectedIndex += 1
+                /*UIView.transition(from: self, to: self.tabBarController, duration: 0.3f, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: () => {
+                    self.selectedIndex += 1
+                    })*/
+            }
+        } else if gesture.direction == .right {
+            if self.selectedIndex > 0 {
+                self.selectedIndex -= 1
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -28,26 +28,25 @@ class MainTabBarViewController: UITabBarController {
 
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         
-        // Animation on tab change
         self.heroTabBarAnimationType = .zoom
         
         // Swipe Gesture (Right / Left)
-        self.initSwipe(.right)
-        self.initSwipe(.left)
-    }
-
-    // Initialize a swipe according to the direction
-    func initSwipe(_ direction: UISwipeGestureRecognizerDirection){
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
-        swipe.direction = direction
-        self.view.addGestureRecognizer(swipe)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
-    // Handle the Swipe Gesture
-    @objc func handleSwipes(sender gesture: UISwipeGestureRecognizer) {
+    @objc func swiped(_ gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .left {
             if self.selectedIndex < 5 {
                 self.selectedIndex += 1
+                /*UIView.transition(from: self, to: self.tabBarController, duration: 0.3f, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: () => {
+                    self.selectedIndex += 1
+                    })*/
             }
         } else if gesture.direction == .right {
             if self.selectedIndex > 0 {
@@ -58,6 +57,7 @@ class MainTabBarViewController: UITabBarController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     

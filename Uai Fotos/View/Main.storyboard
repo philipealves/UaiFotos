@@ -61,6 +61,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="qx6-UD-hnC" kind="relationship" relationship="viewControllers" id="xHo-cA-IMw"/>
                         <segue destination="sT0-HG-ue7" kind="relationship" relationship="viewControllers" id="K2L-8u-L5G"/>

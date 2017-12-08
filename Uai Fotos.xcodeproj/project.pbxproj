@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235F362F1FDB274B006E7A21 /* TabBarSwitchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F362E1FDB274B006E7A21 /* TabBarSwitchExtension.swift */; };
+		23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */; };
+		23EA7FDB1FD9DD7A006FB4E5 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */; };
+		23EA7FDF1FD9E8BC006FB4E5 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA7FDE1FD9E8BC006FB4E5 /* ActivityTableViewController.swift */; };
 		875BA3F41FD9A1020059C038 /* Mural-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F31FD99F040059C038 /* Mural-Script.ttf */; };
 		875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */; };
 		875BA3F81FD9A95D0059C038 /* FeedPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */; };
@@ -43,6 +47,10 @@
 
 /* Begin PBXFileReference section */
 		0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.debug.xcconfig"; sourceTree = "<group>"; };
+		235F362E1FDB274B006E7A21 /* TabBarSwitchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSwitchExtension.swift; sourceTree = "<group>"; };
+		23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
+		23EA7FDE1FD9E8BC006FB4E5 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 		314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.release.xcconfig"; sourceTree = "<group>"; };
 		67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uai_Fotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		875BA3F31FD99F040059C038 /* Mural-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mural-Script.ttf"; sourceTree = "<group>"; };
@@ -160,6 +168,8 @@
 				875BA3FF1FD9C9840059C038 /* AvatarListTableViewCell.swift */,
 				875BA4061FD9D4430059C038 /* AvatarCollectionViewCell.xib */,
 				875BA4051FD9D4430059C038 /* AvatarCollectionViewCell.swift */,
+				23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */,
+				23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +182,7 @@
 				87E79CB11FD89ED200A23DF7 /* MainTabBarViewController.swift */,
 				875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */,
 				875BA4031FD9D2FA0059C038 /* AvatarCollectionData.swift */,
+				23EA7FDE1FD9E8BC006FB4E5 /* ActivityTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 				87E79CAB1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift */,
 				87F820881FDA038C0047C2CD /* Randoms.swift */,
 				87F820981FDB155D0047C2CD /* AttributedString.swift */,
+				235F362E1FDB274B006E7A21 /* TabBarSwitchExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +308,7 @@
 				87E79CB61FD8B30A00A23DF7 /* Profile.storyboard in Resources */,
 				87E79CB81FD8B3F600A23DF7 /* Search.storyboard in Resources */,
 				87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */,
+				23EA7FDB1FD9DD7A006FB4E5 /* ActivityTableViewCell.xib in Resources */,
 				875BA3F41FD9A1020059C038 /* Mural-Script.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,14 +411,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				87F820991FDB155D0047C2CD /* AttributedString.swift in Sources */,
+				23EA7FDF1FD9E8BC006FB4E5 /* ActivityTableViewController.swift in Sources */,
 				875BA3FA1FD9B6C40059C038 /* FeedPhotoTableViewCell.swift in Sources */,
 				87F8208F1FDAF1420047C2CD /* PicsumApi.swift in Sources */,
 				87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */,
 				87F820931FDAFD5E0047C2CD /* UaiFotosDataStore.swift in Sources */,
 				87F820951FDAFD940047C2CD /* UserDTO.swift in Sources */,
 				87F820971FDAFDED0047C2CD /* PhotoDTO.swift in Sources */,
+				235F362F1FDB274B006E7A21 /* TabBarSwitchExtension.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
+				23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
 				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,
 				87F8208C1FDAEBA80047C2CD /* PicsumImageDTO.swift in Sources */,

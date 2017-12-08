@@ -10,7 +10,7 @@ import UIKit
 import ChameleonFramework
 import Hero
 
-class MainTabBarViewController: UITabBarController {
+class MainTabBarViewController: UITabBarController, TabBarSwitcher {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,25 +31,26 @@ class MainTabBarViewController: UITabBarController {
         // Animation on tab change
         self.heroTabBarAnimationType = .zoom
         
-        // Swipe Gesture (Right / Left)
-        self.initSwipe(.right)
-        self.initSwipe(.left)
-    }
-
-    // Initialize a swipe according to the direction
-    func initSwipe(_ direction: UISwipeGestureRecognizerDirection){
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
-        swipe.direction = direction
-        self.view.addGestureRecognizer(swipe)
+        // Swipe Gesture (Left / Right)
+        self.initSwipe(.left, selector: #selector(handleSwipe))
+        self.initSwipe(.right, selector: #selector(handleRightSwipe))
     }
     
     // Handle the Swipe Gesture
-    @objc func handleSwipes(sender gesture: UISwipeGestureRecognizer) {
+    @objc func handleSwipe(sender gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .left {
             if self.selectedIndex < 5 {
                 self.selectedIndex += 1
             }
         } else if gesture.direction == .right {
+            if self.selectedIndex > 0 {
+                self.selectedIndex -= 1
+            }
+        }
+    }
+    
+    @objc func handleRightSwipe(sender gesture: UISwipeGestureRecognizer) {
+        if gesture.direction == .right {
             if self.selectedIndex > 0 {
                 self.selectedIndex -= 1
             }

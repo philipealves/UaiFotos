@@ -48,7 +48,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-iU-A3J">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-iU-A3J">
                         <rect key="frame" x="0.0" y="68" width="480" height="480"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qfQ-iU-A3J" secondAttribute="height" multiplier="1:1" id="w25-nQ-px0"/>
@@ -104,6 +104,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="TxG-D5-1df" customClass="SpringImageView" customModule="Spring">
+                        <rect key="frame" x="190" y="258" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Dy7-5v-pVl"/>
+                            <constraint firstAttribute="width" secondItem="TxG-D5-1df" secondAttribute="height" multiplier="1:1" id="POs-6I-Cw8"/>
+                            <constraint firstAttribute="height" constant="100" id="wVc-PH-11X"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="top" secondItem="BfB-m5-9Ra" secondAttribute="bottom" constant="8" symbolic="YES" id="2rZ-qy-zTs"/>
@@ -111,6 +119,7 @@
                     <constraint firstItem="o2P-rw-Ief" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" constant="20" symbolic="YES" id="7x5-Pj-IiX"/>
                     <constraint firstItem="g0o-fg-FQN" firstAttribute="centerY" secondItem="o2P-rw-Ief" secondAttribute="centerY" multiplier="0.8" id="9Tj-Zw-hZa"/>
                     <constraint firstAttribute="bottom" secondItem="9B4-vF-vN2" secondAttribute="bottom" constant="20" symbolic="YES" id="Aq0-SQ-O6b"/>
+                    <constraint firstItem="TxG-D5-1df" firstAttribute="centerX" secondItem="qfQ-iU-A3J" secondAttribute="centerX" id="GdI-lz-Qic"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="Gge-Ew-CSb"/>
                     <constraint firstItem="qfQ-iU-A3J" firstAttribute="top" secondItem="o2P-rw-Ief" secondAttribute="bottom" constant="8" symbolic="YES" id="IuL-Oj-TGb"/>
                     <constraint firstItem="o2P-rw-Ief" firstAttribute="top" secondItem="jvg-dc-9Ti" secondAttribute="top" constant="20" symbolic="YES" id="OmC-rq-T5r"/>
@@ -121,6 +130,7 @@
                     <constraint firstItem="g0o-fg-FQN" firstAttribute="leading" secondItem="o2P-rw-Ief" secondAttribute="trailing" constant="8" symbolic="YES" id="bD7-f6-kzC"/>
                     <constraint firstItem="Vgs-eM-6tg" firstAttribute="baseline" secondItem="o2P-rw-Ief" secondAttribute="baseline" multiplier="0.9" id="bSL-Xg-aJw"/>
                     <constraint firstItem="qfQ-iU-A3J" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" id="bkj-1p-j2y"/>
+                    <constraint firstItem="TxG-D5-1df" firstAttribute="centerY" secondItem="qfQ-iU-A3J" secondAttribute="centerY" id="d4r-8D-hyy"/>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="dCd-rg-MYw"/>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="fCA-lJ-KSa"/>
                     <constraint firstItem="BfB-m5-9Ra" firstAttribute="top" secondItem="qfQ-iU-A3J" secondAttribute="bottom" constant="8" symbolic="YES" id="g4z-ZE-KJ8"/>
@@ -130,6 +140,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="heartImageView" destination="TxG-D5-1df" id="hEC-RB-ysd"/>
                 <outlet property="photo" destination="qfQ-iU-A3J" id="viS-7D-63K"/>
                 <outlet property="photoCaption" destination="xRJ-xb-Whr" id="8FC-Qu-xpS"/>
                 <outlet property="photoDescription" destination="9B4-vF-vN2" id="kjd-5L-eyy"/>
@@ -143,6 +154,7 @@
     <resources>
         <image name="avatar-male" width="400" height="400"/>
         <image name="bookmark-outline" width="30" height="30"/>
+        <image name="heart" width="30" height="30"/>
         <image name="heart-outline" width="30" height="30"/>
         <image name="image-placeholder" width="1280" height="960"/>
         <image name="message-text-outline" width="30" height="30"/>

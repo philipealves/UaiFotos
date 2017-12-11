@@ -9,8 +9,8 @@ target 'Uai Fotos' do
 
 pod 'BFKit-Swift'
 pod 'IQKeyboardManagerSwift', '5.0.0'
-pod 'Alamofire', '~> 4.5'
-pod 'Genome', '~> 3.2.1'
+#pod 'Alamofire', '~> 4.5'
+#pod 'Genome', '~> 3.2.1'
 pod 'Eureka', '~> 4.0.1'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'Kingfisher', '~> 4.5.0'
@@ -20,9 +20,12 @@ pod 'SwiftMessages'
 pod 'SVPullToRefresh'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-#pod 'RxSwift',    '~> 4.0'
+pod 'RxSwift',    '~> 4.0'
 #pod 'RxCocoa',    '~> 4.0'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+pod  'SwiftRandom'
+pod 'AlamofireObjectMapper', '~> 5.0'
+pod 'RxAlamofire'
 end
 
 

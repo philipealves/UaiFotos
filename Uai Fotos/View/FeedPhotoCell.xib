@@ -8,10 +8,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
@@ -41,12 +43,12 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano ciclano e beltrano" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0o-fg-FQN">
-                        <rect key="frame" x="68" y="33" width="392" height="15.5"/>
+                        <rect key="frame" x="68" y="24.5" width="392" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-iU-A3J">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-iU-A3J">
                         <rect key="frame" x="0.0" y="68" width="480" height="480"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qfQ-iU-A3J" secondAttribute="height" multiplier="1:1" id="w25-nQ-px0"/>
@@ -86,22 +88,9 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B4-vF-vN2">
                         <rect key="frame" x="20" y="626.5" width="440" height="61"/>
                         <attributedString key="attributedText">
-                            <fragment content="fulano">
-                                <attributes>
-                                    <font key="NSFont" size="13" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" ">
-                                <attributes>
-                                    <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
                             <fragment>
-                                <string key="content">Mussum Ipsum, cacilds vidis litro abertis. Detraxit consequat et quo num tendi nada. Quem num gosta di mim que vai caçá sua turmis! Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. A ordem dos tratores não altera o pão duris.</string>
+                                <string key="content">fulano Mussum Ipsum, cacilds vidis litro abertis. Detraxit consequat et quo num tendi nada. Quem num gosta di mim que vai caçá sua turmis! Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. A ordem dos tratores não altera o pão duris.</string>
                                 <attributes>
-                                    <color key="NSColor" red="0.27059" green="0.27059" blue="0.27059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <font key="NSFont" size="13" name="HelveticaNeue"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
@@ -109,34 +98,55 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgs-eM-6tg">
+                        <rect key="frame" x="68" y="42.5" width="392" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="TxG-D5-1df" customClass="SpringImageView" customModule="Spring">
+                        <rect key="frame" x="190" y="258" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Dy7-5v-pVl"/>
+                            <constraint firstAttribute="width" secondItem="TxG-D5-1df" secondAttribute="height" multiplier="1:1" id="POs-6I-Cw8"/>
+                            <constraint firstAttribute="height" constant="100" id="wVc-PH-11X"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="top" secondItem="BfB-m5-9Ra" secondAttribute="bottom" constant="8" symbolic="YES" id="2rZ-qy-zTs"/>
                     <constraint firstAttribute="trailing" secondItem="g0o-fg-FQN" secondAttribute="trailing" constant="20" symbolic="YES" id="6Kx-hk-LW6"/>
                     <constraint firstItem="o2P-rw-Ief" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" constant="20" symbolic="YES" id="7x5-Pj-IiX"/>
-                    <constraint firstItem="g0o-fg-FQN" firstAttribute="centerY" secondItem="o2P-rw-Ief" secondAttribute="centerY" id="9Tj-Zw-hZa"/>
+                    <constraint firstItem="g0o-fg-FQN" firstAttribute="centerY" secondItem="o2P-rw-Ief" secondAttribute="centerY" multiplier="0.8" id="9Tj-Zw-hZa"/>
                     <constraint firstAttribute="bottom" secondItem="9B4-vF-vN2" secondAttribute="bottom" constant="20" symbolic="YES" id="Aq0-SQ-O6b"/>
+                    <constraint firstItem="TxG-D5-1df" firstAttribute="centerX" secondItem="qfQ-iU-A3J" secondAttribute="centerX" id="GdI-lz-Qic"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="Gge-Ew-CSb"/>
                     <constraint firstItem="qfQ-iU-A3J" firstAttribute="top" secondItem="o2P-rw-Ief" secondAttribute="bottom" constant="8" symbolic="YES" id="IuL-Oj-TGb"/>
                     <constraint firstItem="o2P-rw-Ief" firstAttribute="top" secondItem="jvg-dc-9Ti" secondAttribute="top" constant="20" symbolic="YES" id="OmC-rq-T5r"/>
                     <constraint firstItem="BfB-m5-9Ra" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="PbW-qQ-dY2"/>
+                    <constraint firstAttribute="trailing" secondItem="Vgs-eM-6tg" secondAttribute="trailing" constant="20" symbolic="YES" id="Sdo-4K-9EP"/>
                     <constraint firstAttribute="trailing" secondItem="qfQ-iU-A3J" secondAttribute="trailing" id="TAE-eW-vdT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="BfB-m5-9Ra" secondAttribute="trailing" id="a5x-6Q-Ilc"/>
                     <constraint firstItem="g0o-fg-FQN" firstAttribute="leading" secondItem="o2P-rw-Ief" secondAttribute="trailing" constant="8" symbolic="YES" id="bD7-f6-kzC"/>
+                    <constraint firstItem="Vgs-eM-6tg" firstAttribute="baseline" secondItem="o2P-rw-Ief" secondAttribute="baseline" multiplier="0.9" id="bSL-Xg-aJw"/>
                     <constraint firstItem="qfQ-iU-A3J" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leading" id="bkj-1p-j2y"/>
+                    <constraint firstItem="TxG-D5-1df" firstAttribute="centerY" secondItem="qfQ-iU-A3J" secondAttribute="centerY" id="d4r-8D-hyy"/>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="leading" secondItem="jvg-dc-9Ti" secondAttribute="leadingMargin" id="dCd-rg-MYw"/>
                     <constraint firstItem="xRJ-xb-Whr" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="fCA-lJ-KSa"/>
                     <constraint firstItem="BfB-m5-9Ra" firstAttribute="top" secondItem="qfQ-iU-A3J" secondAttribute="bottom" constant="8" symbolic="YES" id="g4z-ZE-KJ8"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="trailing" secondItem="jvg-dc-9Ti" secondAttribute="trailingMargin" id="ttL-pZ-EuY"/>
+                    <constraint firstItem="Vgs-eM-6tg" firstAttribute="leading" secondItem="o2P-rw-Ief" secondAttribute="trailing" constant="8" symbolic="YES" id="v7l-IF-7dN"/>
                     <constraint firstItem="9B4-vF-vN2" firstAttribute="top" secondItem="xRJ-xb-Whr" secondAttribute="bottom" constant="8" symbolic="YES" id="zHo-Zz-W9F"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="heartImageView" destination="TxG-D5-1df" id="hEC-RB-ysd"/>
                 <outlet property="photo" destination="qfQ-iU-A3J" id="viS-7D-63K"/>
                 <outlet property="photoCaption" destination="xRJ-xb-Whr" id="8FC-Qu-xpS"/>
                 <outlet property="photoDescription" destination="9B4-vF-vN2" id="kjd-5L-eyy"/>
                 <outlet property="userAvatar" destination="o2P-rw-Ief" id="dEX-fO-GA6"/>
                 <outlet property="userName" destination="g0o-fg-FQN" id="n9s-Vd-fDd"/>
+                <outlet property="userTitle" destination="Vgs-eM-6tg" id="sCS-m1-5zz"/>
             </connections>
             <point key="canvasLocation" x="-74" y="816"/>
         </tableViewCell>
@@ -144,6 +154,7 @@
     <resources>
         <image name="avatar-male" width="400" height="400"/>
         <image name="bookmark-outline" width="30" height="30"/>
+        <image name="heart" width="30" height="30"/>
         <image name="heart-outline" width="30" height="30"/>
         <image name="image-placeholder" width="1280" height="960"/>
         <image name="message-text-outline" width="30" height="30"/>

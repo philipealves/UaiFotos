@@ -10,15 +10,25 @@ import UIKit
 import SwiftyAvatar
 import Spring
 
+protocol FeedPhotoTableViewCellDelegate {
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, clickRowAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, sharePhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?)
+}
+
 class FeedPhotoTableViewCell: UITableViewCell {
     static let identifier = "feedPhotoTableViewCell"
     @IBOutlet weak var userAvatar: SwiftyAvatar!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userTitle: UILabel!
     @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var photoCaption: UILabel!
+    @IBOutlet weak var photoCaption: SpringLabel!
     @IBOutlet weak var photoDescription: UILabel!
+    @IBOutlet weak var heartButton: SpringButton!
     @IBOutlet weak var heartImageView: SpringImageView!
+    
+    var delegate: FeedPhotoTableViewCellDelegate?
+    var indexPath: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,5 +53,22 @@ class FeedPhotoTableViewCell: UITableViewCell {
         self.heartImageView.duration = 2.0
         self.heartImageView.curve = Spring.AnimationCurve.EaseOut.rawValue
         self.heartImageView.animateTo()
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, clickRowAt: self.indexPath)
+        }
+    }
+    
+    @IBAction func likePhoto(_ sender: Any) {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, likePhotoAt: self.indexPath)
+        }
+    }
+    
+    @IBAction func sharePhoto(_ sender: SpringButton) {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, sharePhotoAt: self.indexPath)
+            sender.animation = Spring.AnimationPreset.Pop.rawValue
+            sender.animate()
+        }
     }
 }

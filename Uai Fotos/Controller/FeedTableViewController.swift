@@ -11,8 +11,9 @@ import Kingfisher
 import Hero
 import SwiftRandom
 import RxSwift
+import Spring
 
-class FeedTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let disposeBag = DisposeBag()
     
@@ -67,6 +68,18 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
             },onError: { print($0) }).disposed(by: self.disposeBag)
     }
+
+    func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
+        guard let row = indexPah?.row else { return }
+        guard let _ = self.feedData?[row] else { return }
+        self.feedData?[row].photo.likes += 1
+        self.feedData?[row].photo.liked = true
+        feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
+        self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
+    }
+}
+
+extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,7 +88,8 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedPhotoTableViewCell.identifier, for: indexPath) as! FeedPhotoTableViewCell
-        
+        cell.indexPath = indexPath
+        cell.delegate = self
         // Configure the cell...
         if let feedItem = self.feedData?[indexPath.row] {
             cell.userName.text = feedItem.friend.name
@@ -89,64 +103,44 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.userAvatar.kf.indicatorType = .activity
             cell.userAvatar.kf.setImage(with: feedItem.friend.avatarUrl)
             cell.userAvatar.isHeroEnabled = true
+            cell.heartButton.imageView?.image = cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+            self.loadHeartImageButton(feedItem, cell)
             
         }
         return cell
-    }/*
-     
-     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-     if let avatarListTableViewCell = Bundle.main.loadNibNamed("AvatarListTableViewCell", owner: self, options: nil)?.first as? AvatarListTableViewCell {
-     avatarListTableViewCell.avatarCollection.delegate = self.avatarCollectionData
-     avatarListTableViewCell.avatarCollection.dataSource = self.avatarCollectionData
-     return avatarListTableViewCell
-     }
-     
-     return nil
-     }
-     */
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
+        if feedItem.photo.liked {
+            cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+            cell.heartButton.imageView?.tintColor = UIColor.red
+        } else {
+            cell.heartButton.imageView?.image = #imageLiteral(resourceName: "heart-outline")
+            cell.heartButton.imageView?.tintColor = UIColor.black
+            
+        }
+        cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+        cell.heartButton.animation = Spring.AnimationPreset.Pop.rawValue
+        cell.heartButton.animate()
+    }
+}
+
+extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, clickRowAt indexPah: IndexPath?) {
+        self.likePhoto(feedPhotoCell, indexPah)
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, sharePhotoAt indexPah: IndexPath?) {
+        guard let _ = self.feedData?[indexPah?.row ?? -1] else { return }
+        if let _ = self.feedData?[indexPah?.row ?? -1] {
+            let activityController = UIActivityViewController(activityItems: ["Imagem legal do Uai Fotos", feedPhotoCell.photo.image ?? #imageLiteral(resourceName: "image-placeholder")], applicationActivities: nil)
+            activityController.popoverPresentationController?.sourceView = feedPhotoCell.imageView
+            self.present(activityController, animated: true, completion: nil)
+        }
+    }
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?) {
+        self.likePhoto(feedPhotoCell, indexPah)
+    }
     
 }

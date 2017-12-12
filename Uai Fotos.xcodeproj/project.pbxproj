@@ -23,6 +23,12 @@
 		87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A037841FD854BF00E7420B /* AppDelegate.swift */; };
 		87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378B1FD854C000E7420B /* Assets.xcassets */; };
 		87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378D1FD854C000E7420B /* LaunchScreen.storyboard */; };
+		87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7421FE0571700A519F8 /* SearchViewController.swift */; };
+		87ABA7451FE0584F00A519F8 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */; };
+		87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */; };
+		87ABA7491FE05AE500A519F8 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7481FE05AE500A519F8 /* SearchModels.swift */; };
+		87ABA74B1FE05B6200A519F8 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA74A1FE05B6200A519F8 /* SearchRouter.swift */; };
+		87ABA74D1FE05C4400A519F8 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA74C1FE05C4400A519F8 /* SearchWorker.swift */; };
 		87C233061FD8637B00964C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C233001FD8637B00964C0F /* Main.storyboard */; };
 		87C233071FD8637B00964C0F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C233011FD8637B00964C0F /* Login.storyboard */; };
 		87C233081FD8637B00964C0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C233031FD8637B00964C0F /* ViewController.swift */; };
@@ -67,6 +73,12 @@
 		87A0378B1FD854C000E7420B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87A0378E1FD854C000E7420B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87A037901FD854C000E7420B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87ABA7421FE0571700A519F8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		87ABA7481FE05AE500A519F8 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		87ABA74A1FE05B6200A519F8 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		87ABA74C1FE05C4400A519F8 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		87C233001FD8637B00964C0F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		87C233011FD8637B00964C0F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		87C233031FD8637B00964C0F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +141,7 @@
 		87A037831FD854BF00E7420B /* Uai Fotos */ = {
 			isa = PBXGroup;
 			children = (
+				87ABA7401FE055AA00A519F8 /* Scenes */,
 				87F8208D1FDAF10B0047C2CD /* RestApi */,
 				87C233021FD8637B00964C0F /* Controller */,
 				87C233051FD8637B00964C0F /* Model */,
@@ -151,6 +164,27 @@
 				87C2330A1FD8678200964C0F /* GoogleService-Info.plist */,
 			);
 			name = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		87ABA7401FE055AA00A519F8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				87ABA7411FE055CC00A519F8 /* Search */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		87ABA7411FE055CC00A519F8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				87ABA7421FE0571700A519F8 /* SearchViewController.swift */,
+				87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */,
+				87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */,
+				87ABA7481FE05AE500A519F8 /* SearchModels.swift */,
+				87ABA74A1FE05B6200A519F8 /* SearchRouter.swift */,
+				87ABA74C1FE05C4400A519F8 /* SearchWorker.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		87C232FF1FD8637B00964C0F /* View */ = {
@@ -414,6 +448,7 @@
 				23EA7FDF1FD9E8BC006FB4E5 /* ActivityTableViewController.swift in Sources */,
 				875BA3FA1FD9B6C40059C038 /* FeedPhotoTableViewCell.swift in Sources */,
 				87F8208F1FDAF1420047C2CD /* PicsumApi.swift in Sources */,
+				87ABA7491FE05AE500A519F8 /* SearchModels.swift in Sources */,
 				87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */,
 				87F820931FDAFD5E0047C2CD /* UaiFotosDataStore.swift in Sources */,
 				87F820951FDAFD940047C2CD /* UserDTO.swift in Sources */,
@@ -421,8 +456,12 @@
 				235F362F1FDB274B006E7A21 /* TabBarSwitchExtension.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
+				87ABA74B1FE05B6200A519F8 /* SearchRouter.swift in Sources */,
 				23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */,
+				87ABA74D1FE05C4400A519F8 /* SearchWorker.swift in Sources */,
+				87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
+				87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */,
 				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,
 				87F8208C1FDAEBA80047C2CD /* PicsumImageDTO.swift in Sources */,
 				87E79CB21FD89ED200A23DF7 /* MainTabBarViewController.swift in Sources */,
@@ -431,6 +470,7 @@
 				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,
+				87ABA7451FE0584F00A519F8 /* SearchInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -578,7 +618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";

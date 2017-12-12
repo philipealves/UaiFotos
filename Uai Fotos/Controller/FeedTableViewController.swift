@@ -72,8 +72,13 @@ class FeedTableViewController: UIViewController {
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
         guard let row = indexPah?.row else { return }
         guard let _ = self.feedData?[row] else { return }
-        self.feedData?[row].photo.likes += 1
-        self.feedData?[row].photo.liked = true
+        if self.feedData![row].photo.liked {
+            self.feedData?[row].photo.likes -= 1
+            self.feedData?[row].photo.liked = false
+        } else {
+            self.feedData?[row].photo.likes += 1
+            self.feedData?[row].photo.liked = true
+        }
         feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
@@ -114,14 +119,19 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         if feedItem.photo.liked {
             cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
             cell.heartButton.imageView?.tintColor = UIColor.red
+            cell.heartButton.animation = Spring.AnimationPreset.Pop.rawValue
+            cell.heartButton.animate()
         } else {
-            cell.heartButton.imageView?.image = #imageLiteral(resourceName: "heart-outline")
-            cell.heartButton.imageView?.tintColor = UIColor.black
-            
+            cell.heartButton.animation = Spring.AnimationPreset.ZoomOut.rawValue
+            cell.heartButton.animateNext(completion: {
+                cell.heartButton.imageView?.image = #imageLiteral(resourceName: "heart-outline")
+                cell.heartButton.imageView?.tintColor = UIColor.black
+                cell.heartButton.animation = Spring.AnimationPreset.FadeIn.rawValue
+                cell.heartButton.animate()
+            })
+
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
-        cell.heartButton.animation = Spring.AnimationPreset.Pop.rawValue
-        cell.heartButton.animate()
     }
 }
 

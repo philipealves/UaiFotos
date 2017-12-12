@@ -53,7 +53,7 @@ class UaiFotosDataStore {
         var photoList = [PhotoDTO]()
         
         for _ in 0..<number {
-            let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random())
+            let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random())
             photoList.append(photo)
         }
         return photoList

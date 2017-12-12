@@ -13,6 +13,7 @@ struct PhotoDTO {
     var description: String?
     var likes: Int
     var views: Int
+    var liked: Bool
     
     var imageUrl: URL {
         get {

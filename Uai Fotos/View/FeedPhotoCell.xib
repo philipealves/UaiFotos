@@ -54,26 +54,35 @@
                             <constraint firstAttribute="width" secondItem="qfQ-iU-A3J" secondAttribute="height" multiplier="1:1" id="w25-nQ-px0"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39.491 visualizações" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRJ-xb-Whr">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39.491 visualizações" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRJ-xb-Whr" customClass="SpringLabel" customModule="Spring">
                         <rect key="frame" x="20" y="603" width="440" height="15.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="shake"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BfB-m5-9Ra">
                         <rect key="frame" x="20" y="556" width="440" height="39"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYl-gl-96j">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYl-gl-96j" customClass="SpringButton" customModule="Spring">
                                 <rect key="frame" x="0.0" y="4.5" width="46" height="30"/>
                                 <state key="normal" image="heart-outline"/>
+                                <connections>
+                                    <action selector="likePhoto:" destination="HsJ-dg-fsS" eventType="touchUpInside" id="gU6-AC-brJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzf-2a-qQR">
                                 <rect key="frame" x="56" y="4.5" width="30" height="30"/>
                                 <state key="normal" image="message-text-outline"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLg-oY-ljH">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLg-oY-ljH" customClass="SpringButton" customModule="Spring">
                                 <rect key="frame" x="96" y="4.5" width="30" height="30"/>
                                 <state key="normal" image="share-variant"/>
+                                <connections>
+                                    <action selector="sharePhoto:" destination="HsJ-dg-fsS" eventType="touchUpInside" id="k9e-ah-Nyv"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ang-tX-bvL">
                                 <rect key="frame" x="136" y="0.0" width="264" height="39"/>
@@ -140,6 +149,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="heartButton" destination="CYl-gl-96j" id="h6e-f6-ozf"/>
                 <outlet property="heartImageView" destination="TxG-D5-1df" id="hEC-RB-ysd"/>
                 <outlet property="photo" destination="qfQ-iU-A3J" id="viS-7D-63K"/>
                 <outlet property="photoCaption" destination="xRJ-xb-Whr" id="8FC-Qu-xpS"/>

@@ -32,16 +32,11 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         self.loadDataStore()
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        // Limpa o valor do título
-        self.tabBarController?.navigationItem.title = "Uai Fotos"
-        
-        let attributes = [NSAttributedStringKey.foregroundColor: primaryDarkColor,
-                          NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
-        
-        self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
         
         // Cria um botão a esquerda
         let leftButton = UIBarButtonItem(image: #imageLiteral(resourceName: "compact_camera"), style: .plain, target: nil, action: nil)
@@ -50,6 +45,13 @@ class FeedTableViewController: UIViewController, UITableViewDelegate, UITableVie
         // Cria um botão a direita
         let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: nil, action: nil)
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let attributes = [NSAttributedStringKey.foregroundColor: primaryDarkColor,
+                          NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
+        
+        self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
     }
     
     func loadDataStore() {

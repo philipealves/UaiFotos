@@ -1,30 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NxN-Yn-kn5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NxN-Yn-kn5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Photo Gallery View Controller-->
         <scene sceneID="bxR-Rb-1an">
             <objects>
-                <viewController id="hix-J5-Q6V" sceneMemberID="viewController">
+                <viewController id="hix-J5-Q6V" customClass="PhotoGalleryViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BbI-ae-wiz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_avaliable" translatesAutoresizingMaskIntoConstraints="NO" id="TIN-eP-9X8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="333.5"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C30-t4-e2v">
+                                <rect key="frame" x="0.0" y="397.5" width="375" height="176.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="vJQ-SC-Mpq">
+                                    <size key="itemSize" width="116" height="83"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="PhotoCollectionViewCell" id="SGC-Me-HcR" customClass="PhotoGalleryCollectionViewCell" customModule="Uai_Fotos" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="90"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-AM-H93">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="90"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ov1-AM-H93" secondAttribute="bottom" id="0xG-9J-Yix"/>
+                                            <constraint firstItem="ov1-AM-H93" firstAttribute="leading" secondItem="SGC-Me-HcR" secondAttribute="leading" id="i1D-TJ-eMv"/>
+                                            <constraint firstItem="ov1-AM-H93" firstAttribute="top" secondItem="SGC-Me-HcR" secondAttribute="top" id="yKp-ko-Coh"/>
+                                            <constraint firstAttribute="trailing" secondItem="ov1-AM-H93" secondAttribute="trailing" id="zmf-cM-SZN"/>
+                                        </constraints>
+                                        <size key="customSize" width="125" height="90"/>
+                                        <connections>
+                                            <outlet property="imageGallery" destination="ov1-AM-H93" id="y1X-69-37X"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TIN-eP-9X8" firstAttribute="top" secondItem="EPv-d7-HYS" secondAttribute="top" id="3HG-cd-fyq"/>
+                            <constraint firstItem="TIN-eP-9X8" firstAttribute="trailing" secondItem="EPv-d7-HYS" secondAttribute="trailing" id="Ad0-oX-Wqi"/>
+                            <constraint firstItem="EPv-d7-HYS" firstAttribute="trailing" secondItem="C30-t4-e2v" secondAttribute="trailing" id="RFX-HQ-f8q"/>
+                            <constraint firstItem="TIN-eP-9X8" firstAttribute="leading" secondItem="EPv-d7-HYS" secondAttribute="leading" id="btX-s3-oVV"/>
+                            <constraint firstItem="TIN-eP-9X8" firstAttribute="height" secondItem="BbI-ae-wiz" secondAttribute="height" multiplier="0.5" id="g9i-DZ-lD1"/>
+                            <constraint firstItem="C30-t4-e2v" firstAttribute="top" secondItem="TIN-eP-9X8" secondAttribute="bottom" id="mjw-6Q-Vpb"/>
+                            <constraint firstItem="C30-t4-e2v" firstAttribute="leading" secondItem="EPv-d7-HYS" secondAttribute="leading" id="pAm-kC-0dc"/>
+                            <constraint firstItem="EPv-d7-HYS" firstAttribute="bottom" secondItem="C30-t4-e2v" secondAttribute="bottom" id="sbl-lB-KGt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EPv-d7-HYS"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="camera-iris" id="n91-xK-Yye" customClass="ColorTabBarItem" customModule="Uai_Fotos" customModuleProvider="target"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="TIN-eP-9X8" id="40u-0X-yde"/>
+                        <outlet property="photosCollectionView" destination="C30-t4-e2v" id="SkC-ka-mfa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHK-A6-tS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703" y="327"/>
+            <point key="canvasLocation" x="701.60000000000002" y="326.98650674662673"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8m8-vR-nwM">
@@ -122,6 +179,7 @@
     <resources>
         <image name="camera-iris" width="60" height="60"/>
         <image name="compact_camera" width="30" height="30"/>
+        <image name="no_avaliable" width="127" height="127"/>
         <image name="rocket" width="30" height="30"/>
     </resources>
 </document>

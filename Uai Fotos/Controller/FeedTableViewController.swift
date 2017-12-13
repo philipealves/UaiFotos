@@ -84,6 +84,10 @@ class FeedTableViewController: UIViewController {
         feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
+    
+    func commentPhoto()  {
+        performSegue(withIdentifier: "segueComments", sender: nil)
+    }
 }
 
 extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -153,6 +157,11 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
     
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?) {
         self.likePhoto(feedPhotoCell, indexPah)
+    }
+    
+    
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?) {
+        self.commentPhoto()
     }
     
 }

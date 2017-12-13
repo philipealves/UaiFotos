@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DA3-rz-jAf">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +16,11 @@
             <objects>
                 <viewController storyboardIdentifier="feedViewController" id="DA3-rz-jAf" customClass="FeedTableViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vZT-30-0E9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="150" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rXu-7k-tf5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
@@ -43,14 +44,108 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="rXu-7k-tf5" id="iSv-JU-8Gw"/>
+                        <segue destination="emr-UB-eM4" kind="show" identifier="segueComments" id="j5P-Or-tQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp0-rk-ttg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="64.799999999999997" y="101.19940029985008"/>
         </scene>
+        <!--Comentários-->
+        <scene sceneID="8AE-IB-BYg">
+            <objects>
+                <viewController title="Comentários" id="emr-UB-eM4" customClass="CommentViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jag-mE-WaX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3br-bz-WQd">
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar-female" translatesAutoresizingMaskIntoConstraints="NO" id="wa6-BO-oQg" customClass="SwiftyAvatar" customModule="SwiftyAvatar">
+                                        <rect key="frame" x="8" y="2" width="46" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="wa6-BO-oQg" secondAttribute="height" multiplier="1:1" id="Znt-QQ-Zmk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekQ-nZ-16p">
+                                        <rect key="frame" x="270" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Dal-KW-kRG"/>
+                                        </constraints>
+                                        <state key="normal" image="paper_plane">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-UZ-CMJ">
+                                        <rect key="frame" x="60" y="2" width="204" height="46"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.94587983634285711" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kLT-UZ-CMJ" secondAttribute="bottom" constant="2" id="HB4-Ox-Zsc"/>
+                                    <constraint firstItem="wa6-BO-oQg" firstAttribute="top" secondItem="3br-bz-WQd" secondAttribute="top" constant="2" id="K8J-Bx-X0r"/>
+                                    <constraint firstItem="kLT-UZ-CMJ" firstAttribute="top" secondItem="3br-bz-WQd" secondAttribute="top" constant="2" id="Q2G-zR-FY2"/>
+                                    <constraint firstItem="kLT-UZ-CMJ" firstAttribute="leading" secondItem="wa6-BO-oQg" secondAttribute="trailing" constant="6" id="WQZ-KP-UfS"/>
+                                    <constraint firstItem="wa6-BO-oQg" firstAttribute="leading" secondItem="3br-bz-WQd" secondAttribute="leading" constant="8" id="ahs-10-eCh"/>
+                                    <constraint firstAttribute="height" constant="50" id="amk-YL-8zU"/>
+                                    <constraint firstAttribute="bottom" secondItem="wa6-BO-oQg" secondAttribute="bottom" constant="2" id="gHn-ep-Qme"/>
+                                    <constraint firstAttribute="trailing" secondItem="ekQ-nZ-16p" secondAttribute="trailing" id="iwf-8u-tf4"/>
+                                    <constraint firstItem="ekQ-nZ-16p" firstAttribute="top" secondItem="3br-bz-WQd" secondAttribute="top" id="kfL-dM-Gx9"/>
+                                    <constraint firstItem="ekQ-nZ-16p" firstAttribute="leading" secondItem="kLT-UZ-CMJ" secondAttribute="trailing" constant="6" id="n0K-po-aQP"/>
+                                    <constraint firstAttribute="bottom" secondItem="ekQ-nZ-16p" secondAttribute="bottom" id="srT-jl-cnC"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQa-jQ-BG7">
+                                <rect key="frame" x="0.0" y="20" width="320" height="410"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3br-bz-WQd" firstAttribute="bottom" secondItem="Efd-P7-GaH" secondAttribute="bottom" id="2c3-UI-ufm"/>
+                            <constraint firstItem="EQa-jQ-BG7" firstAttribute="top" secondItem="Efd-P7-GaH" secondAttribute="top" id="GbY-sg-Vif"/>
+                            <constraint firstItem="3br-bz-WQd" firstAttribute="top" secondItem="EQa-jQ-BG7" secondAttribute="bottom" id="ONH-Qf-Xer"/>
+                            <constraint firstItem="EQa-jQ-BG7" firstAttribute="leading" secondItem="Efd-P7-GaH" secondAttribute="leading" id="crS-CU-eFW"/>
+                            <constraint firstItem="3br-bz-WQd" firstAttribute="leading" secondItem="Efd-P7-GaH" secondAttribute="leading" id="kqG-UK-mum"/>
+                            <constraint firstItem="3br-bz-WQd" firstAttribute="trailing" secondItem="Efd-P7-GaH" secondAttribute="trailing" id="rYT-Pm-79N"/>
+                            <constraint firstItem="Efd-P7-GaH" firstAttribute="trailing" secondItem="EQa-jQ-BG7" secondAttribute="trailing" id="zZK-O4-0pU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Efd-P7-GaH"/>
+                    </view>
+                    <connections>
+                        <outlet property="comentTxt" destination="kLT-UZ-CMJ" id="220-dH-mHK"/>
+                        <outlet property="sendCommentButton" destination="ekQ-nZ-16p" id="IR3-mY-l75"/>
+                        <outlet property="tableView" destination="EQa-jQ-BG7" id="i7M-gY-DLY"/>
+                        <outlet property="userAvatar" destination="wa6-BO-oQg" id="dCh-M0-Pks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9u-mZ-VZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="101.19940029985008"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="avatar-female" width="400" height="400"/>
         <image name="home-variant" width="30" height="30"/>
+        <image name="paper_plane" width="30" height="30"/>
     </resources>
 </document>

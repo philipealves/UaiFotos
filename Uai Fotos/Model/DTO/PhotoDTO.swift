@@ -9,13 +9,25 @@
 import Foundation
 import MapKit
 
-struct PhotoDTO {
+class PhotoDTO {
     var picsumImage: PicsumImageDTO?
     var description: String?
     var likes: Int
     var views: Int
     var liked: Bool
     var location: MKPointAnnotation?
+
+    var favorited: Bool
+    
+    init(picsumImage: PicsumImageDTO?, description: String?, likes: Int, views: Int, liked: Bool, favorited: Bool, location: MKPointAnnotation?) {
+        self.picsumImage = picsumImage
+        self.description = description
+        self.likes = likes
+        self.views = views
+        self.liked = liked
+        self.favorited = favorited
+        self.location = location
+    }
     
     var imageUrl: URL {
         get {

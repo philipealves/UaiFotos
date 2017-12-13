@@ -15,7 +15,7 @@ import UIKit
 class SearchWorker {
     func searchFriends(searchText: String) -> [UserDTO]? {
         let filteredFriends = UaiFotosDataStore.user?.friends?.filter({ (friend) -> Bool in
-            return friend.name!.lowercased().contains(searchText.lowercased())
+            return (friend.name?.lowercased().contains(searchText.lowercased()))!
         })
         return filteredFriends
 	}

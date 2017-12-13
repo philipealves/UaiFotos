@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16ED8FAD1FE1CEF4000B0D2F /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */; };
+		16ED8FAF1FE1D7AE000B0D2F /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */; };
 		235F362F1FDB274B006E7A21 /* TabBarSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F362E1FDB274B006E7A21 /* TabBarSwitcher.swift */; };
 		23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */; };
 		23EA7FDB1FD9DD7A006FB4E5 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */; };
@@ -18,6 +20,8 @@
 		259119871FE1B01800B332AA /* LocalPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259119811FE1B01800B332AA /* LocalPhotosViewController.swift */; };
 		259119881FE1B01800B332AA /* LocalPhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259119821FE1B01800B332AA /* LocalPhotosInteractor.swift */; };
 		2591198B1FE1B05000B332AA /* LocalPhotos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2591198A1FE1B05000B332AA /* LocalPhotos.storyboard */; };
+		6CD303ED1FE17FED00EDBE21 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */; };
+		6CD303EF1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */; };
 		875BA3F41FD9A1020059C038 /* Mural-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F31FD99F040059C038 /* Mural-Script.ttf */; };
 		875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */; };
 		875BA3F81FD9A95D0059C038 /* FeedPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */; };
@@ -30,6 +34,12 @@
 		87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A037841FD854BF00E7420B /* AppDelegate.swift */; };
 		87A0378C1FD854C000E7420B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378B1FD854C000E7420B /* Assets.xcassets */; };
 		87A0378F1FD854C000E7420B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A0378D1FD854C000E7420B /* LaunchScreen.storyboard */; };
+		87A782261FE18B8500D26D96 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782201FE18B8500D26D96 /* ProfilePresenter.swift */; };
+		87A782271FE18B8500D26D96 /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782211FE18B8500D26D96 /* ProfileWorker.swift */; };
+		87A782281FE18B8500D26D96 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782221FE18B8500D26D96 /* ProfileRouter.swift */; };
+		87A782291FE18B8500D26D96 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782231FE18B8500D26D96 /* ProfileModels.swift */; };
+		87A7822A1FE18B8500D26D96 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782241FE18B8500D26D96 /* ProfileViewController.swift */; };
+		87A7822B1FE18B8500D26D96 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782251FE18B8500D26D96 /* ProfileInteractor.swift */; };
 		87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7421FE0571700A519F8 /* SearchViewController.swift */; };
 		87ABA7451FE0584F00A519F8 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */; };
 		87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */; };
@@ -60,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.debug.xcconfig"; sourceTree = "<group>"; };
+		16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
 		235F362E1FDB274B006E7A21 /* TabBarSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSwitcher.swift; sourceTree = "<group>"; };
 		23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
@@ -73,6 +85,8 @@
 		2591198A1FE1B05000B332AA /* LocalPhotos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocalPhotos.storyboard; sourceTree = "<group>"; };
 		314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.release.xcconfig"; sourceTree = "<group>"; };
 		67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uai_Fotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
+		6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		875BA3F31FD99F040059C038 /* Mural-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mural-Script.ttf"; sourceTree = "<group>"; };
 		875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPhotoCell.xib; sourceTree = "<group>"; };
@@ -87,6 +101,12 @@
 		87A0378B1FD854C000E7420B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87A0378E1FD854C000E7420B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87A037901FD854C000E7420B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87A782201FE18B8500D26D96 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		87A782211FE18B8500D26D96 /* ProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorker.swift; sourceTree = "<group>"; };
+		87A782221FE18B8500D26D96 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		87A782231FE18B8500D26D96 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
+		87A782241FE18B8500D26D96 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		87A782251FE18B8500D26D96 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		87ABA7421FE0571700A519F8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
@@ -194,10 +214,24 @@
 			name = "Target Support Files";
 			sourceTree = "<group>";
 		};
+		87A7821F1FE18B6400D26D96 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				87A782241FE18B8500D26D96 /* ProfileViewController.swift */,
+				87A782251FE18B8500D26D96 /* ProfileInteractor.swift */,
+				87A782201FE18B8500D26D96 /* ProfilePresenter.swift */,
+				87A782231FE18B8500D26D96 /* ProfileModels.swift */,
+				87A782221FE18B8500D26D96 /* ProfileRouter.swift */,
+				87A782211FE18B8500D26D96 /* ProfileWorker.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		87ABA7401FE055AA00A519F8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				259119891FE1B02400B332AA /* LocalPhotos */,
+				87A7821F1FE18B6400D26D96 /* Profile */,
 				87ABA7411FE055CC00A519F8 /* Search */,
 			);
 			path = Scenes;
@@ -234,6 +268,7 @@
 				23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */,
 				23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */,
 				2591198A1FE1B05000B332AA /* LocalPhotos.storyboard */,
+				6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +276,9 @@
 		87C233021FD8637B00964C0F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */,
+				16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */,
+				6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */,
 				87C233031FD8637B00964C0F /* ViewController.swift */,
 				87C233041FD8637B00964C0F /* LoginViewController.swift */,
 				87E79CB11FD89ED200A23DF7 /* MainTabBarViewController.swift */,
@@ -479,22 +517,30 @@
 				259119871FE1B01800B332AA /* LocalPhotosViewController.swift in Sources */,
 				23EA7FDF1FD9E8BC006FB4E5 /* ActivityTableViewController.swift in Sources */,
 				259119881FE1B01800B332AA /* LocalPhotosInteractor.swift in Sources */,
+				87A782291FE18B8500D26D96 /* ProfileModels.swift in Sources */,
 				875BA3FA1FD9B6C40059C038 /* FeedPhotoTableViewCell.swift in Sources */,
 				87F8208F1FDAF1420047C2CD /* PicsumApi.swift in Sources */,
 				87ABA7491FE05AE500A519F8 /* SearchModels.swift in Sources */,
+				87A7822A1FE18B8500D26D96 /* ProfileViewController.swift in Sources */,
 				87C233091FD8637B00964C0F /* LoginViewController.swift in Sources */,
+				87A782271FE18B8500D26D96 /* ProfileWorker.swift in Sources */,
 				87F820931FDAFD5E0047C2CD /* UaiFotosDataStore.swift in Sources */,
+				87A7822B1FE18B8500D26D96 /* ProfileInteractor.swift in Sources */,
 				87F820951FDAFD940047C2CD /* UserDTO.swift in Sources */,
 				87F820971FDAFDED0047C2CD /* PhotoDTO.swift in Sources */,
 				235F362F1FDB274B006E7A21 /* TabBarSwitcher.swift in Sources */,
+				87A782261FE18B8500D26D96 /* ProfilePresenter.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
+				6CD303ED1FE17FED00EDBE21 /* PhotoGalleryViewController.swift in Sources */,
 				87ABA74B1FE05B6200A519F8 /* SearchRouter.swift in Sources */,
 				23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */,
 				259119841FE1B01800B332AA /* LocalPhotosWorker.swift in Sources */,
 				87ABA74D1FE05C4400A519F8 /* SearchWorker.swift in Sources */,
 				87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
+				16ED8FAD1FE1CEF4000B0D2F /* ShowViewController.swift in Sources */,
+				6CD303EF1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift in Sources */,
 				87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */,
 				259119851FE1B01800B332AA /* LocalPhotosRouter.swift in Sources */,
 				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,
@@ -502,8 +548,10 @@
 				87E79CB21FD89ED200A23DF7 /* MainTabBarViewController.swift in Sources */,
 				259119831FE1B01800B332AA /* LocalPhotosPresenter.swift in Sources */,
 				87C233081FD8637B00964C0F /* ViewController.swift in Sources */,
+				87A782281FE18B8500D26D96 /* ProfileRouter.swift in Sources */,
 				87F820891FDA038C0047C2CD /* Randoms.swift in Sources */,
 				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
+				16ED8FAF1FE1D7AE000B0D2F /* ActivityDetailViewController.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 				259119861FE1B01800B332AA /* LocalPhotosModels.swift in Sources */,
 				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,
@@ -638,9 +686,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5B7VT9FU9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -655,9 +703,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5B7VT9FU9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";

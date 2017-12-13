@@ -13,6 +13,7 @@ class ActivityTableViewController: UITableViewController {
     
     let disposeBag = DisposeBag()
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
+    var selected: (photo: PhotoDTO, friend: UserDTO)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class ActivityTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.tableView.register(UINib(nibName: "ActivityTableViewCell", bundle: nil), forCellReuseIdentifier: ActivityTableViewCell.identifier)
+        self.tableView.register(UINib(nibName: "FeedPhotoTableViewCell", bundle: nil), forCellReuseIdentifier: FeedPhotoTableViewCell.identifier)
         
         self.loadDataStore()
     }
@@ -36,8 +38,6 @@ class ActivityTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Precisa implementar
-        
         // Limpa o valor do título
         self.tabBarController?.navigationItem.title = ""
         
@@ -115,10 +115,17 @@ class ActivityTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selected = self.feedData![indexPath.row]
+        self.tableView.deselectRow(at: indexPath, animated: false)
+        self.performSegue(withIdentifier: "activityDetailSegue", sender: nil)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let dest = segue.destination as? ActivityDetailViewController {
+            dest.activityDetail = self.selected
+        }
     }
     
     func loadDataStoreActivity() {

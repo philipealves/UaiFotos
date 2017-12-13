@@ -133,4 +133,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.router?.routeToProfile(segue: nil)
+    }
 }

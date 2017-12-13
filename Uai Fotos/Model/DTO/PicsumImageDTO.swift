@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-public struct PicsumImageDTO: Mappable {
+public class PicsumImageDTO: Mappable {
     var format: String?
     var width: Int?
     var height: Int?
@@ -19,13 +19,24 @@ public struct PicsumImageDTO: Mappable {
     var author_url: String?
     var post_url: String?
     
-    public init?(map: Map) {
+    init(format: String?, width: Int?, height: Int?, filename: String?, id: Int?, author: String?, author_url: String?, post_url: String?) {
+        self.format = format
+        self.width =  width
+        self.height = height
+        self.filename = filename
+        self.id = id
+        self.author = author
+        self.author_url = author_url
+        self.post_url = post_url
+    }
+    
+    public required init?(map: Map) {
         if map.JSON["id"] == nil {
             return nil
         }
     }
     
-    public mutating func mapping(map: Map) {
+    public func mapping(map: Map) {
         self.format     <- map["format"]
         self.width      <- map["width"]
         self.height     <- map["height"]

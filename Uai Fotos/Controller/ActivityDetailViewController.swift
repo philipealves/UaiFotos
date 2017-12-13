@@ -20,7 +20,7 @@ class ActivityDetailViewController: UIViewController {
         if let feedItem = self.activityDetail {
             feedPhotoView.userName.text = feedItem.friend.name
             feedPhotoView.userTitle.text = feedItem.friend.title
-            feedPhotoView.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name!): ").normal(feedItem.photo.description ?? "")
+            feedPhotoView.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name): ").normal(feedItem.photo.description ?? "")
             feedPhotoView.photoCaption.text = feedItem.photo.photoCaption
             
             feedPhotoView.photo.kf.indicatorType = .activity

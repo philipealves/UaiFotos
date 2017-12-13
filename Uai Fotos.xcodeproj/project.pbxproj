@@ -11,6 +11,8 @@
 		23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */; };
 		23EA7FDB1FD9DD7A006FB4E5 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */; };
 		23EA7FDF1FD9E8BC006FB4E5 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA7FDE1FD9E8BC006FB4E5 /* ActivityTableViewController.swift */; };
+		6CD303ED1FE17FED00EDBE21 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */; };
+		6CD303EF1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */; };
 		875BA3F41FD9A1020059C038 /* Mural-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F31FD99F040059C038 /* Mural-Script.ttf */; };
 		875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */; };
 		875BA3F81FD9A95D0059C038 /* FeedPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */; };
@@ -65,6 +67,8 @@
 		23EA7FDE1FD9E8BC006FB4E5 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 		314227CACC3FA7E1AB1ECD6A /* Pods-Uai Fotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.release.xcconfig"; sourceTree = "<group>"; };
 		67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uai_Fotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
+		6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		875BA3F31FD99F040059C038 /* Mural-Script.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mural-Script.ttf"; sourceTree = "<group>"; };
 		875BA3F51FD9A8050059C038 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		875BA3F71FD9A95D0059C038 /* FeedPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPhotoCell.xib; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		87C232FF1FD8637B00964C0F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */,
 				87C233001FD8637B00964C0F /* Main.storyboard */,
 				87C233011FD8637B00964C0F /* Login.storyboard */,
 				87E79CAF1FD89AAB00A23DF7 /* Feed.storyboard */,
@@ -237,6 +242,7 @@
 		87C233021FD8637B00964C0F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */,
 				87C233031FD8637B00964C0F /* ViewController.swift */,
 				87C233041FD8637B00964C0F /* LoginViewController.swift */,
 				87E79CB11FD89ED200A23DF7 /* MainTabBarViewController.swift */,
@@ -487,11 +493,13 @@
 				87A782261FE18B8500D26D96 /* ProfilePresenter.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,
 				87E79CAC1FD86F7500A23DF7 /* SwiftMessagesExtensions.swift in Sources */,
+				6CD303ED1FE17FED00EDBE21 /* PhotoGalleryViewController.swift in Sources */,
 				87ABA74B1FE05B6200A519F8 /* SearchRouter.swift in Sources */,
 				23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */,
 				87ABA74D1FE05C4400A519F8 /* SearchWorker.swift in Sources */,
 				87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
+				6CD303EF1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift in Sources */,
 				87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */,
 				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,
 				87F8208C1FDAEBA80047C2CD /* PicsumImageDTO.swift in Sources */,
@@ -635,7 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -652,7 +660,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Uai Fotos/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.minas.Uai-Fotos";
 				PRODUCT_NAME = "$(TARGET_NAME)";

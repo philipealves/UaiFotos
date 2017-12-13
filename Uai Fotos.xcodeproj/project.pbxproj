@@ -29,7 +29,6 @@
 		87A782291FE18B8500D26D96 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782231FE18B8500D26D96 /* ProfileModels.swift */; };
 		87A7822A1FE18B8500D26D96 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782241FE18B8500D26D96 /* ProfileViewController.swift */; };
 		87A7822B1FE18B8500D26D96 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782251FE18B8500D26D96 /* ProfileInteractor.swift */; };
-		87A7822D1FE18E0300D26D96 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7822C1FE18E0300D26D96 /* PhotoCollectionViewCell.swift */; };
 		87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7421FE0571700A519F8 /* SearchViewController.swift */; };
 		87ABA7451FE0584F00A519F8 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */; };
 		87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */; };
@@ -86,7 +85,6 @@
 		87A782231FE18B8500D26D96 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		87A782241FE18B8500D26D96 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		87A782251FE18B8500D26D96 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
-		87A7822C1FE18E0300D26D96 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		87ABA7421FE0571700A519F8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				875BA4051FD9D4430059C038 /* AvatarCollectionViewCell.swift */,
 				23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */,
 				23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */,
-				87A7822C1FE18E0300D26D96 /* PhotoCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -494,7 +491,6 @@
 				23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */,
 				87ABA74D1FE05C4400A519F8 /* SearchWorker.swift in Sources */,
 				87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */,
-				87A7822D1FE18E0300D26D96 /* PhotoCollectionViewCell.swift in Sources */,
 				875BA3F61FD9A8050059C038 /* FeedTableViewController.swift in Sources */,
 				87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */,
 				875BA4071FD9D4430059C038 /* AvatarCollectionViewCell.swift in Sources */,

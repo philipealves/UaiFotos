@@ -35,4 +35,40 @@ extension Randoms {
         }
         return url
     }
+    
+    public static func randomFakeBrazilianName() -> String {
+        
+        let firstNameList = ["Davi",    "Alice", "Arthur",        "Julia", "Pedro", "Isabella",
+                             "Gabriel", "Manuela","Bernardo" ,  "Laura",
+                             "Lucas", "Luiza", "Matheus", "Valentina",
+                             "Rafael", "Giovanna",
+                             "Heitor"    ,"Maria Eduarda",
+                             "Enzo"  ,  "Helena",
+                             "Guilherme",     "Beatriz",
+                             "Nicolas",   "Maria Luiza",
+                             "Lorenzo",    "Lara",
+                             "Gustavo"]
+        let lastNameList = ["Fernandes", "Santana", "Carvalho", "Martins", "Santos", "Boaventura", "Oliveira", "Moraes", "Leão", "Garcia", "Alves", "Costa", "Oliveira", "Martinez", "Novaes", "Oliveira", "Araújo", "Maia", "Vasconcelos", "Gonçalves", "Guimarães", "Menezes", "Sampaio", "Cavalcante", "Lacerda", "Mello", "Moraes", "Muniz", "Figueira", "Paes", "Lima", "Marques", "Duarte", "Vasconcelos", "Vieira", "Souza", "Soares", "Silva", "Duarte", "Morais", "Gomes", "Paiva", "Junqueira", "Queiroz", "Barreto", "Menezzes", "Campos", "Pilar", "Chaves", "Paris", "Lessa", "Galisteu", "Garcia", "Frota", "Araújo", "Xavier"]
+        return firstNameList.randomItem()! + " " + lastNameList.randomItem()!
+    }
+    
+    
 }
+
+/*
+ Miguel    1    Sophia
+ 2    Davi    2    Alice
+ 3    Arthur    3    Julia
+ 4    Pedro    4    Isabella
+ 5    Gabriel    5    Manuela
+ 6    Bernardo    6    Laura
+ 7    Lucas    7    Luiza
+ 8    Matheus    8    Valentina
+ 9    Rafael    9    Giovanna
+ 10    Heitor    10    Maria Eduarda
+ 11    Enzo    11    Helena
+ 12    Guilherme    12    Beatriz
+ 13    Nicolas    13    Maria Luiza
+ 14    Lorenzo    14    Lara
+ 15    Gustavo
+ */

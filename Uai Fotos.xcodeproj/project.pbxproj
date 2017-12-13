@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16ED8FAD1FE1CEF4000B0D2F /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */; };
+		16ED8FAF1FE1D7AE000B0D2F /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */; };
 		235F362F1FDB274B006E7A21 /* TabBarSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235F362E1FDB274B006E7A21 /* TabBarSwitcher.swift */; };
 		23EA7FDA1FD9DD7A006FB4E5 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */; };
 		23EA7FDB1FD9DD7A006FB4E5 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		0CF86E242E205BE6D73454B8 /* Pods-Uai Fotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uai Fotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uai Fotos/Pods-Uai Fotos.debug.xcconfig"; sourceTree = "<group>"; };
 		16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
 		235F362E1FDB274B006E7A21 /* TabBarSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSwitcher.swift; sourceTree = "<group>"; };
 		23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		87C233021FD8637B00964C0F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */,
 				16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */,
 				6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */,
 				87C233031FD8637B00964C0F /* ViewController.swift */,
@@ -512,6 +515,7 @@
 				87A782281FE18B8500D26D96 /* ProfileRouter.swift in Sources */,
 				87F820891FDA038C0047C2CD /* Randoms.swift in Sources */,
 				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
+				16ED8FAF1FE1D7AE000B0D2F /* ActivityDetailViewController.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,
 				87ABA7451FE0584F00A519F8 /* SearchInteractor.swift in Sources */,

@@ -220,7 +220,6 @@
 		87C232FF1FD8637B00964C0F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */,
 				87C233001FD8637B00964C0F /* Main.storyboard */,
 				87C233011FD8637B00964C0F /* Login.storyboard */,
 				87E79CAF1FD89AAB00A23DF7 /* Feed.storyboard */,
@@ -235,6 +234,7 @@
 				875BA4051FD9D4430059C038 /* AvatarCollectionViewCell.swift */,
 				23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */,
 				23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */,
+				6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

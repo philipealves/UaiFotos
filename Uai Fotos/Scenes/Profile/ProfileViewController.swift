@@ -20,8 +20,9 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
   var interactor: ProfileBusinessLogic?
   var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
 
-  // MARK: Object lifecycle
-  
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: Object lifecycle
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     setup()
@@ -62,6 +63,9 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        flowLayout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
+    }
     doSomething()
   }
   
@@ -80,6 +84,8 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
+    
+    
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30

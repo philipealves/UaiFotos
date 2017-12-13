@@ -9,8 +9,9 @@
 import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageGallery: UIImageView!
+    static let identifier = "photoCollectionViewCell"
     
+    @IBOutlet weak var imageGallery: UIImageView!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint?
     @IBInspectable var horizontalPhotoNumber: Int = 3
     
@@ -18,6 +19,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
-        self.widthConstraint?.constant = (screenWidth / 3) - 1
+        self.widthConstraint?.constant = (screenWidth / CGFloat(self.horizontalPhotoNumber)) - (CGFloat(self.horizontalPhotoNumber) - 1.5)
     }
 }

@@ -11,9 +11,10 @@
 //
 
 import UIKit
+import SwiftRandom
 
 protocol ProfilePresentationLogic {
-  func presentSomething(response: Profile.Something.Response)
+  func presentUser(response: Profile.User.Response)
 }
 
 class ProfilePresenter: ProfilePresentationLogic {
@@ -21,8 +22,22 @@ class ProfilePresenter: ProfilePresentationLogic {
   
   // MARK: Do something
   
-  func presentSomething(response: Profile.Something.Response) {
-    let viewModel = Profile.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentUser(response: Profile.User.Response) {
+    var displayUser: Profile.User.ViewModel.DisplayUser?
+    if let loggedUser = response.loggedUser {
+        let publications = String(loggedUser.photos?.count ?? 0)
+        let followers = String(Int.random())
+        let following = String(loggedUser.friends?.count ?? 0)
+        let bio = NSMutableAttributedString().bold(loggedUser.name!).normal(
+            " \(loggedUser.title!) \(Randoms.randomFakeConversation())")
+        let photos: [URL] = loggedUser.photos?.map({ (photo) -> URL in
+            return photo.imageUrl
+        }) ?? []
+        
+        displayUser = Profile.User.ViewModel.DisplayUser(avatar: loggedUser.avatarUrl, publications: publications, followers: followers, following: following, bio: bio, photos: photos)
+    }
+
+    let viewModel = Profile.User.ViewModel(displayUser: displayUser)
+    viewController?.displayUser(viewModel: viewModel)
   }
 }

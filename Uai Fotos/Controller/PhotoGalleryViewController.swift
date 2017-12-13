@@ -39,7 +39,7 @@ class PhotoGalleryViewController: UIViewController {
     }
     
     func getImagemOfLibary(){
-        let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)
+        let assets = PHAsset.fetchAssets(with: PHAssetMediaType.unknown, options: nil)
         assets.enumerateObjects({ (object, count, stop) in
             self.imageLibary.append(object)
         })

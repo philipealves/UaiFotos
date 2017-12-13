@@ -26,12 +26,15 @@ class PhotoGalleryViewController: UIViewController {
         self.photosCollectionView.delegate = self
         self.photosCollectionView.dataSource = self
         settingSizeCellCollection()
-        getImagemOfLibary()
     }
 
     func settingSizeCellCollection(){
         widthCell = (UIScreen.main.bounds.size.width / 4) - 2.5
         heightCell = ((UIScreen.main.bounds.size.height * 0.5) / 3) - 2
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getImagemOfLibary()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,7 +78,6 @@ extension PhotoGalleryViewController: UICollectionViewDelegate, UICollectionView
         }
         let size = CGSize(width: widthCell, height: heightCell)
         
-    
         cell.tag = Int(manager.requestImage(for: photoItem, targetSize: size, contentMode: .aspectFill, options: nil) { (result, _ ) in
             cell.imageGallery?.image = result
         })

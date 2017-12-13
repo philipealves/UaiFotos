@@ -67,7 +67,7 @@ extension PhotoGalleryViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = self.photosCollectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoGalleryCollectionViewCell
+        let cell = self.photosCollectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
         let photoItem = self.imageLibary[indexPath.row]
         let manager = PHImageManager.default()
         if cell.tag != 0{

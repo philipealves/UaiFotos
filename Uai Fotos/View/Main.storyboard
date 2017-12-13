@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +26,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C30-t4-e2v">
                                 <rect key="frame" x="0.0" y="397.5" width="375" height="176.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="vJQ-SC-Mpq">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="vJQ-SC-Mpq">
                                     <size key="itemSize" width="116" height="83"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -41,16 +42,27 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ov1-AM-H93">
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ov1-AM-H93" secondAttribute="height" multiplier="25:18" id="LfC-nY-gvx"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="ov1-AM-H93" secondAttribute="bottom" id="0xG-9J-Yix"/>
-                                            <constraint firstItem="ov1-AM-H93" firstAttribute="leading" secondItem="SGC-Me-HcR" secondAttribute="leading" id="i1D-TJ-eMv"/>
-                                            <constraint firstItem="ov1-AM-H93" firstAttribute="top" secondItem="SGC-Me-HcR" secondAttribute="top" id="yKp-ko-Coh"/>
-                                            <constraint firstAttribute="trailing" secondItem="ov1-AM-H93" secondAttribute="trailing" id="zmf-cM-SZN"/>
+                                            <constraint firstAttribute="trailing" secondItem="ov1-AM-H93" secondAttribute="trailing" id="9el-f3-lB5"/>
+                                            <constraint firstItem="ov1-AM-H93" firstAttribute="top" secondItem="SGC-Me-HcR" secondAttribute="top" id="BH3-TU-lsP"/>
+                                            <constraint firstItem="ov1-AM-H93" firstAttribute="leading" secondItem="SGC-Me-HcR" secondAttribute="leading" id="MK3-Xq-9Yb"/>
+                                            <constraint firstAttribute="bottom" secondItem="ov1-AM-H93" secondAttribute="bottom" id="qLi-wC-zYm"/>
                                         </constraints>
                                         <size key="customSize" width="125" height="90"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="horizontalPhotoNumber">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="horizontalMarginNumber">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="imageGallery" destination="ov1-AM-H93" id="y1X-69-37X"/>
                                         </connections>
@@ -65,12 +77,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TIN-eP-9X8" firstAttribute="top" secondItem="EPv-d7-HYS" secondAttribute="top" id="3HG-cd-fyq"/>
+                            <constraint firstItem="C30-t4-e2v" firstAttribute="top" secondItem="TIN-eP-9X8" secondAttribute="bottom" id="3KD-rc-AZe"/>
                             <constraint firstItem="TIN-eP-9X8" firstAttribute="trailing" secondItem="EPv-d7-HYS" secondAttribute="trailing" id="Ad0-oX-Wqi"/>
+                            <constraint firstItem="C30-t4-e2v" firstAttribute="leading" secondItem="EPv-d7-HYS" secondAttribute="leading" id="DlJ-Ia-OM3"/>
+                            <constraint firstItem="C30-t4-e2v" firstAttribute="trailing" secondItem="EPv-d7-HYS" secondAttribute="trailing" id="Khm-Dp-IIJ"/>
                             <constraint firstItem="EPv-d7-HYS" firstAttribute="trailing" secondItem="C30-t4-e2v" secondAttribute="trailing" id="RFX-HQ-f8q"/>
                             <constraint firstItem="TIN-eP-9X8" firstAttribute="leading" secondItem="EPv-d7-HYS" secondAttribute="leading" id="btX-s3-oVV"/>
                             <constraint firstItem="TIN-eP-9X8" firstAttribute="height" secondItem="BbI-ae-wiz" secondAttribute="height" multiplier="0.5" id="g9i-DZ-lD1"/>
                             <constraint firstItem="C30-t4-e2v" firstAttribute="top" secondItem="TIN-eP-9X8" secondAttribute="bottom" id="mjw-6Q-Vpb"/>
                             <constraint firstItem="C30-t4-e2v" firstAttribute="leading" secondItem="EPv-d7-HYS" secondAttribute="leading" id="pAm-kC-0dc"/>
+                            <constraint firstItem="C30-t4-e2v" firstAttribute="bottom" secondItem="EPv-d7-HYS" secondAttribute="bottom" id="sWA-Ym-H8f"/>
                             <constraint firstItem="EPv-d7-HYS" firstAttribute="bottom" secondItem="C30-t4-e2v" secondAttribute="bottom" id="sbl-lB-KGt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EPv-d7-HYS"/>
@@ -80,12 +96,57 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="TIN-eP-9X8" id="40u-0X-yde"/>
-                        <outlet property="photosCollectionView" destination="C30-t4-e2v" id="SkC-ka-mfa"/>
+                        <outlet property="photosCollectionView" destination="C30-t4-e2v" id="up5-lw-X8w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHK-A6-tS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="701.60000000000002" y="326.98650674662673"/>
+        </scene>
+        <!--Foto-->
+        <scene sceneID="QQh-yG-2rB">
+            <objects>
+                <viewController id="BRa-o4-O1e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sKg-BV-XBX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbV-7r-jDj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="367"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHe-Li-Zoj">
+                                <rect key="frame" x="0.0" y="431" width="375" height="236"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDb-Sn-YTd">
+                                        <rect key="frame" x="97" y="54" width="180" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="leading" secondItem="lwZ-tG-jFI" secondAttribute="leading" id="BId-HX-aeB"/>
+                            <constraint firstItem="lwZ-tG-jFI" firstAttribute="bottom" secondItem="NHe-Li-Zoj" secondAttribute="bottom" id="EdI-pa-GbX"/>
+                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="trailing" secondItem="lwZ-tG-jFI" secondAttribute="trailing" id="JuI-CW-kGD"/>
+                            <constraint firstItem="NHe-Li-Zoj" firstAttribute="leading" secondItem="lwZ-tG-jFI" secondAttribute="leading" id="PHb-GV-8VL"/>
+                            <constraint firstItem="NHe-Li-Zoj" firstAttribute="top" secondItem="ZbV-7r-jDj" secondAttribute="bottom" id="cV9-6i-K5p"/>
+                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="top" secondItem="lwZ-tG-jFI" secondAttribute="top" id="cna-Hs-0ET"/>
+                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="height" secondItem="sKg-BV-XBX" secondAttribute="height" multiplier="0.55" id="jUf-ih-Ten"/>
+                            <constraint firstItem="lwZ-tG-jFI" firstAttribute="trailing" secondItem="NHe-Li-Zoj" secondAttribute="trailing" id="q3x-sn-TRE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lwZ-tG-jFI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Foto" id="TXy-rm-H24">
+                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="M4C-eQ-Py7"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="N51-PK-yll"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o1d-Ja-3VK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1672.8" y="369.26536731634184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8m8-vR-nwM">
@@ -108,7 +169,11 @@
             <objects>
                 <tabBarController id="TNI-GD-moD" customClass="MainTabBarViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Uai Fotos" id="TGy-P8-461">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="compact_camera" id="z5N-bL-rhn"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="compact_camera" id="z5N-bL-rhn">
+                            <connections>
+                                <segue destination="BRa-o4-O1e" kind="show" id="tYF-Iu-J5F"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="rocket" id="2Jm-ax-9aF"/>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="mlS-ew-8oZ">

@@ -23,14 +23,12 @@ class PhotoGalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.photosCollectionView.delegate = self
-        self.photosCollectionView.dataSource = self
         settingSizeCellCollection()
     }
 
     func settingSizeCellCollection(){
-        widthCell = (UIScreen.main.bounds.size.width / 4) - 2.5
-        heightCell = ((UIScreen.main.bounds.size.height * 0.5) / 3) - 2
+        widthCell = self.photosCollectionView.frame.width / 4 //(UIScreen.main.bounds.size.width / 4) - 2.5
+        heightCell = self.photosCollectionView.frame.height / 2 //((UIScreen.main.bounds.size.height * 0.4) / 3) - 3
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +40,7 @@ class PhotoGalleryViewController: UIViewController {
     }
     
     func getImagemOfLibary(){
-        let assets = PHAsset.fetchAssets(with: PHAssetMediaType.unknown, options: nil)
+        let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: nil)        
         assets.enumerateObjects({ (object, count, stop) in
             self.imageLibary.append(object)
         })
@@ -53,12 +51,7 @@ class PhotoGalleryViewController: UIViewController {
     }
     func selectedFirstPhotoInCollection(){
         if let firstObject = self.imageLibary.first {
-            PHImageManager.default().requestImage(for: firstObject,
-                                                  targetSize: (self.imageView.image?.size)!,
-                                                  contentMode: .aspectFill,
-                                                  options: nil){ (result, _ ) in
-                self.imageView.image = result
-            }
+            fillImageInView(obj: firstObject, size: (self.imageView.image?.size)!)
         }
     }
 }
@@ -87,13 +80,15 @@ extension PhotoGalleryViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: widthCell, height: heightCell)
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imageSelected = self.imageLibary[indexPath.row]
+        self.fillImageInView(obj: imageSelected, size: (self.imageView.image?.size)!)
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
+    
+    func fillImageInView(obj: PHAsset, size: CGSize) {
+        PHImageManager.default().requestImage(for: obj, targetSize: size, contentMode: .aspectFit, options: nil) { ( result, _ ) in
+            self.imageView.image = result ?? UIImage(named: "image-placeholder")!
+        }
     }
     
 }

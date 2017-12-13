@@ -33,7 +33,7 @@ class UaiFotosDataStore {
     public func generateFeed(photoNumber: Int) {
         guard UaiFotosDataStore.picsumImageList != nil else { return }
         
-        let myUser = UserDTO(name: Randoms.randomFakeName(), title: Randoms.randomFakeTitle(), email: Randoms.randomFakeEmail(), avatar: Randoms.randomFakeGravatarUrl(), photos: self.generatePhotos(number: photoNumber), friends: self.generateUsers(number: Int.random()))
+        let myUser = UserDTO(name: Randoms.randomFakeBrazilianName(), title: Randoms.randomFakeTitle(), email: Randoms.randomFakeEmail(), avatar: Randoms.randomFakeGravatarUrl(), photos: self.generatePhotos(number: photoNumber), friends: self.generateUsers(number: Int.random()))
         
         UaiFotosDataStore.user = myUser
     }
@@ -42,7 +42,7 @@ class UaiFotosDataStore {
         var userList = [UserDTO]()
         
         for _ in 0..<number {
-            let user = UserDTO(name: Randoms.randomFakeName(), title: Randoms.randomFakeTitle(), email: Randoms.randomFakeEmail(), avatar: Randoms.randomFakeGravatarUrl(), photos: self.generatePhotos(number: Int.random()), friends: nil)
+            let user = UserDTO(name: Randoms.randomFakeBrazilianName(), title: Randoms.randomFakeTitle(), email: Randoms.randomFakeEmail(), avatar: Randoms.randomFakeGravatarUrl(), photos: self.generatePhotos(number: Int.random()), friends: nil)
             
             userList.append(user)
         }

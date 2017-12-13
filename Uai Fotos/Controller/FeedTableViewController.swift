@@ -33,16 +33,11 @@ class FeedTableViewController: UIViewController {
         }
         
         self.loadDataStore()
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        // Limpa o valor do título
-        self.tabBarController?.navigationItem.title = "Uai Fotos"
-        
-        let attributes = [NSAttributedStringKey.foregroundColor: primaryDarkColor,
-                          NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
-        
-        self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
         
         // Cria um botão a esquerda
         let leftButton = UIBarButtonItem(image: #imageLiteral(resourceName: "compact_camera"), style: .plain, target: nil, action: nil)
@@ -51,6 +46,13 @@ class FeedTableViewController: UIViewController {
         // Cria um botão a direita
         let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: nil, action: nil)
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let attributes = [NSAttributedStringKey.foregroundColor: primaryDarkColor,
+                          NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
+        
+        self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
     }
     
     func loadDataStore() {
@@ -72,8 +74,13 @@ class FeedTableViewController: UIViewController {
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
         guard let row = indexPah?.row else { return }
         guard let _ = self.feedData?[row] else { return }
-        self.feedData?[row].photo.likes += 1
-        self.feedData?[row].photo.liked = true
+        if self.feedData![row].photo.liked {
+            self.feedData?[row].photo.likes -= 1
+            self.feedData?[row].photo.liked = false
+        } else {
+            self.feedData?[row].photo.likes += 1
+            self.feedData?[row].photo.liked = true
+        }
         feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
@@ -114,14 +121,19 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         if feedItem.photo.liked {
             cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
             cell.heartButton.imageView?.tintColor = UIColor.red
+            cell.heartButton.animation = Spring.AnimationPreset.Pop.rawValue
+            cell.heartButton.animate()
         } else {
-            cell.heartButton.imageView?.image = #imageLiteral(resourceName: "heart-outline")
-            cell.heartButton.imageView?.tintColor = UIColor.black
-            
+            cell.heartButton.animation = Spring.AnimationPreset.ZoomOut.rawValue
+            cell.heartButton.animateNext(completion: {
+                cell.heartButton.imageView?.image = #imageLiteral(resourceName: "heart-outline")
+                cell.heartButton.imageView?.tintColor = UIColor.black
+                cell.heartButton.animation = Spring.AnimationPreset.FadeIn.rawValue
+                cell.heartButton.animate()
+            })
+
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
-        cell.heartButton.animation = Spring.AnimationPreset.Pop.rawValue
-        cell.heartButton.animate()
     }
 }
 

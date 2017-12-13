@@ -88,9 +88,12 @@
                                 <rect key="frame" x="136" y="0.0" width="264" height="39"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-N4-2ey">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-N4-2ey" customClass="SpringButton" customModule="Spring">
                                 <rect key="frame" x="410" y="4.5" width="30" height="30"/>
                                 <state key="normal" image="bookmark-outline"/>
+                                <connections>
+                                    <action selector="favoritePhoto:" destination="HsJ-dg-fsS" eventType="touchUpInside" id="gsy-wk-HBb"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>
@@ -149,6 +152,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteButton" destination="GhC-N4-2ey" id="zzB-yT-DbU"/>
                 <outlet property="heartButton" destination="CYl-gl-96j" id="h6e-f6-ozf"/>
                 <outlet property="heartImageView" destination="TxG-D5-1df" id="hEC-RB-ysd"/>
                 <outlet property="photo" destination="qfQ-iU-A3J" id="viS-7D-63K"/>

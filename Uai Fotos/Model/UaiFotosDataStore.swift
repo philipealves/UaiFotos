@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftRandom
+import MapKit
 
 class UaiFotosDataStore {
     
@@ -53,12 +54,31 @@ class UaiFotosDataStore {
         var photoList = [PhotoDTO]()
         
         for _ in 0..<number {
-            let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random())
+            let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random(), location: generateRandomLocale(title: Randoms.randomFakeConversation(), subtitle: Randoms.randomFakeConversation()))
             photoList.append(photo)
         }
         return photoList
     }
     
+    private func generateRandomLocale(title : String, subtitle : String) -> MKPointAnnotation {
+        let annotation = MKPointAnnotation()
+        //annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(randomBetweenNumbers(firstNum: -90, secondNum: 90)), longitude: CLLocationDegrees(randomBetweenNumbers(firstNum: -180, secondNum: 180)))
+        
+//        -18.898220, -48.274420
+        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(-18.898220), longitude: CLLocationDegrees(-48.274420))
+        
+        //-180 is the minimum of longitude and 180 is the maximum
+        //-90 is the minimum of latitude and 90 is the maximum
+        annotation.title = title
+        annotation.subtitle = subtitle
+        return annotation
+    }
+    
+    private func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+    }
+
+
     // Activity Data Store
     var userActivity: [(photo: PhotoDTO, friend: UserDTO, type: String)]? {
         get {

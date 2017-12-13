@@ -4,12 +4,19 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--LocalPhotos-->
+        <scene sceneID="FXS-oF-tFh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LocalPhotos" id="BKr-d8-Qyk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J59-ql-U6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="766" y="101"/>
+        </scene>
         <!--Feed Table View Controller-->
         <scene sceneID="wgf-zb-zBt">
             <objects>
@@ -43,6 +50,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="rXu-7k-tf5" id="iSv-JU-8Gw"/>
+                        <segue destination="BKr-d8-Qyk" kind="show" identifier="segueToLocalPhotos" id="TU6-d3-sun"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp0-rk-ttg" userLabel="First Responder" sceneMemberID="firstResponder"/>

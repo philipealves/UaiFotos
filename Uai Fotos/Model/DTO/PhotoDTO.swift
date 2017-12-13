@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct PhotoDTO {
     var picsumImage: PicsumImageDTO?
@@ -14,6 +15,7 @@ struct PhotoDTO {
     var likes: Int
     var views: Int
     var liked: Bool
+    var location: MKPointAnnotation?
     
     var imageUrl: URL {
         get {

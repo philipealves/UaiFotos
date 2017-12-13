@@ -12,6 +12,7 @@ import Hero
 import SwiftRandom
 import RxSwift
 import Spring
+import MapKit
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,7 @@ class FeedTableViewController: UIViewController {
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
+    var selectedPhotoLocation : MKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,7 @@ class FeedTableViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.selectedPhotoLocation = nil
         self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
         
         // Cria um botão a esquerda
@@ -53,6 +56,13 @@ class FeedTableViewController: UIViewController {
                           NSAttributedStringKey.font: UIFont(name: "MuralScript", size: 36)]
         
         self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //self.selectedFeedIndex
+        if segue.destination is LocalPhotosViewController {
+            (segue.destination as! LocalPhotosViewController).location = self.selectedPhotoLocation
+        }
     }
     
     func loadDataStore() {
@@ -84,6 +94,15 @@ class FeedTableViewController: UIViewController {
         feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
+    
+    func viewLocalPhoto(indexPath : IndexPath?) {
+        guard let row = indexPath?.row else { return }
+        guard let feed = self.feedData?[row] else { return }
+        guard let photoLocation = feed.photo.location else { return }
+        self.selectedPhotoLocation = photoLocation
+        self.performSegue(withIdentifier: "segueToLocalPhotos", sender: self)
+    }
+    
 }
 
 extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -153,6 +172,10 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
     
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?) {
         self.likePhoto(feedPhotoCell, indexPah)
+    }
+    
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, viewLocalPhotoAt indexPah: IndexPath?) {
+        self.viewLocalPhoto(indexPath: indexPah)
     }
     
 }

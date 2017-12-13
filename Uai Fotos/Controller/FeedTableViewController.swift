@@ -113,7 +113,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         if let feedItem = self.feedData?[indexPath.row] {
             cell.userName.text = feedItem.friend.name
             cell.userTitle.text = feedItem.friend.title
-            cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name!): ").normal(feedItem.photo.description ?? "")
+            cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name): ").normal(feedItem.photo.description ?? "")
             cell.photoCaption.text = feedItem.photo.photoCaption
             
             cell.photo.kf.indicatorType = .activity

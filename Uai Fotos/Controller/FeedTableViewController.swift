@@ -84,6 +84,18 @@ class FeedTableViewController: UIViewController {
         feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
+    
+    func favoritePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPath: IndexPath?) {
+        guard let row = indexPath?.row else { return }
+        guard let _ = self.feedData?[row] else { return }
+        if self.feedData![row].photo.favorited {
+            self.feedData?[row].photo.favorited = false
+        } else {
+            self.feedData?[row].photo.favorited = true
+        }
+        self.loadFavoriteImageButton((self.feedData?[row])!, feedPhotoCell)
+    }
+    
 }
 
 extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,7 +113,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         if let feedItem = self.feedData?[indexPath.row] {
             cell.userName.text = feedItem.friend.name
             cell.userTitle.text = feedItem.friend.title
-            cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name!): ").normal(feedItem.photo.description ?? "")
+            cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name): ").normal(feedItem.photo.description ?? "")
             cell.photoCaption.text = feedItem.photo.photoCaption
             
             cell.photo.kf.indicatorType = .activity
@@ -112,6 +124,8 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
             cell.userAvatar.isHeroEnabled = true
             cell.heartButton.imageView?.image = cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
             self.loadHeartImageButton(feedItem, cell)
+            cell.favoriteButton.imageView?.image = cell.favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+            self.loadFavoriteImageButton(feedItem, cell)
             
         }
         return cell
@@ -135,6 +149,25 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
     }
+    
+    func loadFavoriteImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
+        if feedItem.photo.favorited {
+            cell.favoriteButton.setImage(#imageLiteral(resourceName: "bookmark"), for: .normal)
+            cell.favoriteButton.imageView?.tintColor = UIColor.black
+            cell.favoriteButton.animation = Spring.AnimationPreset.Pop.rawValue
+            cell.favoriteButton.animate()
+        } else {
+            cell.favoriteButton.animation = Spring.AnimationPreset.ZoomOut.rawValue
+            cell.favoriteButton.animateNext(completion: {
+                cell.favoriteButton.setImage(#imageLiteral(resourceName: "bookmark-outline"), for: .normal)
+                cell.favoriteButton.imageView?.tintColor = UIColor.black
+                cell.favoriteButton.animation = Spring.AnimationPreset.FadeIn.rawValue
+                cell.favoriteButton.animate()
+            })
+            
+        }
+        cell.favoriteButton.setImage(cell.favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+    }
 }
 
 extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
@@ -155,4 +188,7 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
         self.likePhoto(feedPhotoCell, indexPah)
     }
     
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {
+        self.favoritePhoto(feedPhotoCell, indexPah!)
+    }
 }

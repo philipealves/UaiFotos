@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3aq-qZ-5fu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p6u-z2-l59">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SnellRoundhand.ttc">
+            <string>SnellRoundhand-Black</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Uai Fotos-->
         <scene sceneID="tne-QT-ifu">
@@ -44,5 +50,101 @@
             </objects>
             <point key="canvasLocation" x="-458" y="32"/>
         </scene>
+        <!--Show View Controller-->
+        <scene sceneID="fHp-vw-Vt8">
+            <objects>
+                <viewController id="p6u-z2-l59" customClass="ShowViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oi5-ca-rr8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Abertura-1" translatesAutoresizingMaskIntoConstraints="NO" id="0tY-cE-BMN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0tY-cE-BMN" secondAttribute="height" multiplier="375:667" id="Ca5-va-d2h"/>
+                                    <constraint firstAttribute="height" constant="667" id="Gqa-7K-USx"/>
+                                    <constraint firstAttribute="width" secondItem="0tY-cE-BMN" secondAttribute="height" multiplier="375:667" id="srv-KC-xRe"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBo-UU-dNb">
+                                <rect key="frame" x="16" y="528.5" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.072670137410000002" green="0.3100829396" blue="0.78569162439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gBo-UU-dNb" secondAttribute="height" multiplier="343:30" id="CQy-pQ-HGD"/>
+                                    <constraint firstAttribute="height" constant="30" id="cCX-kX-EwR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="  Entrar com o Facebook" image="facebookIco">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ink-0n-Owf">
+                                <rect key="frame" x="16" y="565" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ink-0n-Owf" secondAttribute="height" multiplier="343:30" id="KEu-QV-6w2"/>
+                                    <constraint firstAttribute="height" constant="30" id="RD6-n4-olp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="Entrar com E-mail">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjW-HS-h2C">
+                                <rect key="frame" x="16" y="603" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MjW-HS-h2C" secondAttribute="height" multiplier="343:30" id="HvC-Vr-Na5"/>
+                                    <constraint firstAttribute="height" constant="30" id="qM4-Ug-PT8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uai Fotos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSG-KS-RdV">
+                                <rect key="frame" x="36" y="69" width="303" height="79.5"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand-Black" family="Snell Roundhand" pointSize="63"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MjW-HS-h2C" firstAttribute="top" secondItem="Ink-0n-Owf" secondAttribute="bottom" constant="8" id="1Il-Eb-Cpj"/>
+                            <constraint firstItem="MjW-HS-h2C" firstAttribute="top" secondItem="Ink-0n-Owf" secondAttribute="bottom" constant="8" id="64P-rc-5W4"/>
+                            <constraint firstItem="Ink-0n-Owf" firstAttribute="top" secondItem="gBo-UU-dNb" secondAttribute="bottom" constant="6.5" id="67x-IX-Ybv"/>
+                            <constraint firstItem="MjW-HS-h2C" firstAttribute="leading" secondItem="2uk-IO-o3Q" secondAttribute="leading" constant="16" id="7Z9-w6-jPY"/>
+                            <constraint firstItem="gBo-UU-dNb" firstAttribute="top" secondItem="tSG-KS-RdV" secondAttribute="bottom" constant="380" id="ADq-xI-lGu"/>
+                            <constraint firstItem="2uk-IO-o3Q" firstAttribute="trailing" secondItem="gBo-UU-dNb" secondAttribute="trailing" constant="16" id="BRf-Ed-aDn"/>
+                            <constraint firstItem="Ink-0n-Owf" firstAttribute="top" secondItem="gBo-UU-dNb" secondAttribute="bottom" constant="6.5" id="H2L-PN-ATS"/>
+                            <constraint firstItem="2uk-IO-o3Q" firstAttribute="trailing" secondItem="Ink-0n-Owf" secondAttribute="trailing" constant="16" id="K1x-EZ-jq9"/>
+                            <constraint firstItem="2uk-IO-o3Q" firstAttribute="bottom" secondItem="MjW-HS-h2C" secondAttribute="bottom" constant="34" id="KNe-on-PYw"/>
+                            <constraint firstItem="tSG-KS-RdV" firstAttribute="top" secondItem="2uk-IO-o3Q" secondAttribute="top" constant="49" id="Nxs-WO-i88"/>
+                            <constraint firstItem="0tY-cE-BMN" firstAttribute="bottom" secondItem="2uk-IO-o3Q" secondAttribute="bottom" id="R5O-Sc-B3I"/>
+                            <constraint firstItem="0tY-cE-BMN" firstAttribute="top" secondItem="oi5-ca-rr8" secondAttribute="top" id="V3s-9w-xhF"/>
+                            <constraint firstItem="0tY-cE-BMN" firstAttribute="leading" secondItem="2uk-IO-o3Q" secondAttribute="leading" id="frF-a9-gEc"/>
+                            <constraint firstItem="gBo-UU-dNb" firstAttribute="leading" secondItem="2uk-IO-o3Q" secondAttribute="leading" constant="16" id="mAD-7c-deN"/>
+                            <constraint firstItem="2uk-IO-o3Q" firstAttribute="trailing" secondItem="tSG-KS-RdV" secondAttribute="trailing" constant="36" id="mUg-bg-zoS"/>
+                            <constraint firstItem="0tY-cE-BMN" firstAttribute="trailing" secondItem="2uk-IO-o3Q" secondAttribute="trailing" id="ngm-do-z2N"/>
+                            <constraint firstItem="tSG-KS-RdV" firstAttribute="leading" secondItem="2uk-IO-o3Q" secondAttribute="leading" constant="36" id="q3d-8d-C0A"/>
+                            <constraint firstItem="Ink-0n-Owf" firstAttribute="leading" secondItem="2uk-IO-o3Q" secondAttribute="leading" constant="16" id="vSQ-2T-bjp"/>
+                            <constraint firstItem="gBo-UU-dNb" firstAttribute="top" secondItem="tSG-KS-RdV" secondAttribute="bottom" constant="380" id="xFt-MW-alf"/>
+                            <constraint firstItem="2uk-IO-o3Q" firstAttribute="trailing" secondItem="MjW-HS-h2C" secondAttribute="trailing" constant="16" id="xVs-oA-KDT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2uk-IO-o3Q"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgShow" destination="0tY-cE-BMN" id="BOt-Zg-EVb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-Sp-g7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1318" y="32"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Abertura-1" width="945" height="630"/>
+        <image name="facebookIco" width="32" height="32"/>
+    </resources>
 </document>

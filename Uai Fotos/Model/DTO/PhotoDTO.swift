@@ -14,6 +14,7 @@ struct PhotoDTO {
     var likes: Int
     var views: Int
     var liked: Bool
+    var favorited: Bool
     
     var imageUrl: URL {
         get {

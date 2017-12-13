@@ -59,5 +59,21 @@ class UaiFotosDataStore {
         return photoList
     }
     
+    // Activity Data Store
+    var userActivity: [(photo: PhotoDTO, friend: UserDTO, type: String)]? {
+        get {
+            guard UaiFotosDataStore.user != nil else {
+                return nil
+            }
+            var feed = [(photo: PhotoDTO, friend: UserDTO, type: String)]()
+            for user in UaiFotosDataStore.user!.friends! {
+                guard user.photos != nil else { return nil }
+                for photo in user.photos! {
+                    feed.append((photo: photo, friend: user, type: "Following"))
+                }
+            }
+            return feed.sorted(by: { _,_ in arc4random() < arc4random() })
+        }
+    }
     
 }

@@ -11,12 +11,11 @@ import SwiftyAvatar
 import Spring
 
 class ActivityTableViewCell: UITableViewCell {
-
+    
+    static let identifier = "activityTableViewCell"
     @IBOutlet weak var userAvatar: SwiftyAvatar!
-    
     @IBOutlet weak var contentText: UILabel!
-    
-    @IBOutlet weak var actionButton: DesignableButton!
+    @IBOutlet weak var photo: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

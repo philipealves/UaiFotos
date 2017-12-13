@@ -96,12 +96,7 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     //@IBOutlet weak var nameTextField: UITextField!
     
     func loadUserDetails() {
-        if self.user == nil {
             interactor?.getUser()
-        } else {
-            let viewModel = Profile.User.ViewModel(displayUser: self.user)
-            self.displayUser(viewModel: viewModel)
-        }
     }
     
     func displayUser(viewModel: Profile.User.ViewModel) {

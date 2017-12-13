@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol SearchRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+  func routeToProfile(segue: UIStoryboardSegue?)
 }
 
 protocol SearchDataPassing {
@@ -26,29 +26,30 @@ class SearchRouter: NSObject, SearchRoutingLogic, SearchDataPassing {
   
   // MARK: Routing
   
-  //func routeToSomewhere(segue: UIStoryboardSegue?) {
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+  func routeToProfile(segue: UIStoryboardSegue?) {
+    if let segue = segue {
+      let destinationVC = segue.destination as! ProfileViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToProfile(source: dataStore!, destination: &destinationDS)
+    } else {
+      let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+      let destinationVC = storyboard.instantiateInitialViewController() as! ProfileViewController
+      var destinationDS = destinationVC.router!.dataStore!
+      passDataToProfile(source: dataStore!, destination: &destinationDS)
+      navigateToProfile(source: viewController!, destination: destinationVC)
+    }
+  }
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: SearchViewController, destination: SomewhereViewController) {
-  //  source.show(destination, sender: nil)
-  //}
+  func navigateToProfile(source: SearchViewController, destination: ProfileViewController) {
+    source.show(destination, sender: nil)
+  }
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: SearchDataStore, destination: inout SomewhereDataStore) {
-  //  destination.name = source.name
-  //}
+  func passDataToProfile(source: SearchDataStore, destination: inout ProfileDataStore) {
+    let selectedRow = self.viewController?.tableView.indexPathForSelectedRow?.row
+    destination.user = source.friends?[selectedRow!]
+  }
 }

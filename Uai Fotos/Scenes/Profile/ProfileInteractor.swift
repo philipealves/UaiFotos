@@ -17,7 +17,7 @@ protocol ProfileBusinessLogic {
 }
 
 protocol ProfileDataStore {
-    var user: UserDTO? { get }
+    var user: UserDTO? { get set }
 }
 
 class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
@@ -29,8 +29,10 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
     // MARK: Do something
     
     func getUser() {
-        worker = ProfileWorker()
-        self.user = worker?.getLoggedUser()
+        if self.user == nil {
+            worker = ProfileWorker()
+            self.user = worker?.getLoggedUser()
+        }
         
         let response = Profile.User.Response(loggedUser: self.user)
         presenter?.presentUser(response: response)

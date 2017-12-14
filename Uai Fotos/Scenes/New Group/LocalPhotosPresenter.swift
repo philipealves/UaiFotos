@@ -13,16 +13,17 @@
 import UIKit
 
 protocol LocalPhotosPresentationLogic {
-  func presentSomething(response: LocalPhotos.Something.Response)
+    func presentPhotosByLocation(response: LocalPhotos.PhotosByLocation.Response)
 }
 
 class LocalPhotosPresenter: LocalPhotosPresentationLogic {
+    
   weak var viewController: LocalPhotosDisplayLogic?
   
-  // MARK: Do something
-  
-  func presentSomething(response: LocalPhotos.Something.Response) {
-    let viewModel = LocalPhotos.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+  func presentPhotosByLocation(response: LocalPhotos.PhotosByLocation.Response) {
+    let viewModel = LocalPhotos.PhotosByLocation.ViewModel(photos: response.photos)
+    
+    viewController?.displayPhotosByLocation(viewModel: viewModel)
   }
+
 }

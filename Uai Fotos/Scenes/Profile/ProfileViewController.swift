@@ -119,7 +119,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        
+
         if let photoUrl = self.user?.photos[indexPath.row] {
             cell.imageGallery.kf.indicatorType = .activity
             cell.imageGallery.kf.setImage(with: photoUrl)

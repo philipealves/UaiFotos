@@ -11,8 +11,11 @@
 //
 
 import UIKit
+import MapKit
 
 class LocalPhotosWorker {
-	func doSomeWork() {
-	}
+
+    func getPhotosByLocation(latitude : Double, longitude : Double) -> [PhotoDTO] {
+        return UaiFotosDataStore().generatePhotos(number: 32)
+    }
 }

@@ -20,7 +20,7 @@ class FeedTableViewController: UIViewController {
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
-    var selectedPhotoLocation : MKPointAnnotation?
+    var selectedPhotoLocation : LocationDTO?
     
     override func viewDidLoad() {
         super.viewDidLoad()

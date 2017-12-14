@@ -11,30 +11,24 @@
 //
 
 import UIKit
-import MapKit
 
 protocol LocalPhotosBusinessLogic {
-  func doSomething(request: LocalPhotos.Something.Request)
+    func getPhotosByLocation(request: LocalPhotos.PhotosByLocation.Request)
 }
 
 protocol LocalPhotosDataStore {
-    var location: MKPointAnnotation? { get set }
+
 }
 
 class LocalPhotosInteractor: LocalPhotosBusinessLogic, LocalPhotosDataStore {
-
-  var location: MKPointAnnotation?
-  var presenter: LocalPhotosPresentationLogic?
-  var worker: LocalPhotosWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: LocalPhotos.Something.Request) {
-    worker = LocalPhotosWorker()
-    worker?.doSomeWork()
     
-    let response = LocalPhotos.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var presenter: LocalPhotosPresentationLogic?
+    var worker: LocalPhotosWorker?
+
+    func getPhotosByLocation(request: LocalPhotos.PhotosByLocation.Request) {
+        worker = LocalPhotosWorker()
+        let photos = worker?.getPhotosByLocation(latitude: request.latitude, longitude: request.longitude) ?? []
+        let response = LocalPhotos.PhotosByLocation.Response(photos: photos)
+        presenter?.presentPhotosByLocation(response: response)
+    }
 }

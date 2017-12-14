@@ -14,7 +14,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageGallery: UIImageView!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint?
     @IBInspectable var horizontalPhotoNumber: Int = 3
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false

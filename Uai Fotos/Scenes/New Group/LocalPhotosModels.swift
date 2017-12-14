@@ -11,16 +11,22 @@
 //
 
 import UIKit
+import MapKit
 
 enum LocalPhotos {
   // MARK: Use cases
-  
-  enum Something {
+
+  enum PhotosByLocation {
     struct Request {
+        var latitude : Double
+        var longitude : Double
     }
     struct Response {
+        var photos : [PhotoDTO]
     }
     struct ViewModel {
+        var photos : [PhotoDTO]
     }
   }
+
 }

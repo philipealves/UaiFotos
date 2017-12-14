@@ -14,18 +14,22 @@ import UIKit
 import MapKit
 
 protocol LocalPhotosDisplayLogic: class {
-    func displaySomething(viewModel: LocalPhotos.Something.ViewModel)
+    func displayPhotosByLocation(viewModel: LocalPhotos.PhotosByLocation.ViewModel)
 }
 
 
 class LocalPhotosViewController: UIViewController, LocalPhotosDisplayLogic {
+    
     var interactor: LocalPhotosBusinessLogic?
     var router: (NSObjectProtocol & LocalPhotosRoutingLogic & LocalPhotosDataPassing)?
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var localPhotosCollection: UICollectionView!
+    // constraint de altura da collection para ser alterada de acordo com o contentsize.height
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
-//    var coordinate: CLLocationCoordinate2D?
-    var location: MKPointAnnotation?
+    lazy var photosOfLocation = [PhotoDTO]()
+    var location: LocationDTO?
     
     
     // MARK: Object lifecycle
@@ -75,11 +79,20 @@ class LocalPhotosViewController: UIViewController, LocalPhotosDisplayLogic {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         
+        self.localPhotosCollection.dataSource = self
+        self.localPhotosCollection.delegate = self
+
+        self.localPhotosCollection.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
-        doSomething()
-        
-        
-        
+        getPhotosByLocation()
+    }
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            if let size = change?[NSKeyValueChangeKey.newKey] as? CGSize {
+                self.collectionViewHeightConstraint.constant = size.height
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,28 +101,21 @@ class LocalPhotosViewController: UIViewController, LocalPhotosDisplayLogic {
     
     func showLocation() {
         if let loc = self.location {
-            
-            self.mapView.showAnnotations([loc], animated: true)
-            /*
-            let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
-            var region = MKCoordinateRegion(center: loc.coordinate, span: span)
-            region.center = self.mapView.userLocation.coordinate
-            self.mapView.setRegion(region, animated: true)
-            */
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(loc.latitude), longitude: CLLocationDegrees(loc.longitude))
+            annotation.title = loc.description
+            self.mapView.showAnnotations([annotation], animated: true)
         }
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = LocalPhotos.Something.Request()
-        interactor?.doSomething(request: request)
+    func getPhotosByLocation() {
+        let request = LocalPhotos.PhotosByLocation.Request(latitude: location!.latitude, longitude: location!.longitude)
+        interactor?.getPhotosByLocation(request: request)
     }
     
-    func displaySomething(viewModel: LocalPhotos.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayPhotosByLocation(viewModel: LocalPhotos.PhotosByLocation.ViewModel) {
+        self.photosOfLocation = viewModel.photos
+        self.localPhotosCollection.reloadData()
     }
 }
 
@@ -117,3 +123,38 @@ extension LocalPhotosViewController: MKMapViewDelegate {
     
 }
 
+extension LocalPhotosViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.photosOfLocation.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCell
+
+        let photoUrl = self.photosOfLocation[indexPath.row].imageUrl
+        cell.photoImage.kf.indicatorType = .activity
+        cell.photoImage.kf.setImage(with: photoUrl)
+        return cell
+    }
+}
+
+extension LocalPhotosViewController: UICollectionViewDelegate {
+    
+}
+
+extension LocalPhotosViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (UIScreen.main.bounds.width / 3) - 2
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+}

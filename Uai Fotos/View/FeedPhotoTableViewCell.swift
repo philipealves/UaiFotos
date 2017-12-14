@@ -15,6 +15,7 @@ protocol FeedPhotoTableViewCellDelegate {
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, sharePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?)
 }
 
 class FeedPhotoTableViewCell: UITableViewCell {
@@ -35,17 +36,22 @@ class FeedPhotoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
-        self.photo.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizerImage = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
+        self.photo.addGestureRecognizer(tapGestureRecognizerImage)
+        let tapGestureRecognizerAvatar = UITapGestureRecognizer(target: self, action: #selector(handleTapOnAvatarTitle(_:)))
+        self.userAvatar.addGestureRecognizer(tapGestureRecognizerAvatar)
+        let tapGestureRecognizerTitle = UITapGestureRecognizer(target: self, action: #selector(handleTapOnAvatarTitle(_:)))
+        self.userName.addGestureRecognizer(tapGestureRecognizerTitle)
+        
         self.heartImageView.alpha = 0
         self.heartImageView.image = self.heartImageView.image?.withRenderingMode(.alwaysTemplate)
         self.heartImageView.tintColor = UIColor.white
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @objc func handleTapOnAvatarTitle(_ : UITapGestureRecognizer)  {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, avatarAndTitleTapAt: self.indexPath)
+        }
     }
     
     @objc func handleTapOnImage(_ : UITapGestureRecognizer)  {

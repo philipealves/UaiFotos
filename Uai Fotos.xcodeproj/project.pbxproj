@@ -33,6 +33,7 @@
 		87A782291FE18B8500D26D96 /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782231FE18B8500D26D96 /* ProfileModels.swift */; };
 		87A7822A1FE18B8500D26D96 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782241FE18B8500D26D96 /* ProfileViewController.swift */; };
 		87A7822B1FE18B8500D26D96 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A782251FE18B8500D26D96 /* ProfileInteractor.swift */; };
+		87A7822F1FE30EDA00D26D96 /* TipInCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7822E1FE30EDA00D26D96 /* TipInCellAnimator.swift */; };
 		87ABA7431FE0571700A519F8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7421FE0571700A519F8 /* SearchViewController.swift */; };
 		87ABA7451FE0584F00A519F8 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */; };
 		87ABA7471FE05A8000A519F8 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */; };
@@ -93,6 +94,7 @@
 		87A782231FE18B8500D26D96 /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		87A782241FE18B8500D26D96 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		87A782251FE18B8500D26D96 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		87A7822E1FE30EDA00D26D96 /* TipInCellAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipInCellAnimator.swift; sourceTree = "<group>"; };
 		87ABA7421FE0571700A519F8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		87ABA7441FE0584F00A519F8 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		87ABA7461FE05A8000A519F8 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */,
 				23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */,
 				6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */,
+				87A7822E1FE30EDA00D26D96 /* TipInCellAnimator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				87A782281FE18B8500D26D96 /* ProfileRouter.swift in Sources */,
 				87F820891FDA038C0047C2CD /* Randoms.swift in Sources */,
 				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
+				87A7822F1FE30EDA00D26D96 /* TipInCellAnimator.swift in Sources */,
 				16ED8FAF1FE1D7AE000B0D2F /* ActivityDetailViewController.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,

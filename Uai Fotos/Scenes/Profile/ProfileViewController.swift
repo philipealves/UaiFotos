@@ -79,7 +79,6 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
             flowLayout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
         }
         self.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        
         loadUserDetails()
     }
     
@@ -106,11 +105,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         self.numberOfFollowingLabel.text = self.user?.following
         self.numberOfFollowersLabel.text = self.user?.followers
         self.userDescriptionLabel.attributedText = self.user?.bio
+        self.navigationItem.title = self.user?.name
         self.collectionView.reloadData()
     }
 }
 
-extension ProfileViewController: UICollectionViewDataSource {
+extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -126,5 +126,15 @@ extension ProfileViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+    
+    // MARK: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.router?.routeToActivityDetail(segue: nil)
+        self.collectionView.deselectItem(at: indexPath, animated: false)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        TipInCellAnimator.fadeIn(cell: cell.contentView)
     }
 }

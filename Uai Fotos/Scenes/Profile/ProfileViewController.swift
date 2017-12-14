@@ -12,6 +12,7 @@
 
 import UIKit
 import SwiftyAvatar
+import Spring
 
 protocol ProfileDisplayLogic: class {
     func displayUser(viewModel: Profile.User.ViewModel)
@@ -22,6 +23,7 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
     
     var user: Profile.User.ViewModel.DisplayUser?
+    var photoViewMode: Int = 1
     
     @IBOutlet weak var collectionView: UICollectionView!
     // constraint de altura da collection para ser alterada de acordo com o contentsize.height
@@ -79,7 +81,7 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
             flowLayout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
         }
         self.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        loadUserDetails()
+        interactor?.getUser()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -90,13 +92,19 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         }
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func loadUserDetails() {
-            interactor?.getUser()
+    @IBAction func multiColumnButtonTouch(_ sender: SpringButton) {
+        PhotoCollectionViewCell.horizontalPhotoNumber = 3
+        self.collectionView.collectionViewLayout.invalidateLayout()
+        self.collectionView.reloadData()
     }
+
+    @IBAction func oneColumnButtonTouch(_ sender: SpringButton) {
+        PhotoCollectionViewCell.horizontalPhotoNumber = 1
+        self.collectionView.collectionViewLayout.invalidateLayout()
+        self.collectionView.reloadData()
+    }
+    
+    
     
     func displayUser(viewModel: Profile.User.ViewModel) {
         self.user = viewModel.displayUser
@@ -124,7 +132,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
             cell.imageGallery.kf.indicatorType = .activity
             cell.imageGallery.kf.setImage(with: photoUrl)
         }
-        
+ 
         return cell
     }
     

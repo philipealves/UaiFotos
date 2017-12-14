@@ -16,6 +16,7 @@ import MapKit
 class LocalPhotosWorker {
 
     func getPhotosByLocation(latitude : Double, longitude : Double) -> [PhotoDTO] {
-        return UaiFotosDataStore().generatePhotos(number: 32)
+        let qtPhotos = Int(arc4random_uniform(90))
+        return UaiFotosDataStore().generatePhotos(number: qtPhotos)
     }
 }

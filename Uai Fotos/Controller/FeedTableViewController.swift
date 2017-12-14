@@ -57,9 +57,16 @@ class FeedTableViewController: UIViewController {
         
         self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
     }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is LocalPhotosViewController {
+        if let dest = segue.destination as? CommentViewController {
+            let indexPath = sender as? IndexPath
+            let photo = self.feedData![(indexPath?.row)!].photo
+            let friend = self.feedData![(indexPath?.row)!].friend
+            dest.photoSelected = photo
+            dest.friendSelected = friend
+        }
+        else if segue.destination is LocalPhotosViewController {
             (segue.destination as! LocalPhotosViewController).location = self.photoLocation
         }
     }
@@ -156,15 +163,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         TipInCellAnimator.fadeIn(cell: cell.contentView)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? CommentViewController {
-            let indexPath = sender as? IndexPath
-            let photo = self.feedData![(indexPath?.row)!].photo
-            let friend = self.feedData![(indexPath?.row)!].friend
-            dest.photoSelected = photo
-            dest.friendSelected = friend
-        }
-    }
+
 
 
     func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {

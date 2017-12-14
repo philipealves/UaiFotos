@@ -56,7 +56,7 @@ class UaiFotosDataStore {
         for index in 0..<number {
             let comments = self.genetareComments()
             let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random(), favorited: false,
-                                 comments: comments, generateRandomLocale(id: index))
+                                 comments: comments, location: generateRandomLocale(id: index))
             photoList.append(photo)
         }
         return photoList

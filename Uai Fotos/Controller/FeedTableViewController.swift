@@ -20,7 +20,7 @@ class FeedTableViewController: UIViewController {
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
-    var selectedPhotoLocation : LocationDTO?
+    var photoLocation : LocationDTO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class FeedTableViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.selectedPhotoLocation = nil
+        self.photoLocation = nil
         self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
         
         // Cria um botão a esquerda
@@ -59,9 +59,8 @@ class FeedTableViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //self.selectedFeedIndex
         if segue.destination is LocalPhotosViewController {
-            (segue.destination as! LocalPhotosViewController).location = self.selectedPhotoLocation
+            (segue.destination as! LocalPhotosViewController).location = self.photoLocation
         }
     }
     
@@ -98,8 +97,8 @@ class FeedTableViewController: UIViewController {
     func viewLocalPhoto(indexPath : IndexPath?) {
         guard let row = indexPath?.row else { return }
         guard let feed = self.feedData?[row] else { return }
-        guard let photoLocation = feed.photo.location else { return }
-        self.selectedPhotoLocation = photoLocation
+        guard let location = feed.photo.location else { return }
+        self.photoLocation = location
         self.performSegue(withIdentifier: "segueToLocalPhotos", sender: self)
     }
 

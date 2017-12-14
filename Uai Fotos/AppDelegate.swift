@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftMessages.defaultConfig.duration = .seconds(seconds: 3)
         SwiftMessages.defaultConfig.dimMode = .gray(interactive: true)
         
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: UIControlState.normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: UIControlState.highlighted)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: UIControlState.focused)
+
         // theme
 //        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)
         

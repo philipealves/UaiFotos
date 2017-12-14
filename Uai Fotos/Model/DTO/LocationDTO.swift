@@ -12,9 +12,11 @@ class LocationDTO {
     
     var latitude : Double
     var longitude : Double
+    var city : String
     var description : String
 
-    init(description : String, latitude : Double, longitude : Double) {
+    init(city : String, description : String, latitude : Double, longitude : Double) {
+        self.city = city        
         self.description = description
         self.latitude = latitude
         self.longitude = longitude

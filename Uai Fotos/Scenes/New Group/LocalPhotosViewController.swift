@@ -75,6 +75,7 @@ class LocalPhotosViewController: UIViewController, LocalPhotosDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.mapView.userTrackingMode = .follow
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
@@ -85,6 +86,20 @@ class LocalPhotosViewController: UIViewController, LocalPhotosDisplayLogic {
         self.localPhotosCollection.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         
         getPhotosByLocation()
+        
+  //      self.navigationItem.titleView
+//        self.navigationItem.titleView = self.titleNavigationBar
+//        let btnSearch = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.search, target: self, action: nil)
+//        btnSearch.tintColor = UIColor.white
+        //let btnAdd = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: nil)
+        //btnAdd.tintColor = UIColor.blue
+        //btnAdd.image = #imageLiteral(resourceName: "paper_plane")
+        
+        
+        self.title = self.location?.city
+        
+        //self.navigationItem.setRightBarButtonItems([btnAdd], animated: false)
+        //self.navigationItem.titleView
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -104,13 +119,16 @@ class LocalPhotosViewController: UIViewController, LocalPhotosDisplayLogic {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(loc.latitude), longitude: CLLocationDegrees(loc.longitude))
             annotation.title = loc.description
+            annotation.subtitle = loc.description
             self.mapView.showAnnotations([annotation], animated: true)
         }
     }
     
     func getPhotosByLocation() {
-        let request = LocalPhotos.PhotosByLocation.Request(latitude: location!.latitude, longitude: location!.longitude)
-        interactor?.getPhotosByLocation(request: request)
+        if let location = self.location {
+            let request = LocalPhotos.PhotosByLocation.Request(latitude: location.latitude, longitude: location.longitude)
+            interactor?.getPhotosByLocation(request: request)
+        }
     }
     
     func displayPhotosByLocation(viewModel: LocalPhotos.PhotosByLocation.ViewModel) {

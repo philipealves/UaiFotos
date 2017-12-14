@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Local Photos View Controller-->
+        <!--Title-->
         <scene sceneID="EvL-r6-Sch">
             <objects>
                 <viewController id="Jkx-Ia-biL" customClass="LocalPhotosViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,6 +114,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bid-uh-q4v"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="FhL-ss-IPq"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionViewHeightConstraint" destination="QcH-vO-jZA" id="gcR-9T-Gcd"/>
                         <outlet property="localPhotosCollection" destination="ahQ-9C-VPq" id="Bcw-za-w8l"/>

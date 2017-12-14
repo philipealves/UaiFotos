@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 class ActivityDetailViewController: UIViewController {
     

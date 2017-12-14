@@ -50,6 +50,8 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                             <real key="value" value="0.0"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>

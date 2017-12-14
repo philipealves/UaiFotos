@@ -33,7 +33,7 @@ class FeedTableViewController: UIViewController {
         }
         
         self.loadDataStore()
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,7 +70,7 @@ class FeedTableViewController: UIViewController {
                 }
             },onError: { print($0) }).disposed(by: self.disposeBag)
     }
-
+    
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
         guard let row = indexPah?.row else { return }
         guard let _ = self.feedData?[row] else { return }
@@ -113,7 +113,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         if let feedItem = self.feedData?[indexPath.row] {
             cell.userName.text = feedItem.friend.name
             cell.userTitle.text = feedItem.friend.title
-            cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name): ").normal(feedItem.photo.description ?? "")
+            cell.photoDescription.attributedText = NSMutableAttributedString().bold("\(feedItem.friend.name!): ").normal(feedItem.photo.description ?? "")
             cell.photoCaption.text = feedItem.photo.photoCaption
             
             cell.photo.kf.indicatorType = .activity
@@ -131,6 +131,10 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        TipInCellAnimator.fadeIn(cell: cell.contentView)
+    }
+    
     func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
         if feedItem.photo.liked {
             cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
@@ -145,7 +149,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.heartButton.animation = Spring.AnimationPreset.FadeIn.rawValue
                 cell.heartButton.animate()
             })
-
+            
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
     }
@@ -190,5 +194,15 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
     
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {
         self.favoritePhoto(feedPhotoCell, indexPah!)
+    }
+    
+    func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?) {
+        if let (_, friend) = self.feedData?[indexPah?.row ?? -1] {
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let destinationVC = storyboard.instantiateInitialViewController() as! ProfileViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            destinationDS.user = friend
+            self.show(destinationVC, sender: nil)
+        }
     }
 }

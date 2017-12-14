@@ -7,17 +7,35 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
 class ShowViewController: UIViewController {
 
-    @IBOutlet weak var imgShow: UIImageView!
-    
     
     var index = 0
     var imagesArr = [UIImage]()
+    var dict : [String : AnyObject]!
     let animationDuration: TimeInterval = 0.25
     let switchingInterval: TimeInterval = 3
     static let imagesNames = ["Abertura-1","Abertura-2","Abertura-3","Abertura-4"]
+    
+    
+    @IBOutlet weak var imgShow: UIImageView!
+    
+    @IBOutlet weak var btnFacebook: UIButton!
+    
+    @IBAction func btnLogin(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueLogin", sender: nil)
+    }
+    
+    @IBAction func btnEntrarEmail(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueLogin", sender: nil)
+    }
+    
+    @IBAction func btnFacebook(_ sender: UIButton) {
+        loginFacebook()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +46,35 @@ class ShowViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
+    }
+    
+    func loginFacebook(){
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if (error == nil){
+                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                if fbloginresult.grantedPermissions != nil {
+                    if(fbloginresult.grantedPermissions.contains("email"))
+                    {
+                        self.getFBUserData()
+                        fbLoginManager.logOut()
+                        self.performSegueMain()
+                    }
+                }
+            }
+        }
+    }
+    
+    func getFBUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    self.dict = result as! [String : AnyObject]
+                    print(result!)
+                    print(self.dict)
+                }
+            })
+        }
     }
     
     func fillImages(){
@@ -62,15 +108,12 @@ class ShowViewController: UIViewController {
         index = index < imagesArr.count - 1 ? index + 1 : 0
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func performSegueMain(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()!
+        
+        UIApplication.shared.delegate?.window??.rootViewController = controller
+        UIApplication.shared.delegate?.window??.makeKeyAndVisible()
     }
-    */
 
 }

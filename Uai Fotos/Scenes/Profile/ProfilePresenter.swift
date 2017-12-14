@@ -29,12 +29,12 @@ class ProfilePresenter: ProfilePresentationLogic {
         let followers = String(Int.random())
         let following = String(loggedUser.friends?.count ?? 0)
         let bio = NSMutableAttributedString().bold(loggedUser.name!).normal(
-            " \(loggedUser.title!) \(Randoms.randomFakeConversation())")
+            "\n\(loggedUser.title!)\n\(loggedUser.email!)\n\(Randoms.randomFakeConversation())")
         let photos: [URL] = loggedUser.photos?.map({ (photo) -> URL in
             return photo.imageUrl
         }) ?? []
         
-        displayUser = Profile.User.ViewModel.DisplayUser(avatar: loggedUser.avatarUrl, publications: publications, followers: followers, following: following, bio: bio, photos: photos)
+        displayUser = Profile.User.ViewModel.DisplayUser(name: loggedUser.name!, avatar: loggedUser.avatarUrl, publications: publications, followers: followers, following: following, bio: bio, photos: photos)
     }
 
     let viewModel = Profile.User.ViewModel(displayUser: displayUser)

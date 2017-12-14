@@ -131,7 +131,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell.imageView?.kf.indicatorType = .activity
         cell.imageView?.kf.setImage(with: friend.avatarUrl)
         
+        cell.isHeroEnabled = true
+        cell.heroModifiers = [.fade, .scale(0.5)]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        TipInCellAnimator.fadeIn(cell: cell.contentView)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

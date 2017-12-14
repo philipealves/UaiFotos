@@ -4,10 +4,22 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
   - BFKit-Swift (3.0.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - Eureka (4.0.1)
+  - FBSDKCoreKit (4.29.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.29.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.29.0):
+    - FBSDKCoreKit
   - Firebase/Auth (4.7.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.0)
@@ -63,6 +75,9 @@ DEPENDENCIES:
   - BFKit-Swift
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Eureka (~> 4.0.1)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
   - Firebase/Auth
   - Firebase/Core
   - Hero (~> 1.0.1)
@@ -94,8 +109,12 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   BFKit-Swift: 3961ac2e3db77308061c66478e35320730d5806d
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
+  FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
   Firebase: dbfb98ccec2dcfcd21ab9cc1b4981a3f3c8c5e26
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: cdeee95b528958dbb7dcf220ad0fb804d3a284b0
@@ -116,6 +135,6 @@ SPEC CHECKSUMS:
   SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   SwiftyAvatar: 33aecda825c91851cac2aabd06b33f3698b2414c
 
-PODFILE CHECKSUM: bbc1e0437d2daf852614bc1ec9afc395e06a8bbb
+PODFILE CHECKSUM: bea2a89d510db3c617278bcce7c6b06695600f4a
 
 COCOAPODS: 1.3.1

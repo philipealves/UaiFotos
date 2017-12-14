@@ -30,6 +30,7 @@ class ActivityDetailViewController: UIViewController {
             feedPhotoView.userAvatar.kf.setImage(with: feedItem.friend.avatarUrl)
             feedPhotoView.userAvatar.isHeroEnabled = true
             feedPhotoView.heartButton.imageView?.image = feedPhotoView.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+            self.loadFavoriteImageButton(feedItem, feedPhotoView)
         }
         
         var scrollView: UIScrollView!
@@ -50,6 +51,25 @@ class ActivityDetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func loadFavoriteImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
+        if feedItem.photo.favorited {
+            cell.favoriteButton.setImage(#imageLiteral(resourceName: "bookmark"), for: .normal)
+            cell.favoriteButton.imageView?.tintColor = UIColor.black
+            cell.favoriteButton.animation = Spring.AnimationPreset.Pop.rawValue
+            cell.favoriteButton.animate()
+        } else {
+            cell.favoriteButton.animation = Spring.AnimationPreset.ZoomOut.rawValue
+            cell.favoriteButton.animateNext(completion: {
+                cell.favoriteButton.setImage(#imageLiteral(resourceName: "bookmark-outline"), for: .normal)
+                cell.favoriteButton.imageView?.tintColor = UIColor.black
+                cell.favoriteButton.animation = Spring.AnimationPreset.FadeIn.rawValue
+                cell.favoriteButton.animate()
+            })
+            
+        }
+        cell.favoriteButton.setImage(cell.favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
     }
 
 }

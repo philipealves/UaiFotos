@@ -61,6 +61,7 @@
 		95B4C8AD1FE1A36700126F96 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B4C8AB1FE1A36700126F96 /* CommentTableViewCell.swift */; };
 		95B4C8AE1FE1A36700126F96 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B4C8AC1FE1A36700126F96 /* CommentTableViewCell.xib */; };
 		95B4C8B01FE1C0A400126F96 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B4C8AF1FE1C0A400126F96 /* CommentViewController.swift */; };
+		95E1C7751FE30ABD00B465B2 /* CommentDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E1C7741FE30ABC00B465B2 /* CommentDTO.swift */; };
 		F470855863BB0C9DE3597389 /* Pods_Uai_Fotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67587B64A7C50F16708AC41A /* Pods_Uai_Fotos.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		95B4C8AB1FE1A36700126F96 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		95B4C8AC1FE1A36700126F96 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		95B4C8AF1FE1C0A400126F96 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		95E1C7741FE30ABC00B465B2 /* CommentDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +296,7 @@
 				87F8208B1FDAEBA80047C2CD /* PicsumImageDTO.swift */,
 				87F820941FDAFD940047C2CD /* UserDTO.swift */,
 				87F820961FDAFDED0047C2CD /* PhotoDTO.swift */,
+				95E1C7741FE30ABC00B465B2 /* CommentDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				87A7822B1FE18B8500D26D96 /* ProfileInteractor.swift in Sources */,
 				87F820951FDAFD940047C2CD /* UserDTO.swift in Sources */,
 				87F820971FDAFDED0047C2CD /* PhotoDTO.swift in Sources */,
+				95E1C7751FE30ABD00B465B2 /* CommentDTO.swift in Sources */,
 				235F362F1FDB274B006E7A21 /* TabBarSwitcher.swift in Sources */,
 				87A782261FE18B8500D26D96 /* ProfilePresenter.swift in Sources */,
 				87E79CAE1FD88B5000A23DF7 /* colors.swift in Sources */,

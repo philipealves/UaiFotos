@@ -51,9 +51,10 @@ class UaiFotosDataStore {
     
     public func generatePhotos(number: Int) -> [PhotoDTO] {
         var photoList = [PhotoDTO]()
-        
         for _ in 0..<number {
-            let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random(), favorited: false)
+            let comments = self.genetareComments()
+            let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random(), favorited: false,
+                                 comments: comments)
             photoList.append(photo)
         }
         return photoList
@@ -74,6 +75,18 @@ class UaiFotosDataStore {
             }
             return feed.sorted(by: { _,_ in arc4random() < arc4random() })
         }
+    }
+    
+    func genetareComments() -> [CommentDTO]{
+        var comments = [CommentDTO]()
+        let number = Randoms.randomInt(1, 20)
+        
+        for _ in 0..<number {
+            let user = UserDTO(name: Randoms.randomFakeBrazilianName(), title: Randoms.randomFakeTitle(), email: Randoms.randomFakeEmail(), avatar: Randoms.randomFakeGravatarUrl(), photos: nil, friends: nil)
+            let comment = CommentDTO(comment: Randoms.randomFakeConversation(), user: user)
+            comments.append(comment)
+        }
+        return comments
     }
     
 }

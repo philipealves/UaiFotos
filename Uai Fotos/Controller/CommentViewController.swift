@@ -8,29 +8,31 @@
 
 import UIKit
 import SwiftyAvatar
-import RxSwift
 import IQKeyboardManagerSwift
 
 class CommentViewController: UIViewController {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    let disposeBag = DisposeBag()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendCommentButton: UIButton!
     @IBOutlet weak var userAvatar: SwiftyAvatar!
     @IBOutlet weak var comentTxt: UITextField!
+    
     var photoSelected: PhotoDTO! = nil
     var friendSelected: UserDTO! = nil
-    let attributesName = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Bold", size: 17)!,NSAttributedStringKey.foregroundColor: UIColor.black]
+    let user = UaiFotosDataStore.user
     
+    let attributesName = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Bold", size: 17)!,NSAttributedStringKey.foregroundColor: UIColor.black]
     let attributesComment = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: 14)!,NSAttributedStringKey.foregroundColor: UIColor.black]
+
+     let attributesDescription = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Bold", size: 14)!,NSAttributedStringKey.foregroundColor: UIColor.darkText]
     
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadDataStore()
+       
         self.tableView.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: CommentTableViewCell.identifier)
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -41,7 +43,10 @@ class CommentViewController: UIViewController {
         sendCommentButton.imageView?.image = sendCommentButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
         sendCommentButton.imageView?.tintColor = primaryColor
         
-        let user = UaiFotosDataStore.user
+        comentTxt?.contentMode = .scaleAspectFit
+        comentTxt?.clipsToBounds = true
+        comentTxt!.layer.cornerRadius = 15
+        
         self.userAvatar.kf.indicatorType = .activity
         self.userAvatar.kf.setImage(with: user?.avatarUrl)
         self.userAvatar.isHeroEnabled = true
@@ -72,44 +77,39 @@ class CommentViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func loadDataStore() {
-        // carrega a lista de fotos do serviço
-        PicsumApi().photoList()
-            .subscribe(onNext: {
-                UaiFotosDataStore.picsumImageList = $0
-                let uaifotosDS = UaiFotosDataStore()
-                uaifotosDS.generateFeed(photoNumber: Int.random())
-                self.feedData = uaifotosDS.feedPhotos
-                self.tableView.reloadData()
-                // reaload na collectionview de amigos
-                if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
-                    avatarListTableViewCell.avatarCollection.reloadData()
-                }
-            },onError: { print($0) }).disposed(by: self.disposeBag)
-    }
-    
-    
+  
 }
 
 
 extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return photoSelected.comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.identifier, for: indexPath) as! CommentTableViewCell
+    
+        let comment = photoSelected.comments[indexPath.row]
         
-        if indexPath.row == 0{
+        if indexPath.row == 0 {
             cell.avatarUser.kf.indicatorType = .activity
             cell.avatarUser.kf.setImage(with: friendSelected.avatarUrl)
             cell.avatarUser.isHeroEnabled = true
             let name = friendSelected.name! + " "
             let nameAttributedString = NSMutableAttributedString(string: name, attributes: attributesName)
-            let commentAttributedString = NSAttributedString(string: photoSelected.description!, attributes: attributesComment)
+            let commentAttributedString = NSAttributedString(string: photoSelected.description!, attributes: attributesDescription)
+            nameAttributedString.append(commentAttributedString)
+            cell.commentUser.attributedText = nameAttributedString
+        } else {
+
+            cell.avatarUser.kf.indicatorType = .activity
+            cell.avatarUser.kf.setImage(with: comment.user.avatarUrl)
+            cell.avatarUser.isHeroEnabled = true
+            let name = comment.user.name! + " "
+            let nameAttributedString = NSMutableAttributedString(string: name, attributes: attributesName)
+            let commentAttributedString = NSAttributedString(string: comment.textComment!, attributes: attributesComment)
             nameAttributedString.append(commentAttributedString)
             cell.commentUser.attributedText = nameAttributedString
         }

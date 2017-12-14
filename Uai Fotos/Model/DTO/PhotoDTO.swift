@@ -15,14 +15,16 @@ class PhotoDTO {
     var views: Int
     var liked: Bool
     var favorited: Bool
+    var comments: [CommentDTO]
     
-    init(picsumImage: PicsumImageDTO?, description: String?, likes: Int, views: Int, liked: Bool, favorited: Bool) {
+    init(picsumImage: PicsumImageDTO?, description: String?, likes: Int, views: Int, liked: Bool, favorited: Bool, comments: [CommentDTO]) {
         self.picsumImage = picsumImage
         self.description = description
         self.likes = likes
         self.views = views
         self.liked = liked
         self.favorited = favorited
+        self.comments = comments
     }
     
     var imageUrl: URL {

@@ -28,12 +28,12 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
     
     func routeToActivityDetail(segue: UIStoryboardSegue?) {
         if let segue = segue {
-            let destinationVC = segue.destination as! ActivityDetailViewController
+            let destinationVC = segue.destination as! ActivityDetailTableViewController
             //var destinationDS = destinationVC.router!.dataStore!
             passDataToActivityDetail(source: dataStore!, destination: destinationVC)
         } else {
             let storyboard = UIStoryboard(name: "Heart", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "activityDetailViewController") as! ActivityDetailViewController
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "activityDetailViewController") as! ActivityDetailTableViewController
             //var destinationDS = destinationVC.router!.dataStore!
             passDataToActivityDetail(source: dataStore!, destination: destinationVC)
             navigateToActivityDetail(source: self.viewController!, destination: destinationVC)
@@ -41,12 +41,12 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
     }
     
     // MARK: Navigation
-    func navigateToActivityDetail(source: ProfileViewController, destination: ActivityDetailViewController) {
+    func navigateToActivityDetail(source: ProfileViewController, destination: ActivityDetailTableViewController) {
         source.show(destination, sender: nil)
     }
     
     // MARK: Passing data
-    func passDataToActivityDetail(source: ProfileDataStore, destination: ActivityDetailViewController) {
+    func passDataToActivityDetail(source: ProfileDataStore, destination: ActivityDetailTableViewController) {
         if let selectedRow = self.viewController?.collectionView.indexPathsForSelectedItems?.first?.row {
             let photo = source.user?.photos?[selectedRow]
             destination.activityDetail = (photo!, source.user!)

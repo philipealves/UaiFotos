@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NxN-Yn-kn5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BRa-o4-O1e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -106,35 +106,60 @@
         <!--Foto-->
         <scene sceneID="QQh-yG-2rB">
             <objects>
-                <viewController id="BRa-o4-O1e" sceneMemberID="viewController">
+                <viewController id="BRa-o4-O1e" customClass="TakePhotoViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKg-BV-XBX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZbV-7r-jDj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="367"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHe-Li-Zoj">
-                                <rect key="frame" x="0.0" y="431" width="375" height="236"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDb-Sn-YTd">
-                                        <rect key="frame" x="97" y="54" width="180" height="128"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-ZI-MUb" customClass="RoundButton" customModule="Uai_Fotos" customModuleProvider="target">
+                                        <rect key="frame" x="138" y="90" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="1o0-KU-mJv"/>
+                                            <constraint firstAttribute="width" constant="100" id="Abi-Mc-ReY"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.2196078431372549" green="0.0" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paoQueijoCornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paoQueijoBorderWidth">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="takeButtom:" destination="BRa-o4-O1e" eventType="touchUpInside" id="zD6-x5-5mD"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="queijo" translatesAutoresizingMaskIntoConstraints="NO" id="QUu-pc-DyB" customClass="SpringImageView" customModule="Spring">
+                                        <rect key="frame" x="135" y="87" width="106" height="106"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
+                                    </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="c1v-ZI-MUb" firstAttribute="centerX" secondItem="NHe-Li-Zoj" secondAttribute="centerX" id="CGL-iP-Y9a"/>
+                                    <constraint firstItem="c1v-ZI-MUb" firstAttribute="centerY" secondItem="NHe-Li-Zoj" secondAttribute="centerY" id="Ewp-ub-OTf"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjj-T0-57n">
+                                <rect key="frame" x="0.0" y="20" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="leading" secondItem="lwZ-tG-jFI" secondAttribute="leading" id="BId-HX-aeB"/>
+                            <constraint firstItem="lwZ-tG-jFI" firstAttribute="trailing" secondItem="zjj-T0-57n" secondAttribute="trailing" id="4T7-cu-FqU"/>
+                            <constraint firstItem="zjj-T0-57n" firstAttribute="height" secondItem="sKg-BV-XBX" secondAttribute="height" multiplier="0.55" id="6vL-yU-WuE"/>
                             <constraint firstItem="lwZ-tG-jFI" firstAttribute="bottom" secondItem="NHe-Li-Zoj" secondAttribute="bottom" id="EdI-pa-GbX"/>
-                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="trailing" secondItem="lwZ-tG-jFI" secondAttribute="trailing" id="JuI-CW-kGD"/>
+                            <constraint firstItem="zjj-T0-57n" firstAttribute="leading" secondItem="lwZ-tG-jFI" secondAttribute="leading" id="LPP-Gf-hPf"/>
                             <constraint firstItem="NHe-Li-Zoj" firstAttribute="leading" secondItem="lwZ-tG-jFI" secondAttribute="leading" id="PHb-GV-8VL"/>
-                            <constraint firstItem="NHe-Li-Zoj" firstAttribute="top" secondItem="ZbV-7r-jDj" secondAttribute="bottom" id="cV9-6i-K5p"/>
-                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="top" secondItem="lwZ-tG-jFI" secondAttribute="top" id="cna-Hs-0ET"/>
-                            <constraint firstItem="ZbV-7r-jDj" firstAttribute="height" secondItem="sKg-BV-XBX" secondAttribute="height" multiplier="0.55" id="jUf-ih-Ten"/>
+                            <constraint firstItem="zjj-T0-57n" firstAttribute="top" secondItem="lwZ-tG-jFI" secondAttribute="top" id="Wr9-UQ-2Qj"/>
+                            <constraint firstItem="NHe-Li-Zoj" firstAttribute="top" secondItem="zjj-T0-57n" secondAttribute="bottom" id="g9c-Xc-zmU"/>
                             <constraint firstItem="lwZ-tG-jFI" firstAttribute="trailing" secondItem="NHe-Li-Zoj" secondAttribute="trailing" id="q3x-sn-TRE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lwZ-tG-jFI"/>
@@ -143,10 +168,44 @@
                         <barButtonItem key="backBarButtonItem" title="Cancelar" id="M4C-eQ-Py7"/>
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="N51-PK-yll"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="previewPhoto" destination="zjj-T0-57n" id="Vne-Bq-Dqp"/>
+                        <outlet property="queijoImageView" destination="QUu-pc-DyB" id="Mru-1H-fEg"/>
+                        <outlet property="takePhotoButtom" destination="c1v-ZI-MUb" id="Xo0-Bv-wTa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1d-Ja-3VK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1672.8" y="369.26536731634184"/>
+        </scene>
+        <!--Filter Photo View Controller-->
+        <scene sceneID="JgT-7S-uQE">
+            <objects>
+                <viewController id="JAb-tm-8Yz" customClass="FilterPhotoViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UiC-HC-mvo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zw0-Ex-xDB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zw0-Ex-xDB" firstAttribute="top" secondItem="dpw-ZT-Mar" secondAttribute="top" id="20C-YV-wVd"/>
+                            <constraint firstItem="dpw-ZT-Mar" firstAttribute="trailing" secondItem="zw0-Ex-xDB" secondAttribute="trailing" id="E0Z-p9-GBV"/>
+                            <constraint firstItem="zw0-Ex-xDB" firstAttribute="leading" secondItem="dpw-ZT-Mar" secondAttribute="leading" id="JNL-7i-ueE"/>
+                            <constraint firstItem="zw0-Ex-xDB" firstAttribute="height" secondItem="UiC-HC-mvo" secondAttribute="height" multiplier="0.5" id="yT6-nx-8VB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dpw-ZT-Mar"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewImage" destination="zw0-Ex-xDB" id="C0Q-rh-C6H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYs-f6-kmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442" y="369"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8m8-vR-nwM">
@@ -169,11 +228,7 @@
             <objects>
                 <tabBarController id="TNI-GD-moD" customClass="MainTabBarViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Uai Fotos" id="TGy-P8-461">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="compact_camera" id="z5N-bL-rhn">
-                            <connections>
-                                <segue destination="BRa-o4-O1e" kind="show" id="tYF-Iu-J5F"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="compact_camera" id="z5N-bL-rhn"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="rocket" id="2Jm-ax-9aF"/>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="mlS-ew-8oZ">
@@ -249,6 +304,7 @@
         <image name="camera-iris" width="60" height="60"/>
         <image name="compact_camera" width="30" height="30"/>
         <image name="no_avaliable" width="127" height="127"/>
+        <image name="queijo" width="341" height="341"/>
         <image name="rocket" width="30" height="30"/>
     </resources>
 </document>

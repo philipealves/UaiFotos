@@ -13,7 +13,7 @@ import FirebaseAuth
 import SwiftMessages
 
 class LoginViewController: FormViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,13 +37,13 @@ class LoginViewController: FormViewController {
                 row.onCellSelection({ (_, _) in
                     let emailRow: TextRow? = self.form.rowBy(tag: "email")
                     guard let email = emailRow?.value else {
-                        SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo e-mail é obrigatório")
+                        SwiftMessages.errorMessage(title: "Atenção:", body: "O campo e-mail é obrigatório")
                         return
                     }
                     
                     let passwordRow: TextRow? = self.form.rowBy(tag: "password")
                     guard let password = passwordRow?.value else {
-                        SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo senha é obrigatório")
+                        SwiftMessages.errorMessage(title: "Atenção:", body: "O campo senha é obrigatório")
                         return
                     }
                     
@@ -58,7 +58,7 @@ class LoginViewController: FormViewController {
                     var confirmPasswordRow: TextRow?
                     let emailRow: TextRow? = self.form.rowBy(tag: "email")
                     guard let email = emailRow?.value else {
-                        SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo e-mail é obrigatório")
+                        SwiftMessages.errorMessage(title: "Atenção:", body: "O campo e-mail é obrigatório")
                         return
                     }
 
@@ -66,7 +66,7 @@ class LoginViewController: FormViewController {
                     <<< TextRow() { row in
                         row.tag = "confirmPassword"
                         row.title = "Confirme sua Senha"
-                        row.placeholder = "digite aqui sua senha"
+                        row.placeholder = "digite aqui sua senha novamente"
                     }
                     +++ Section()
                     <<< ButtonRow { row in
@@ -76,18 +76,18 @@ class LoginViewController: FormViewController {
                             
                             let passwordRow: TextRow? = self.form.rowBy(tag: "password")
                             guard let password = passwordRow?.value else {
-                                SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo senha é obrigatório")
+                                SwiftMessages.errorMessage(title: "Atenção:", body: "O campo senha é obrigatório.")
                                 return
                             }
                             
                             confirmPasswordRow = self.form.rowBy(tag: "confirmPassword")
                             guard let confirmPassword = confirmPasswordRow?.value else {
-                                SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo confirmacao de e-mail é obrigatório")
+                                SwiftMessages.errorMessage(title: "Atenção:", body: "O campo confirmação de senha é obrigatório.")
                                 return
                             }
                             
                             if password != confirmPassword {
-                                SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo confirmacao de e-mail é diferente da senha")
+                                SwiftMessages.errorMessage(title: "Atenção:", body: "O campo confirmação de senha é diferente da senha digitada.")
                                 return
                             }
                             
@@ -95,8 +95,6 @@ class LoginViewController: FormViewController {
                             
                         })
                     }
-                    
-
                 })
         }
         
@@ -112,6 +110,10 @@ class LoginViewController: FormViewController {
             if error != nil {
                 SwiftMessages.infoMessage(title: "Importante:", body: error!.localizedDescription)
             }
+            else
+            {
+                self.performSegueMain()
+            }
         }
     }
     
@@ -120,7 +122,20 @@ class LoginViewController: FormViewController {
             if error != nil {
                 SwiftMessages.infoMessage(title: "Importante:", body: error!.localizedDescription)
             }
+            else
+            {
+                self.performSegueMain()
+            }
         }
+    }
+    
+    private func performSegueMain(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()!
+        
+        UIApplication.shared.delegate?.window??.rootViewController = controller
+        UIApplication.shared.delegate?.window??.makeKeyAndVisible()
+        
     }
     
     /*

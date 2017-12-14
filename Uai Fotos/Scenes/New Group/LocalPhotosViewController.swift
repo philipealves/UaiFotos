@@ -136,9 +136,26 @@ extension LocalPhotosViewController: UICollectionViewDataSource {
         cell.photoImage.kf.setImage(with: photoUrl)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier:  UIPhotoCellTitleView.identifier,
+                                                                             for: indexPath) as! UIPhotoCellTitleView
+            headerView.lblTitle.text = "Principais publicações"
+            return headerView
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }
+    
 }
 
 extension LocalPhotosViewController: UICollectionViewDelegate {
+    
     
 }
 

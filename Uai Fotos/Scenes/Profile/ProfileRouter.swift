@@ -13,42 +13,43 @@
 import UIKit
 
 @objc protocol ProfileRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToActivityDetail(segue: UIStoryboardSegue?)
 }
 
 protocol ProfileDataPassing {
-  var dataStore: ProfileDataStore? { get }
+    var dataStore: ProfileDataStore? { get }
 }
 
 class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
-  weak var viewController: ProfileViewController?
-  var dataStore: ProfileDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?) {
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: ProfileViewController, destination: SomewhereViewController) {
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: ProfileDataStore, destination: inout SomewhereDataStore) {
-  //  destination.name = source.name
-  //}
+    weak var viewController: ProfileViewController?
+    var dataStore: ProfileDataStore?
+    
+    // MARK: Routing
+    
+    func routeToActivityDetail(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! ActivityDetailTableViewController
+            //var destinationDS = destinationVC.router!.dataStore!
+            passDataToActivityDetail(source: dataStore!, destination: destinationVC)
+        } else {
+            let storyboard = UIStoryboard(name: "Heart", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "activityDetailTableViewController") as! ActivityDetailTableViewController
+            //var destinationDS = destinationVC.router!.dataStore!
+            passDataToActivityDetail(source: dataStore!, destination: destinationVC)
+            navigateToActivityDetail(source: self.viewController!, destination: destinationVC)
+        }
+    }
+    
+    // MARK: Navigation
+    func navigateToActivityDetail(source: ProfileViewController, destination: ActivityDetailTableViewController) {
+        source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    func passDataToActivityDetail(source: ProfileDataStore, destination: ActivityDetailTableViewController) {
+        if let selectedRow = self.viewController?.collectionView.indexPathsForSelectedItems?.first?.row {
+            let photo = source.user?.photos?[selectedRow]
+            destination.activityDetail = (photo!, source.user!)
+        }
+    }
 }

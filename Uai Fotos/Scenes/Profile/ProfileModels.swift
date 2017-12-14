@@ -25,6 +25,7 @@ enum Profile {
     
     struct ViewModel {
         struct DisplayUser {
+            var name: String
             var avatar: URL
             var publications: String
             var followers: String

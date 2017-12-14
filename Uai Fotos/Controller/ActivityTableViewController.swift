@@ -123,7 +123,7 @@ class ActivityTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? ActivityDetailViewController {
+        if let dest = segue.destination as? ActivityDetailTableViewController {
             dest.activityDetail = self.selected
         }
     }

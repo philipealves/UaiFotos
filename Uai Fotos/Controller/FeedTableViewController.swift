@@ -102,6 +102,10 @@ class FeedTableViewController: UIViewController {
         self.performSegue(withIdentifier: "segueToLocalPhotos", sender: self)
     }
 
+    func commentPhoto( _ indexPath: IndexPath?)  {
+        performSegue(withIdentifier: "segueComments", sender: indexPath)
+    }
+
     func favoritePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPath: IndexPath?) {
         guard let row = indexPath?.row else { return }
         guard let _ = self.feedData?[row] else { return }
@@ -148,6 +152,21 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        TipInCellAnimator.fadeIn(cell: cell.contentView)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? CommentViewController {
+            let indexPath = sender as? IndexPath
+            let photo = self.feedData![(indexPath?.row)!].photo
+            let friend = self.feedData![(indexPath?.row)!].friend
+            dest.photoSelected = photo
+            dest.friendSelected = friend
+        }
+    }
+
+
     func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
         if feedItem.photo.liked {
             cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
@@ -209,8 +228,21 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
         self.viewLocalPhoto(indexPath: indexPah)
     }
     
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?) {
+        self.commentPhoto(indexPah)
+    }
 
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {
         self.favoritePhoto(feedPhotoCell, indexPah!)
+    }
+    
+    func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?) {
+        if let (_, friend) = self.feedData?[indexPah?.row ?? -1] {
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let destinationVC = storyboard.instantiateInitialViewController() as! ProfileViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            destinationDS.user = friend
+            self.show(destinationVC, sender: nil)
+        }
     }
 }

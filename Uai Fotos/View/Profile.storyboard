@@ -142,6 +142,11 @@
                                                                         <constraint firstAttribute="width" secondItem="coe-4p-vUr" secondAttribute="height" multiplier="1:1" id="MG1-T9-I8j"/>
                                                                         <constraint firstAttribute="width" constant="100" id="cyh-mW-S5u"/>
                                                                     </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="userImage"/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="cascade"/>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
@@ -164,6 +169,7 @@
                                                 </cells>
                                                 <connections>
                                                     <outlet property="dataSource" destination="Y2D-MG-xNO" id="JNW-hT-Scr"/>
+                                                    <outlet property="delegate" destination="Y2D-MG-xNO" id="MUD-UA-a34"/>
                                                 </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4a-pB-zAb">

@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="31.934032983508249"/>
+            <point key="canvasLocation" x="-369" y="30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Ir-2g-kjO">
@@ -48,7 +48,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1s-cy-H3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-458" y="32"/>
+            <point key="canvasLocation" x="-370" y="-777"/>
         </scene>
         <!--Show View Controller-->
         <scene sceneID="fHp-vw-Vt8">
@@ -77,6 +77,9 @@
                                 <state key="normal" title="  Entrar com o Facebook" image="facebookIco">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnFacebook:" destination="p6u-z2-l59" eventType="touchUpInside" id="dGd-Xf-cJg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ink-0n-Owf">
                                 <rect key="frame" x="16" y="565" width="343" height="30"/>
@@ -89,6 +92,9 @@
                                 <state key="normal" title="Entrar com E-mail">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnEntrarEmail:" destination="p6u-z2-l59" eventType="touchUpInside" id="591-cJ-PXo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjW-HS-h2C">
                                 <rect key="frame" x="16" y="603" width="343" height="30"/>
@@ -101,6 +107,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnLogin:" destination="p6u-z2-l59" eventType="touchUpInside" id="BST-Eu-6gE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uai Fotos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSG-KS-RdV">
                                 <rect key="frame" x="36" y="69" width="303" height="79.5"/>
@@ -135,16 +144,21 @@
                         <viewLayoutGuide key="safeArea" id="2uk-IO-o3Q"/>
                     </view>
                     <connections>
+                        <outlet property="btnFacebook" destination="gBo-UU-dNb" id="DCy-Yy-oZ5"/>
                         <outlet property="imgShow" destination="0tY-cE-BMN" id="BOt-Zg-EVb"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueLogin" id="Rf6-5n-jR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-Sp-g7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1318" y="32"/>
+            <point key="canvasLocation" x="-1178" y="31"/>
         </scene>
     </scenes>
     <resources>
         <image name="Abertura-1" width="945" height="630"/>
         <image name="facebookIco" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rf6-5n-jR9"/>
+    </inferredMetricsTieBreakers>
 </document>

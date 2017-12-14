@@ -82,7 +82,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-UZ-CMJ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adicione um comentário..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-UZ-CMJ">
                                         <rect key="frame" x="60" y="2" width="204" height="46"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -121,7 +121,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3br-bz-WQd" firstAttribute="bottom" secondItem="Efd-P7-GaH" secondAttribute="bottom" id="2c3-UI-ufm"/>
+                            <constraint firstItem="Efd-P7-GaH" firstAttribute="bottom" secondItem="3br-bz-WQd" secondAttribute="bottom" id="2c3-UI-ufm"/>
                             <constraint firstItem="EQa-jQ-BG7" firstAttribute="top" secondItem="Efd-P7-GaH" secondAttribute="top" id="GbY-sg-Vif"/>
                             <constraint firstItem="3br-bz-WQd" firstAttribute="top" secondItem="EQa-jQ-BG7" secondAttribute="bottom" id="ONH-Qf-Xer"/>
                             <constraint firstItem="EQa-jQ-BG7" firstAttribute="leading" secondItem="Efd-P7-GaH" secondAttribute="leading" id="crS-CU-eFW"/>
@@ -132,6 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="Efd-P7-GaH"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="2c3-UI-ufm" id="eGl-B6-MBy"/>
                         <outlet property="comentTxt" destination="kLT-UZ-CMJ" id="220-dH-mHK"/>
                         <outlet property="sendCommentButton" destination="ekQ-nZ-16p" id="IR3-mY-l75"/>
                         <outlet property="tableView" destination="EQa-jQ-BG7" id="i7M-gY-DLY"/>

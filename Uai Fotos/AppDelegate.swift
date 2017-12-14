@@ -11,6 +11,7 @@ import Firebase
 import SwiftMessages
 import BFKit
 import ChameleonFramework
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftMessages.defaultConfig.presentationStyle = .top
         SwiftMessages.defaultConfig.duration = .seconds(seconds: 3)
         SwiftMessages.defaultConfig.dimMode = .gray(interactive: true)
+        IQKeyboardManager.sharedManager().enable = true
         
         // theme
 //        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)

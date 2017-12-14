@@ -24,11 +24,18 @@ class LoginViewController: FormViewController {
                 row.tag = "email"
                 row.title = "e-mail"
                 row.placeholder = "digite aqui seu email"
+                
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
             }
             <<< TextRow() { row in
                 row.tag = "password"
                 row.title = "Senha"
                 row.placeholder = "digite aqui sua senha"
+                
+                }.cellUpdate { cell, row in
+                    cell.textField.textAlignment = .left
+                    cell.textField.isSecureTextEntry = true
             }
             +++ Section()
             <<< ButtonRow { row in
@@ -67,7 +74,11 @@ class LoginViewController: FormViewController {
                         row.tag = "confirmPassword"
                         row.title = "Confirme sua Senha"
                         row.placeholder = "digite aqui sua senha novamente"
-                    }
+                        
+                        }.cellUpdate { cell, row in
+                            cell.textField.textAlignment = .left
+                            cell.textField.isSecureTextEntry = true
+                        }
                     +++ Section()
                     <<< ButtonRow { row in
                         row.title = "Cadastrar"
@@ -96,7 +107,7 @@ class LoginViewController: FormViewController {
                         })
                     }
                 })
-        }
+            }
         
     }
     
@@ -147,5 +158,8 @@ class LoginViewController: FormViewController {
      // Pass the selected object to the new view controller.
      }
      */
+
     
 }
+
+

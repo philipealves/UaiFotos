@@ -85,6 +85,20 @@ class FeedTableViewController: UIViewController {
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
     
+    func commentPhoto( _ indexPath: IndexPath?)  {
+        performSegue(withIdentifier: "segueComments", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? CommentViewController {
+            let indexPath = sender as? IndexPath
+            let photo = self.feedData![(indexPath?.row)!].photo
+            let friend = self.feedData![(indexPath?.row)!].friend
+            dest.photoSelected = photo
+            dest.friendSelected = friend
+        }
+    }
+
     func favoritePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPath: IndexPath?) {
         guard let row = indexPath?.row else { return }
         guard let _ = self.feedData?[row] else { return }
@@ -190,6 +204,10 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
     
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?) {
         self.likePhoto(feedPhotoCell, indexPah)
+    }
+    
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?) {
+        self.commentPhoto(indexPah)
     }
     
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {

@@ -29,7 +29,7 @@ class CommentViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.estimatedRowHeight = 50 // Tamanho aproximado da célula
+        self.tableView.estimatedRowHeight = 40 // Tamanho aproximado da célula
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         sendCommentButton.imageView?.image = sendCommentButton.imageView?.image?.withRenderingMode(.alwaysTemplate)

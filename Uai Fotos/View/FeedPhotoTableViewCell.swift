@@ -14,8 +14,10 @@ protocol FeedPhotoTableViewCellDelegate {
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, clickRowAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, sharePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?)
+
 }
 
 class FeedPhotoTableViewCell: UITableViewCell {
@@ -30,6 +32,7 @@ class FeedPhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: SpringButton!
     @IBOutlet weak var heartImageView: SpringImageView!
     
+    @IBOutlet weak var commentButton: UIButton!
     var delegate: FeedPhotoTableViewCellDelegate?
     var indexPath: IndexPath?
     
@@ -79,7 +82,11 @@ class FeedPhotoTableViewCell: UITableViewCell {
             sender.animate()
         }
     }
-    
+    @IBAction func commentPhoto(_ sender: UIButton) {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, commentPhotoAt: self.indexPath)
+        }
+    }
     @IBAction func favoritePhoto(_ sender: Any) {
         if self.delegate != nil {
             self.delegate?.feedPhotoCell(self, favoritePhotoAt: self.indexPath)

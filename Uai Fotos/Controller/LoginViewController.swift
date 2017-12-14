@@ -49,6 +49,55 @@ class LoginViewController: FormViewController {
                     
                     self.performLogin(email, password)
                 })
+            }
+            +++ Section()
+            <<< ButtonRow { row in
+                row.title = "Iniciar Cadastro"
+
+                row.onCellSelection({ (_, _) in
+                    var confirmPasswordRow: TextRow?
+                    let emailRow: TextRow? = self.form.rowBy(tag: "email")
+                    guard let email = emailRow?.value else {
+                        SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo e-mail é obrigatório")
+                        return
+                    }
+
+                    self.form +++ Section()
+                    <<< TextRow() { row in
+                        row.tag = "confirmPassword"
+                        row.title = "Confirme sua Senha"
+                        row.placeholder = "digite aqui sua senha"
+                    }
+                    +++ Section()
+                    <<< ButtonRow { row in
+                        row.title = "Cadastrar"
+                        
+                        row.onCellSelection({ (_, _) in
+                            
+                            let passwordRow: TextRow? = self.form.rowBy(tag: "password")
+                            guard let password = passwordRow?.value else {
+                                SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo senha é obrigatório")
+                                return
+                            }
+                            
+                            confirmPasswordRow = self.form.rowBy(tag: "confirmPassword")
+                            guard let confirmPassword = confirmPasswordRow?.value else {
+                                SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo confirmacao de e-mail é obrigatório")
+                                return
+                            }
+                            
+                            if password != confirmPassword {
+                                SwiftMessages.errorMessage(title: "Ocorreu um erro:", body: "O campo confirmacao de e-mail é diferente da senha")
+                                return
+                            }
+                            
+                            self.performCreateLogin((emailRow?.value)!, (password))
+                            
+                        })
+                    }
+                    
+
+                })
         }
         
     }
@@ -63,7 +112,14 @@ class LoginViewController: FormViewController {
             if error != nil {
                 SwiftMessages.infoMessage(title: "Importante:", body: error!.localizedDescription)
             }
-            print(user)
+        }
+    }
+    
+    private func performCreateLogin(_ email: String, _ password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                SwiftMessages.infoMessage(title: "Importante:", body: error!.localizedDescription)
+            }
         }
     }
     

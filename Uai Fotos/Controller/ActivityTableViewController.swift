@@ -16,7 +16,7 @@ class ActivityTableViewController: UITableViewController {
     var followersFeedData: [(photo: PhotoDTO, friend: UserDTO)]?
     var selected: (photo: PhotoDTO, friend: UserDTO)?
     var isFollowing = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,13 +29,13 @@ class ActivityTableViewController: UITableViewController {
         self.loadDataStore()
         self.loadFollowersDataStore()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     // MARK: - Table view data source
-   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.feedData?.count ?? 0
     }
     
@@ -118,7 +118,7 @@ class ActivityTableViewController: UITableViewController {
             cell.userAvatar.kf.setImage(with: feedItem.friend.avatarUrl)
             cell.userAvatar.isHeroEnabled = true
         }
-
+        
         return cell
     }
     
@@ -127,7 +127,7 @@ class ActivityTableViewController: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: false)
         self.performSegue(withIdentifier: "activityDetailSegue", sender: nil)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? ActivityDetailTableViewController {
             dest.activityDetail = self.selected
@@ -145,5 +145,5 @@ class ActivityTableViewController: UITableViewController {
         self.followersFeedData = UaiFotosDataStore().feedPhotos
         self.tableView.reloadData()
     }
-
+    
 }

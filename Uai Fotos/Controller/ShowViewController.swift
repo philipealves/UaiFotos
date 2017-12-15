@@ -20,6 +20,7 @@ class ShowViewController: UIViewController {
     let switchingInterval: TimeInterval = 3
     static let imagesNames = ["Abertura-1","Abertura-2","Abertura-3","Abertura-4"]
     
+    
     @IBOutlet weak var lblTitle: UILabel!
     
     @IBOutlet weak var imgShow: UIImageView!
@@ -74,6 +75,12 @@ class ShowViewController: UIViewController {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     self.dict = result as! [String : AnyObject]
+                    UaiFotosDataStore.user?.name = self.dict["name"] as? String
+                    UaiFotosDataStore.user?.email = self.dict["email"] as? String
+                    
+                    let FBid = self.dict["id"] as? String
+                    UaiFotosDataStore.user?.avatar = "https://graph.facebook.com/\(FBid!)/picture?type=large&return_ssl_resources=1"
+                    
                     print(result!)
                     print(self.dict)
                 }

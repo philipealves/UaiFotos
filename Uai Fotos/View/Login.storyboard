@@ -152,6 +152,7 @@
                     <connections>
                         <outlet property="btnFacebook" destination="gBo-UU-dNb" id="DCy-Yy-oZ5"/>
                         <outlet property="imgShow" destination="0tY-cE-BMN" id="BOt-Zg-EVb"/>
+                        <outlet property="lblTitle" destination="tSG-KS-RdV" id="2Jn-4K-IPw"/>
                         <segue destination="3aq-qZ-5fu" kind="show" identifier="segueLogin" id="d1H-7M-WxT"/>
                     </connections>
                 </viewController>

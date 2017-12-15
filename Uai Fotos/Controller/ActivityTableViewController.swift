@@ -123,7 +123,7 @@ class ActivityTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selected = self.feedData![indexPath.row]
+        self.selected = isFollowing ? self.followersFeedData![indexPath.row] : feedData![indexPath.row]
         self.tableView.deselectRow(at: indexPath, animated: false)
         self.performSegue(withIdentifier: "activityDetailSegue", sender: nil)
     }

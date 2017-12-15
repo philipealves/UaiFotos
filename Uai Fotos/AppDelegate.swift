@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftMessages.defaultConfig.dimMode = .gray(interactive: true)
         IQKeyboardManager.sharedManager().enable = true
         
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: UIControlState.normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: UIControlState.highlighted)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: UIControlState.focused)
+
         // theme
 //        Chameleon.setGlobalThemeUsingPrimaryColor(primaryColor, withSecondaryColor: primaryDarkColor, andContentStyle: .contrast)
         

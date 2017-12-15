@@ -13,8 +13,10 @@ class ActivityTableViewController: UITableViewController {
     
     let disposeBag = DisposeBag()
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
+    var followersFeedData: [(photo: PhotoDTO, friend: UserDTO)]?
     var selected: (photo: PhotoDTO, friend: UserDTO)?
-
+    var isFollowing = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,15 +27,15 @@ class ActivityTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "FeedPhotoTableViewCell", bundle: nil), forCellReuseIdentifier: FeedPhotoTableViewCell.identifier)
         
         self.loadDataStore()
+        self.loadFollowersDataStore()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     
     // MARK: - Table view data source
-   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.feedData?.count ?? 0
     }
     
@@ -61,7 +63,8 @@ class ActivityTableViewController: UITableViewController {
         if let navigationController = self.navigationController {
             let navigationBar = navigationController.navigationBar
             self.leftTitleBorder(withNavigationBar: navigationBar)
-            loadDataStore()
+            isFollowing = true
+            self.tableView.reloadData()
         }
     }
     
@@ -69,7 +72,8 @@ class ActivityTableViewController: UITableViewController {
         if let navigationController = self.navigationController {
             let navigationBar = navigationController.navigationBar
             self.rightTitleBorder(withNavigationBar: navigationBar)
-            loadDataStoreActivity()
+            isFollowing = false
+            self.tableView.reloadData()
         }
     }
     
@@ -100,8 +104,10 @@ class ActivityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ActivityTableViewCell.identifier, for: indexPath) as! ActivityTableViewCell
         
+        let feed = isFollowing ? self.followersFeedData : feedData
+        
         // Configure the cell...
-        if let feedItem = self.feedData?[indexPath.row] {
+        if let feedItem = feed?[indexPath.row] {
             cell.contentText.text = feedItem.photo.description
             
             cell.photo.kf.indicatorType = .activity
@@ -112,7 +118,7 @@ class ActivityTableViewController: UITableViewController {
             cell.userAvatar.kf.setImage(with: feedItem.friend.avatarUrl)
             cell.userAvatar.isHeroEnabled = true
         }
-
+        
         return cell
     }
     
@@ -121,31 +127,23 @@ class ActivityTableViewController: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: false)
         self.performSegue(withIdentifier: "activityDetailSegue", sender: nil)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? ActivityDetailTableViewController {
             dest.activityDetail = self.selected
         }
     }
     
-    func loadDataStoreActivity() {
-        self.loadDataStore()
-    }
-    
     func loadDataStore() {
         // carrega a lista de fotos do serviço
-        PicsumApi().photoList()
-            .subscribe(onNext: {
-                UaiFotosDataStore.picsumImageList = $0
-                let uaifotosDS = UaiFotosDataStore()
-                uaifotosDS.generateFeed(photoNumber: Int.random())
-                self.feedData = uaifotosDS.feedPhotos
-                self.tableView.reloadData()
-                // reaload na collectionview de amigos
-                if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
-                    avatarListTableViewCell.avatarCollection.reloadData()
-                }
-            },onError: { print($0) }).disposed(by: self.disposeBag)
+        self.feedData = UaiFotosDataStore().feedPhotos
+        self.tableView.reloadData()
     }
-
+    
+    func loadFollowersDataStore() {
+        // carrega a lista de fotos do serviço
+        self.followersFeedData = UaiFotosDataStore().feedPhotos
+        self.tableView.reloadData()
+    }
+    
 }

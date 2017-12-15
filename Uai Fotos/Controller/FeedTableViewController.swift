@@ -10,18 +10,25 @@ import UIKit
 import Kingfisher
 import Hero
 import SwiftRandom
-import RxSwift
 import Spring
+import MapKit
+import NVActivityIndicatorView
+import RxSwift
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let disposeBag = DisposeBag()
-    
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
+    var photoLocation : LocationDTO?
+    var activityIndicatorView: NVActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let activityData = ActivityData(size: nil, message: nil, messageFont: nil, messageSpacing: nil, type: .ballGridPulse, color: primaryColor, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: 3, backgroundColor: nil, textColor: nil)
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
         self.tableView.register(UINib(nibName: "FeedPhotoCell", bundle: nil), forCellReuseIdentifier: FeedPhotoTableViewCell.identifier)
         
         // cabeçalho da tableview com a lista de usuários...
@@ -32,11 +39,18 @@ class FeedTableViewController: UIViewController {
             self.tableView.tableHeaderView = avatarListTableViewCell
         }
         
-        self.loadDataStore()
-        
+        UaiFotosDataStore.loadedUser.subscribe {
+            if $0.element ?? true {
+                self.loadDataStore()
+            }
+        }.disposed(by: self.disposeBag)
+        if UaiFotosDataStore.user != nil {
+            self.loadDataStore()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.photoLocation = nil
         self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
         
         // Cria um botão a esquerda
@@ -44,8 +58,12 @@ class FeedTableViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = leftButton
         
         // Cria um botão a direita
-        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: nil, action: nil)
+        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: self, action: #selector(self.segueToMessage))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func segueToMessage() {
+        self.performSegue(withIdentifier: "showMessage", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,23 +72,32 @@ class FeedTableViewController: UIViewController {
         
         self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
     }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? CommentViewController {
+            let indexPath = sender as? IndexPath
+            let photo = self.feedData![(indexPath?.row)!].photo
+            let friend = self.feedData![(indexPath?.row)!].friend
+            dest.photoSelected = photo
+            dest.friendSelected = friend
+        }
+        else if segue.destination is LocalPhotosViewController {
+            (segue.destination as! LocalPhotosViewController).location = self.photoLocation
+        }
+    }
     
     func loadDataStore() {
         // carrega a lista de fotos do serviço
-        PicsumApi().photoList()
-            .subscribe(onNext: {
-                UaiFotosDataStore.picsumImageList = $0
-                let uaifotosDS = UaiFotosDataStore()
-                uaifotosDS.generateFeed(photoNumber: Int.random())
-                self.feedData = uaifotosDS.feedPhotos
-                self.tableView.reloadData()
-                // reaload na collectionview de amigos
-                if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
-                    avatarListTableViewCell.avatarCollection.reloadData()
-                }
-            },onError: { print($0) }).disposed(by: self.disposeBag)
+        self.feedData = UaiFotosDataStore().feedPhotos
+        self.tableView.reloadData()
+        // reaload na collectionview de amigos
+        if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
+            self.avatarCollectionData.reloadData()
+            avatarListTableViewCell.avatarCollection.reloadData()
+        }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
-    
+
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
         guard let row = indexPah?.row else { return }
         guard let _ = self.feedData?[row] else { return }
@@ -85,18 +112,16 @@ class FeedTableViewController: UIViewController {
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
     
+    func viewLocalPhoto(indexPath : IndexPath?) {
+        guard let row = indexPath?.row else { return }
+        guard let feed = self.feedData?[row] else { return }
+        guard let location = feed.photo.location else { return }
+        self.photoLocation = location
+        self.performSegue(withIdentifier: "segueToLocalPhotos", sender: self)
+    }
+
     func commentPhoto( _ indexPath: IndexPath?)  {
         performSegue(withIdentifier: "segueComments", sender: indexPath)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? CommentViewController {
-            let indexPath = sender as? IndexPath
-            let photo = self.feedData![(indexPath?.row)!].photo
-            let friend = self.feedData![(indexPath?.row)!].friend
-            dest.photoSelected = photo
-            dest.friendSelected = friend
-        }
     }
 
     func favoritePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPath: IndexPath?) {
@@ -149,6 +174,9 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         TipInCellAnimator.fadeIn(cell: cell.contentView)
     }
     
+
+
+
     func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
         if feedItem.photo.liked {
             cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
@@ -163,7 +191,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.heartButton.animation = Spring.AnimationPreset.FadeIn.rawValue
                 cell.heartButton.animate()
             })
-            
+
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
     }
@@ -206,10 +234,14 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
         self.likePhoto(feedPhotoCell, indexPah)
     }
     
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, viewLocalPhotoAt indexPah: IndexPath?) {
+        self.viewLocalPhoto(indexPath: indexPah)
+    }
+    
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?) {
         self.commentPhoto(indexPah)
     }
-    
+
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {
         self.favoritePhoto(feedPhotoCell, indexPah!)
     }

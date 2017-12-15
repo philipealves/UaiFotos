@@ -26,7 +26,13 @@
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Uai Fotos" id="tuh-8c-Sgv"/>
+                    <navigationItem key="navigationItem" title="Uai Fotos" id="tuh-8c-Sgv">
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="wR7-Mn-6jV">
+                            <connections>
+                                <action selector="backToView:" destination="BYZ-38-t0r" id="mvd-oz-noC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,8 +120,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uai Fotos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSG-KS-RdV">
                                 <rect key="frame" x="36" y="69" width="303" height="79.5"/>
                                 <fontDescription key="fontDescription" name="SnellRoundhand-Black" family="Snell Roundhand" pointSize="63"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetX">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,7 +166,8 @@
                     <connections>
                         <outlet property="btnFacebook" destination="gBo-UU-dNb" id="DCy-Yy-oZ5"/>
                         <outlet property="imgShow" destination="0tY-cE-BMN" id="BOt-Zg-EVb"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueLogin" id="Rf6-5n-jR9"/>
+                        <outlet property="lblTitle" destination="tSG-KS-RdV" id="2Jn-4K-IPw"/>
+                        <segue destination="3aq-qZ-5fu" kind="show" identifier="segueLogin" id="d1H-7M-WxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mI-Sp-g7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,7 +179,4 @@
         <image name="Abertura-1" width="945" height="630"/>
         <image name="facebookIco" width="32" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Rf6-5n-jR9"/>
-    </inferredMetricsTieBreakers>
 </document>

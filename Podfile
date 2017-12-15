@@ -30,6 +30,7 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'JSQMessagesViewController'
+pod 'NVActivityIndicatorView'
 end
 
 

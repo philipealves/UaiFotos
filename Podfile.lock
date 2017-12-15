@@ -60,6 +60,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (4.1.0):
+    - NVActivityIndicatorView/Presenter (= 4.1.0)
+  - NVActivityIndicatorView/Presenter (4.1.0)
   - ObjectMapper (3.1.0)
   - RxAlamofire (4.0.0):
     - RxAlamofire/Core (= 4.0.0)
@@ -87,6 +90,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (= 5.0.0)
   - JSQMessagesViewController
   - Kingfisher (~> 4.5.0)
+  - NVActivityIndicatorView
   - RxAlamofire
   - RxSwift (~> 4.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
@@ -132,6 +136,7 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Kingfisher: 26ae0473102b77b575da51960c932431e3745407
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: dc4726052dc24e89fa8576d43acf9e96f61d49db
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   RxAlamofire: 6ea579ac53bf14cb4bc7049a3866e5a769989b1d
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
@@ -141,6 +146,6 @@ SPEC CHECKSUMS:
   SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   SwiftyAvatar: 33aecda825c91851cac2aabd06b33f3698b2414c
 
-PODFILE CHECKSUM: e6a7845624026ae47cae31195b5f3a461646a3d2
+PODFILE CHECKSUM: 6646f7fe047b78d2ec922b36f26e4c9897d6ec85
 
 COCOAPODS: 1.3.1

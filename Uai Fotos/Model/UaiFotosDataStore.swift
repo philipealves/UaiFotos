@@ -11,7 +11,7 @@ import SwiftRandom
 
 class UaiFotosDataStore {
     
-    static var user: UserDTO?
+    public static var user: UserDTO?
     static var picsumImageList: [PicsumImageDTO]?
     
     var feedPhotos: [(photo: PhotoDTO, friend: UserDTO)]? {
@@ -73,6 +73,20 @@ class UaiFotosDataStore {
                 }
             }
             return feed.sorted(by: { _,_ in arc4random() < arc4random() })
+        }
+    }
+    
+    public var userCurrent: UserDTO? {
+        get {
+            return UaiFotosDataStore.user
+        }
+        set {
+            UaiFotosDataStore.user?.name = newValue?.name
+            UaiFotosDataStore.user?.email = newValue?.email
+            UaiFotosDataStore.user?.birthday = newValue?.birthday
+            UaiFotosDataStore.user?.gender = newValue?.gender
+            UaiFotosDataStore.user?.website = newValue?.website
+            UaiFotosDataStore.user?.phone = newValue?.phone
         }
     }
     

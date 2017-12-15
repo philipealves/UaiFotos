@@ -19,7 +19,19 @@ class LoginViewController: FormViewController {
         
         // Do any additional setup after loading the view.
         IQKeyboardManager.sharedManager().enable = true
-        self.form +++ Section("Login:")
+        self.form =
+            Section(){ section in
+                section.header = {
+                    var header = HeaderFooterView<UIView>(.callback({
+                        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 65))
+                        view.backgroundColor = primaryColor
+                        return view
+                    }))
+                    header.height = { 40 }
+                    return header
+                }()
+            }
+            +++ Section("Login:")
             <<< TextRow() { row in
                 row.tag = "email"
                 row.title = "e-mail"
@@ -108,6 +120,17 @@ class LoginViewController: FormViewController {
                     }
                 })
             }
+            +++ Section()
+            <<< ButtonRow { row in
+                row.title = "Voltar"
+                
+                row.cellUpdate({(cell, _)  in cell.textLabel?.textColor = UIColor.white
+                    cell.backgroundColor = primaryColor})
+                row.onCellSelection({ (_, _) in
+                    
+                    self.performSegueBack()
+                })
+        }
         
     }
     
@@ -142,6 +165,15 @@ class LoginViewController: FormViewController {
     
     private func performSegueMain(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()!
+        
+        UIApplication.shared.delegate?.window??.rootViewController = controller
+        UIApplication.shared.delegate?.window??.makeKeyAndVisible()
+        
+    }
+    
+    private func performSegueBack(){
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let controller = storyboard.instantiateInitialViewController()!
         
         UIApplication.shared.delegate?.window??.rootViewController = controller

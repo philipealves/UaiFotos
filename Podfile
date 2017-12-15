@@ -26,6 +26,7 @@ pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chamel
 pod  'SwiftRandom'
 pod 'AlamofireObjectMapper', '~> 5.0'
 pod 'RxAlamofire'
+pod 'JSQMessagesViewController'
 end
 
 

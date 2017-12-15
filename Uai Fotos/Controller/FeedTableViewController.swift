@@ -44,8 +44,12 @@ class FeedTableViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = leftButton
         
         // Cria um botão a direita
-        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: nil, action: nil)
+        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: self, action: #selector(self.segueToMessage))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func segueToMessage() {
+        self.performSegue(withIdentifier: "showMessage", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

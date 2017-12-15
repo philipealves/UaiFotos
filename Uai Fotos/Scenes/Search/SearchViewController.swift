@@ -70,6 +70,18 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         self.interactor?.getAllFriends()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
+        
+        // Cria um botão a esquerda
+        let leftButton = UIBarButtonItem(image: #imageLiteral(resourceName: "compact_camera"), style: .plain, target: nil, action: nil)
+        self.tabBarController?.navigationItem.leftBarButtonItem = leftButton
+        
+        // Cria um botão a direita
+        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: nil, action: nil)
+        self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
     // MARK: tableview
     @IBOutlet weak var tableView: UITableView!
     

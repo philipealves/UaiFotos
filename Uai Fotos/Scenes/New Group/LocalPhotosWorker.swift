@@ -17,6 +17,15 @@ class LocalPhotosWorker {
 
     func getPhotosByLocation(latitude : Double, longitude : Double) -> [PhotoDTO] {
         let qtPhotos = Int(arc4random_uniform(90))
+        
+        let filteredLocationPhotos = UaiFotosDataStore.user?.friends?.map({ (friend) -> [(photo: PhotoDTO, friend: UserDTO)]? in
+            let locationPhotos = friend.photos?.filter({ $0.location?.latitude == latitude })
+            return locationPhotos?.map({ (locPhoto) -> (photo: PhotoDTO, friend: UserDTO) in
+                return (locPhoto, friend)
+            })
+        })
+        
+        
         return UaiFotosDataStore().generatePhotos(number: qtPhotos)
     }
 }

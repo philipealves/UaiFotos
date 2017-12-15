@@ -10,12 +10,10 @@ import UIKit
 import Kingfisher
 import Hero
 import SwiftRandom
-import RxSwift
 import Spring
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    let disposeBag = DisposeBag()
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
@@ -57,18 +55,12 @@ class FeedTableViewController: UIViewController {
     
     func loadDataStore() {
         // carrega a lista de fotos do serviço
-        PicsumApi().photoList()
-            .subscribe(onNext: {
-                UaiFotosDataStore.picsumImageList = $0
-                let uaifotosDS = UaiFotosDataStore()
-                uaifotosDS.generateFeed(photoNumber: Int.random())
-                self.feedData = uaifotosDS.feedPhotos
-                self.tableView.reloadData()
-                // reaload na collectionview de amigos
-                if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
-                    avatarListTableViewCell.avatarCollection.reloadData()
-                }
-            },onError: { print($0) }).disposed(by: self.disposeBag)
+        self.feedData = UaiFotosDataStore().feedPhotos
+        self.tableView.reloadData()
+        // reaload na collectionview de amigos
+        if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
+            avatarListTableViewCell.avatarCollection.reloadData()
+        }
     }
     
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {

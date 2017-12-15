@@ -13,12 +13,13 @@ import BFKit
 import ChameleonFramework
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -45,6 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        // carrega a lista de fotos do serviço
+        PicsumApi().photoList()
+            .subscribe(onNext: {
+                UaiFotosDataStore.picsumImageList = $0
+                let uaifotosDS = UaiFotosDataStore()
+                uaifotosDS.generateFeed(photoNumber: Int.random())
+            },onError: { print($0) }).disposed(by: self.disposeBag)
+        let colors = NSArray(ofColorsFrom: #imageLiteral(resourceName: "Abertura-1"), withFlatScheme: true)
         return true
     }
     

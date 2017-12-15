@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let uaifotosDS = UaiFotosDataStore()
                 uaifotosDS.generateFeed(photoNumber: Int.random())
             },onError: { print($0) }).disposed(by: self.disposeBag)
-        let colors = NSArray(ofColorsFrom: #imageLiteral(resourceName: "Abertura-1"), withFlatScheme: true)
+        let colors = NSArray(ofColorsFrom: #imageLiteral(resourceName: "Abertura-1"), withFlatScheme: false)
         return true
     }
     

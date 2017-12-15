@@ -8,11 +8,13 @@
 
 import Foundation
 import SwiftRandom
+import RxSwift
 
 class UaiFotosDataStore {
     
     static var user: UserDTO?
     static var picsumImageList: [PicsumImageDTO]?
+    static var loadedUser: PublishSubject<Bool> = PublishSubject()
     
     var feedPhotos: [(photo: PhotoDTO, friend: UserDTO)]? {
         get {
@@ -36,6 +38,7 @@ class UaiFotosDataStore {
         let myUser = UserDTO(name: Randoms.randomFakeBrazilianName(), title: Randoms.randomFakeTitle(), email: Randoms.randomFakeEmail(), avatar: Randoms.randomFakeGravatarUrl(), photos: self.generatePhotos(number: photoNumber), friends: self.generateUsers(number: Int.random()))
         
         UaiFotosDataStore.user = myUser
+        UaiFotosDataStore.loadedUser.onNext(true)
     }
     
     public func generateUsers(number: Int) -> [UserDTO] {

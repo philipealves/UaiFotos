@@ -29,7 +29,11 @@ class FeedTableViewController: UIViewController {
             
             self.tableView.tableHeaderView = avatarListTableViewCell
         }
-        
+        UaiFotosDataStore.loadedUser.subscribe {
+            if $0.element ?? true {
+                self.loadDataStore()
+            }
+        }
         self.loadDataStore()
         
     }

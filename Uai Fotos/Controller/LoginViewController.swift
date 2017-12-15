@@ -146,6 +146,9 @@ class LoginViewController: FormViewController {
             }
             else
             {
+                if let userFI = user as? User {
+                    UaiFotosDataStore.user?.email = userFI.email
+                }
                 self.performSegueMain()
             }
         }

@@ -13,10 +13,11 @@ import SwiftRandom
 import Spring
 import MapKit
 import NVActivityIndicatorView
+import RxSwift
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+    let disposeBag = DisposeBag()
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
     var photoLocation : LocationDTO?
@@ -37,14 +38,15 @@ class FeedTableViewController: UIViewController {
             
             self.tableView.tableHeaderView = avatarListTableViewCell
         }
+        
         UaiFotosDataStore.loadedUser.subscribe {
             if $0.element ?? true {
                 self.loadDataStore()
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
             }
+        }.disposed(by: self.disposeBag)
+        if UaiFotosDataStore.user != nil {
+            self.loadDataStore()
         }
-        self.loadDataStore()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,8 +92,10 @@ class FeedTableViewController: UIViewController {
         self.tableView.reloadData()
         // reaload na collectionview de amigos
         if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
+            self.avatarCollectionData.reloadData()
             avatarListTableViewCell.avatarCollection.reloadData()
         }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
 
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {

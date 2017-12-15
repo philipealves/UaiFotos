@@ -284,7 +284,6 @@
 				23EA7FD91FD9DD7A006FB4E5 /* ActivityTableViewCell.xib */,
 				23EA7FD81FD9DD7A006FB4E5 /* ActivityTableViewCell.swift */,
 				2591198A1FE1B05000B332AA /* LocalPhotos.storyboard */,
-				6CD303EE1FE18FAE00EDBE21 /* PhotoCollectionViewCell.swift */,
 				250C8EA61FE311F80055EAC6 /* PhotoCell.swift */,
 				250C8EA81FE31F030055EAC6 /* UIPhotoCellTitleView.swift */,
 				95B4C8AB1FE1A36700126F96 /* CommentTableViewCell.swift */,
@@ -299,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				95B4C8AF1FE1C0A400126F96 /* CommentViewController.swift */,
-				16ED8FAE1FE1D7AE000B0D2F /* ActivityDetailViewController.swift */,
 				16ED8FAC1FE1CEF4000B0D2F /* ShowViewController.swift */,
 				6CD303EC1FE17FED00EDBE21 /* PhotoGalleryViewController.swift */,
 				87C233031FD8637B00964C0F /* ViewController.swift */,
@@ -594,7 +592,6 @@
 				87F820891FDA038C0047C2CD /* Randoms.swift in Sources */,
 				875BA4041FD9D2FA0059C038 /* AvatarCollectionData.swift in Sources */,
 				87A7822F1FE30EDA00D26D96 /* TipInCellAnimator.swift in Sources */,
-				16ED8FAF1FE1D7AE000B0D2F /* ActivityDetailViewController.swift in Sources */,
 				87A037851FD854BF00E7420B /* AppDelegate.swift in Sources */,
 				259119861FE1B01800B332AA /* LocalPhotosModels.swift in Sources */,
 				875BA4011FD9C9840059C038 /* AvatarListTableViewCell.swift in Sources */,

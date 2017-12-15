@@ -11,6 +11,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--LocalPhotos-->
+        <scene sceneID="89I-US-4V3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LocalPhotos" id="dwy-Rz-D7P" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgc-8J-3Mt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="65" y="588"/>
+        </scene>
         <!--Feed Table View Controller-->
         <scene sceneID="wgf-zb-zBt">
             <objects>
@@ -45,6 +53,7 @@
                     <connections>
                         <outlet property="tableView" destination="rXu-7k-tf5" id="iSv-JU-8Gw"/>
                         <segue destination="emr-UB-eM4" kind="show" identifier="segueComments" id="j5P-Or-tQC"/>
+                        <segue destination="dwy-Rz-D7P" kind="show" identifier="segueToLocalPhotos" id="RGk-Bh-7zP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp0-rk-ttg" userLabel="First Responder" sceneMemberID="firstResponder"/>

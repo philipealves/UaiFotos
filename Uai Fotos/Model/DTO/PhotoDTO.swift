@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class PhotoDTO {
     var picsumImage: PicsumImageDTO?
@@ -14,16 +15,19 @@ class PhotoDTO {
     var likes: Int
     var views: Int
     var liked: Bool
+    var location: LocationDTO?
     var favorited: Bool
     var comments: [CommentDTO]
     
-    init(picsumImage: PicsumImageDTO?, description: String?, likes: Int, views: Int, liked: Bool, favorited: Bool, comments: [CommentDTO]) {
+
+    init(picsumImage: PicsumImageDTO?, description: String?, likes: Int, views: Int, liked: Bool, favorited: Bool, comments: [CommentDTO], location: LocationDTO?) {
         self.picsumImage = picsumImage
         self.description = description
         self.likes = likes
         self.views = views
         self.liked = liked
         self.favorited = favorited
+        self.location = location
         self.comments = comments
     }
     

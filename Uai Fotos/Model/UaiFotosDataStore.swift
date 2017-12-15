@@ -54,15 +54,31 @@ class UaiFotosDataStore {
     
     public func generatePhotos(number: Int) -> [PhotoDTO] {
         var photoList = [PhotoDTO]()
-        for _ in 0..<number {
+
+        for index in 0..<number {
             let comments = self.genetareComments()
             let photo = PhotoDTO(picsumImage: UaiFotosDataStore.picsumImageList?.randomItem(), description: Randoms.randomFakeConversation(), likes: Int.random(), views: Int.random(), liked: Bool.random(), favorited: false,
-                                 comments: comments)
+                                 comments: comments, location: generateRandomLocale(id: index))
             photoList.append(photo)
         }
         return photoList
     }
     
+    private func generateRandomLocale(id : Int) -> LocationDTO {
+        switch id % 4 {
+        case 0:
+            return LocationDTO(city: "Uberlândia", description: "Center Shopping", latitude: -18.909817, longitude: -48.260614)
+        case 1:
+            return LocationDTO(city: "Patos de Minas", description: "Terra do Milho", latitude: -18.5983365, longitude: -46.5351996)
+        case 2:
+            return LocationDTO(city: "São Paulo", description: "Aqui nunca dorme", latitude: -23.5505199, longitude: -46.6333094)
+        default:
+            return LocationDTO(city: "Curitiba", description: "Frrriiiooo", latitude: -25.4290219, longitude: -49.2673976)
+        }
+    }
+    
+
+
     // Activity Data Store
     var userActivity: [(photo: PhotoDTO, friend: UserDTO, type: String)]? {
         get {

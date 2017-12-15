@@ -14,6 +14,7 @@ protocol FeedPhotoTableViewCellDelegate {
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, clickRowAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, sharePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, viewLocalPhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?)
@@ -49,12 +50,21 @@ class FeedPhotoTableViewCell: UITableViewCell {
         self.heartImageView.alpha = 0
         self.heartImageView.image = self.heartImageView.image?.withRenderingMode(.alwaysTemplate)
         self.heartImageView.tintColor = UIColor.white
+        
+        let tapUserTitleGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnUserTitle(_:)))
+        self.userTitle.addGestureRecognizer(tapUserTitleGestureRecognizer)
+        self.userTitle.isUserInteractionEnabled = true
     }
-    
+
     @objc func handleTapOnAvatarTitle(_ : UITapGestureRecognizer)  {
         if self.delegate != nil {
             self.delegate?.feedPhotoCell(self, avatarAndTitleTapAt: self.indexPath)
         }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
     }
     
     @objc func handleTapOnImage(_ : UITapGestureRecognizer)  {
@@ -66,6 +76,12 @@ class FeedPhotoTableViewCell: UITableViewCell {
         self.heartImageView.animateTo()
         if self.delegate != nil {
             self.delegate?.feedPhotoCell(self, clickRowAt: self.indexPath)
+        }
+    }
+    
+    @objc func handleTapOnUserTitle(_ : UITapGestureRecognizer)  {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, viewLocalPhotoAt: self.indexPath)
         }
     }
     

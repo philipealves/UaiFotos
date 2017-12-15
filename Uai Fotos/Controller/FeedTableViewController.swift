@@ -11,12 +11,14 @@ import Kingfisher
 import Hero
 import SwiftRandom
 import Spring
+import MapKit
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
+    var photoLocation : LocationDTO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,11 @@ class FeedTableViewController: UIViewController {
             }
         }
         self.loadDataStore()
-        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.photoLocation = nil
         self.tabBarController?.navigationController?.navigationBar.topItem?.title = "Uai Fotos"
         
         // Cria um botão a esquerda
@@ -60,6 +63,19 @@ class FeedTableViewController: UIViewController {
         
         self.tabBarController?.navigationController?.navigationBar.titleTextAttributes = attributes
     }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? CommentViewController {
+            let indexPath = sender as? IndexPath
+            let photo = self.feedData![(indexPath?.row)!].photo
+            let friend = self.feedData![(indexPath?.row)!].friend
+            dest.photoSelected = photo
+            dest.friendSelected = friend
+        }
+        else if segue.destination is LocalPhotosViewController {
+            (segue.destination as! LocalPhotosViewController).location = self.photoLocation
+        }
+    }
     
     func loadDataStore() {
         // carrega a lista de fotos do serviço
@@ -70,7 +86,7 @@ class FeedTableViewController: UIViewController {
             avatarListTableViewCell.avatarCollection.reloadData()
         }
     }
-    
+
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
         guard let row = indexPah?.row else { return }
         guard let _ = self.feedData?[row] else { return }
@@ -85,18 +101,16 @@ class FeedTableViewController: UIViewController {
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
     
+    func viewLocalPhoto(indexPath : IndexPath?) {
+        guard let row = indexPath?.row else { return }
+        guard let feed = self.feedData?[row] else { return }
+        guard let location = feed.photo.location else { return }
+        self.photoLocation = location
+        self.performSegue(withIdentifier: "segueToLocalPhotos", sender: self)
+    }
+
     func commentPhoto( _ indexPath: IndexPath?)  {
         performSegue(withIdentifier: "segueComments", sender: indexPath)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? CommentViewController {
-            let indexPath = sender as? IndexPath
-            let photo = self.feedData![(indexPath?.row)!].photo
-            let friend = self.feedData![(indexPath?.row)!].friend
-            dest.photoSelected = photo
-            dest.friendSelected = friend
-        }
     }
 
     func favoritePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPath: IndexPath?) {
@@ -149,6 +163,9 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
         TipInCellAnimator.fadeIn(cell: cell.contentView)
     }
     
+
+
+
     func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
         if feedItem.photo.liked {
             cell.heartButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
@@ -163,7 +180,7 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.heartButton.animation = Spring.AnimationPreset.FadeIn.rawValue
                 cell.heartButton.animate()
             })
-            
+
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
     }
@@ -206,10 +223,14 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
         self.likePhoto(feedPhotoCell, indexPah)
     }
     
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, viewLocalPhotoAt indexPah: IndexPath?) {
+        self.viewLocalPhoto(indexPath: indexPah)
+    }
+    
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?) {
         self.commentPhoto(indexPah)
     }
-    
+
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {
         self.favoritePhoto(feedPhotoCell, indexPah!)
     }

@@ -45,7 +45,7 @@
         <!--Activity Detail Table View Controller-->
         <scene sceneID="KXx-ql-BZC">
             <objects>
-                <tableViewController id="UPB-8J-SbV" customClass="ActivityDetailTableViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="activityDetailTableViewController" id="UPB-8J-SbV" customClass="ActivityDetailTableViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="egZ-VW-Mwg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

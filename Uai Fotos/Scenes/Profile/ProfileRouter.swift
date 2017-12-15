@@ -33,7 +33,7 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
             passDataToActivityDetail(source: dataStore!, destination: destinationVC)
         } else {
             let storyboard = UIStoryboard(name: "Heart", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "activityDetailViewController") as! ActivityDetailTableViewController
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "activityDetailTableViewController") as! ActivityDetailTableViewController
             //var destinationDS = destinationVC.router!.dataStore!
             passDataToActivityDetail(source: dataStore!, destination: destinationVC)
             navigateToActivityDetail(source: self.viewController!, destination: destinationVC)

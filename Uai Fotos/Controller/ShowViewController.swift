@@ -20,6 +20,7 @@ class ShowViewController: UIViewController {
     let switchingInterval: TimeInterval = 3
     static let imagesNames = ["Abertura-1","Abertura-2","Abertura-3","Abertura-4"]
     
+    @IBOutlet weak var lblTitle: UILabel!
     
     @IBOutlet weak var imgShow: UIImageView!
     
@@ -39,6 +40,9 @@ class ShowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lblTitle.font = UIFont(name: "MuralScript", size: 90)
+        
         fillImages()
         imgShow.image = imagesArr[1]
         animateImageView()

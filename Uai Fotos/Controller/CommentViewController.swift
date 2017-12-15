@@ -17,7 +17,7 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var sendCommentButton: UIButton!
     @IBOutlet weak var userAvatar: SwiftyAvatar!
     @IBOutlet weak var comentTxt: UITextField!
-    
+
     var photoSelected: PhotoDTO! = nil
     var friendSelected: UserDTO! = nil
     let user = UaiFotosDataStore.user
@@ -77,7 +77,16 @@ class CommentViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-  
+    
+    
+    @IBAction func sendComent(_ sender: UIButton) {
+        guard self.comentTxt.text != "" else { return }
+        let comment = CommentDTO(comment: self.comentTxt.text!, user: user!)
+        photoSelected.comments.append(comment)
+        self.tableView.reloadData()
+        self.comentTxt.text = ""
+    }
+    
 }
 
 

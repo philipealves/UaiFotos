@@ -54,6 +54,7 @@
                         <outlet property="tableView" destination="rXu-7k-tf5" id="iSv-JU-8Gw"/>
                         <segue destination="emr-UB-eM4" kind="show" identifier="segueComments" id="j5P-Or-tQC"/>
                         <segue destination="dwy-Rz-D7P" kind="show" identifier="segueToLocalPhotos" id="RGk-Bh-7zP"/>
+                        <segue destination="8yo-zw-yXD" kind="show" identifier="showMessage" id="TgZ-lk-raL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gp0-rk-ttg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -90,6 +91,9 @@
                                         <state key="normal" image="paper_plane">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendComent:" destination="emr-UB-eM4" eventType="touchUpInside" id="WHK-Ht-6aT"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adicione um comentário..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-UZ-CMJ">
                                         <rect key="frame" x="60" y="2" width="204" height="46"/>
@@ -151,6 +155,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9u-mZ-VZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868" y="101.19940029985008"/>
+        </scene>
+        <!--Message Table View Controller-->
+        <scene sceneID="lct-fX-mjJ">
+            <objects>
+                <tableViewController id="8yo-zw-yXD" customClass="MessageTableViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NKk-8g-cKa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pIs-Za-XUj">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pIs-Za-XUj" id="iqF-aU-Faj">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8yo-zw-yXD" id="8cK-BT-bs5"/>
+                            <outlet property="delegate" destination="8yo-zw-yXD" id="jEj-IR-8n5"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="9yP-MO-PME" kind="show" identifier="showChat" id="HdP-1b-qV4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l1f-Oe-qzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="101"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="9JZ-8m-1qH">
+            <objects>
+                <viewController id="9yP-MO-PME" customClass="ChatViewController" customModule="Uai_Fotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VeB-do-1SZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="syS-r8-rTV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="muV-yw-PGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1884" y="101"/>
         </scene>
     </scenes>
     <resources>

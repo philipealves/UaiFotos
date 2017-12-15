@@ -10,13 +10,11 @@ import UIKit
 import Kingfisher
 import Hero
 import SwiftRandom
-import RxSwift
 import Spring
 import MapKit
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    let disposeBag = DisposeBag()
     
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
@@ -47,8 +45,12 @@ class FeedTableViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = leftButton
         
         // Cria um botão a direita
-        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: nil, action: nil)
+        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "rocket"), style: .plain, target: self, action: #selector(self.segueToMessage))
         self.tabBarController?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func segueToMessage() {
+        self.performSegue(withIdentifier: "showMessage", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,18 +75,12 @@ class FeedTableViewController: UIViewController {
     
     func loadDataStore() {
         // carrega a lista de fotos do serviço
-        PicsumApi().photoList()
-            .subscribe(onNext: {
-                UaiFotosDataStore.picsumImageList = $0
-                let uaifotosDS = UaiFotosDataStore()
-                uaifotosDS.generateFeed(photoNumber: Int.random())
-                self.feedData = uaifotosDS.feedPhotos
-                self.tableView.reloadData()
-                // reaload na collectionview de amigos
-                if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
-                    avatarListTableViewCell.avatarCollection.reloadData()
-                }
-            },onError: { print($0) }).disposed(by: self.disposeBag)
+        self.feedData = UaiFotosDataStore().feedPhotos
+        self.tableView.reloadData()
+        // reaload na collectionview de amigos
+        if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
+            avatarListTableViewCell.avatarCollection.reloadData()
+        }
     }
 
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {

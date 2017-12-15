@@ -12,7 +12,7 @@ import RxSwift
 
 class UaiFotosDataStore {
     
-    static var user: UserDTO?
+    public static var user: UserDTO?
     static var picsumImageList: [PicsumImageDTO]?
     static var loadedUser: PublishSubject<Bool> = PublishSubject()
     
@@ -96,6 +96,20 @@ class UaiFotosDataStore {
         }
     }
     
+    public var userCurrent: UserDTO? {
+        get {
+            return UaiFotosDataStore.user
+        }
+        set {
+            UaiFotosDataStore.user?.name = newValue?.name
+            UaiFotosDataStore.user?.email = newValue?.email
+            UaiFotosDataStore.user?.birthday = newValue?.birthday
+            UaiFotosDataStore.user?.gender = newValue?.gender
+            UaiFotosDataStore.user?.website = newValue?.website
+            UaiFotosDataStore.user?.phone = newValue?.phone
+        }
+    }
+
     func genetareComments() -> [CommentDTO]{
         var comments = [CommentDTO]()
         let number = Randoms.randomInt(1, 20)
@@ -106,6 +120,7 @@ class UaiFotosDataStore {
             comments.append(comment)
         }
         return comments
+
     }
     
 }

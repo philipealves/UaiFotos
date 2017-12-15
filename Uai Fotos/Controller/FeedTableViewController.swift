@@ -12,16 +12,23 @@ import Hero
 import SwiftRandom
 import Spring
 import MapKit
+import NVActivityIndicatorView
+import RxSwift
 
 class FeedTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+    let disposeBag = DisposeBag()
     var feedData: [(photo: PhotoDTO, friend: UserDTO)]?
     let avatarCollectionData = AvatarCollectionData()
     var photoLocation : LocationDTO?
+    var activityIndicatorView: NVActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let activityData = ActivityData(size: nil, message: nil, messageFont: nil, messageSpacing: nil, type: .ballGridPulse, color: primaryColor, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: 3, backgroundColor: nil, textColor: nil)
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
         self.tableView.register(UINib(nibName: "FeedPhotoCell", bundle: nil), forCellReuseIdentifier: FeedPhotoTableViewCell.identifier)
         
         // cabeçalho da tableview com a lista de usuários...
@@ -31,13 +38,15 @@ class FeedTableViewController: UIViewController {
             
             self.tableView.tableHeaderView = avatarListTableViewCell
         }
+        
         UaiFotosDataStore.loadedUser.subscribe {
             if $0.element ?? true {
                 self.loadDataStore()
             }
+        }.disposed(by: self.disposeBag)
+        if UaiFotosDataStore.user != nil {
+            self.loadDataStore()
         }
-        self.loadDataStore()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,8 +92,10 @@ class FeedTableViewController: UIViewController {
         self.tableView.reloadData()
         // reaload na collectionview de amigos
         if let avatarListTableViewCell = self.tableView.tableHeaderView as? AvatarListTableViewCell {
+            self.avatarCollectionData.reloadData()
             avatarListTableViewCell.avatarCollection.reloadData()
         }
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
 
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {

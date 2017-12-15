@@ -13,6 +13,7 @@
 import UIKit
 
 class ProfileWorker {
-	func doSomeWork() {
+	func getLoggedUser() -> UserDTO? {
+        return UaiFotosDataStore.user
 	}
 }

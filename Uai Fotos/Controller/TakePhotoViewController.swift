@@ -28,8 +28,7 @@ class TakePhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        queijoImageView.alpha = 0
+        self.queijoImageView.alpha = 0
         settingDevice()
      
     }
@@ -130,3 +129,6 @@ extension TakePhotoViewController: AVCapturePhotoCaptureDelegate {
         }
     }
 }
+
+
+

@@ -9,11 +9,24 @@
 import Foundation
 import UIKit
 
-struct UserDTO {
+class UserDTO {
     var name: String?
     var title: String?
     var email: String?
     var avatar: String?
+    
+    var photos: [PhotoDTO]?
+    var friends: [UserDTO]?
+    
+    
+    init (name: String?, title: String?, email: String?, avatar: String?, photos: [PhotoDTO]?, friends: [UserDTO]?) {
+        self.name = name
+        self.title = title
+        self.email = email
+        self.avatar = avatar
+        self.photos = photos
+        self.friends = friends
+    }
     
     var avatarUrl: URL {
         get {
@@ -21,6 +34,4 @@ struct UserDTO {
         }
     }
     
-    var photos: [PhotoDTO]?
-    var friends: [UserDTO]?
 }

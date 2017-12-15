@@ -23,7 +23,16 @@ class AvatarCollectionData: NSObject, UICollectionViewDelegate, UICollectionView
             cell.userName.text = friend.name
         }
         
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let friend = UaiFotosDataStore.user?.friends?[indexPath.row] {
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let destinationVC = storyboard.instantiateInitialViewController() as! ProfileViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            destinationDS.user = friend
+            collectionView.viewController()?.show(destinationVC, sender: nil)
+        }
     }
 }

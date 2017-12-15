@@ -15,12 +15,25 @@ import UIKit
 enum Profile {
   // MARK: Use cases
   
-  enum Something {
+  enum User {
     struct Request {
     }
+    
     struct Response {
+        var loggedUser: UserDTO?
     }
+    
     struct ViewModel {
+        struct DisplayUser {
+            var name: String
+            var avatar: URL
+            var publications: String
+            var followers: String
+            var following: String
+            var bio: NSAttributedString
+            var photos: [URL]
+        }
+        var displayUser: DisplayUser?
     }
   }
 }

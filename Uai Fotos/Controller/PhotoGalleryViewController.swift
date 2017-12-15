@@ -21,6 +21,12 @@ class PhotoGalleryViewController: UIViewController {
     var widthCell = CGFloat(0.0)
     var heightCell = CGFloat(0.0)
     
+    @IBAction func backForMain(_ sender: Any) {
+        /*let backHome = ForwardTakePhotoViewController()
+        backHome.backHome = true
+        show(backHome, sender: self) */
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         settingSizeCellCollection()
@@ -30,9 +36,26 @@ class PhotoGalleryViewController: UIViewController {
         widthCell = self.photosCollectionView.frame.width / 4 //(UIScreen.main.bounds.size.width / 4) - 2.5
         heightCell = self.photosCollectionView.frame.height / 2 //((UIScreen.main.bounds.size.height * 0.4) / 3) - 3
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
+        
         getImagemOfLibary()
+    }
+    
+    
+    func backMainView(){
+        self.tabBarController?.selectedIndex = 0
+    }
+    
+    func rightTitleBorder(withNavigationBar navigationBar: UINavigationBar) {
+        let navBorder: UIView = UIView(frame: CGRect(x: navigationBar.frame.size.width/2, y: navigationBar.frame.size.height-1, width: navigationBar.frame.size.width/2, height: 1))
+        
+        self.navigationController?.navigationBar.removeAllSubviews()
+        
+        navBorder.backgroundColor = UIColor(red: 0.19, green: 0.19, blue: 0.2, alpha: 1)
+        navBorder.isOpaque = true
+        self.navigationController?.navigationBar.addSubview(navBorder)
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +113,27 @@ extension PhotoGalleryViewController: UICollectionViewDelegate, UICollectionView
             self.imageView.image = result ?? UIImage(named: "image-placeholder")!
         }
     }
+    
+}
+
+class ForwardTakePhotoViewController: UIViewController {
+    
+    var backHome: Bool = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if backHome {
+            backHome = !backHome
+            self.tabBarController?.selectedIndex = 0
+        }else{
+            performSegue(withIdentifier: "gallerySegue", sender: self)
+            backHome = !backHome
+        }
+    }
+    
+    override func viewDidLoad() {
+       
+    }
+    
     
 }
 

@@ -9,16 +9,16 @@
 import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageGallery: UIImageView!
+    static let identifier = "photoCollectionViewCell"
     
+    @IBOutlet weak var imageGallery: UIImageView!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint?
-    @IBInspectable var horizontalPhotoNumber: Int = 3
-    @IBInspectable var horizontalMarginNumber: Int = 1
+    public static var horizontalPhotoNumber: Int = 3
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
-        self.widthConstraint?.constant = (screenWidth / CGFloat(horizontalPhotoNumber)) - CGFloat(horizontalMarginNumber)
+        self.widthConstraint?.constant = PhotoCollectionViewCell.horizontalPhotoNumber == 1 ? screenWidth : (screenWidth / CGFloat(PhotoCollectionViewCell.horizontalPhotoNumber)) - (CGFloat(PhotoCollectionViewCell.horizontalPhotoNumber) - 1.5)
     }
 }

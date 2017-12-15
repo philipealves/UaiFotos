@@ -14,6 +14,10 @@ protocol FeedPhotoTableViewCellDelegate {
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, clickRowAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, sharePhotoAt indexPah: IndexPath?)
     func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, likePhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?)
+    func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?)
+
 }
 
 class FeedPhotoTableViewCell: UITableViewCell {
@@ -25,25 +29,32 @@ class FeedPhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var photoCaption: SpringLabel!
     @IBOutlet weak var photoDescription: UILabel!
     @IBOutlet weak var heartButton: SpringButton!
+    @IBOutlet weak var favoriteButton: SpringButton!
     @IBOutlet weak var heartImageView: SpringImageView!
     
+    @IBOutlet weak var commentButton: UIButton!
     var delegate: FeedPhotoTableViewCellDelegate?
     var indexPath: IndexPath?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
-        self.photo.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizerImage = UITapGestureRecognizer(target: self, action: #selector(handleTapOnImage(_:)))
+        self.photo.addGestureRecognizer(tapGestureRecognizerImage)
+        let tapGestureRecognizerAvatar = UITapGestureRecognizer(target: self, action: #selector(handleTapOnAvatarTitle(_:)))
+        self.userAvatar.addGestureRecognizer(tapGestureRecognizerAvatar)
+        let tapGestureRecognizerTitle = UITapGestureRecognizer(target: self, action: #selector(handleTapOnAvatarTitle(_:)))
+        self.userName.addGestureRecognizer(tapGestureRecognizerTitle)
+        
         self.heartImageView.alpha = 0
         self.heartImageView.image = self.heartImageView.image?.withRenderingMode(.alwaysTemplate)
         self.heartImageView.tintColor = UIColor.white
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @objc func handleTapOnAvatarTitle(_ : UITapGestureRecognizer)  {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, avatarAndTitleTapAt: self.indexPath)
+        }
     }
     
     @objc func handleTapOnImage(_ : UITapGestureRecognizer)  {
@@ -69,6 +80,16 @@ class FeedPhotoTableViewCell: UITableViewCell {
             self.delegate?.feedPhotoCell(self, sharePhotoAt: self.indexPath)
             sender.animation = Spring.AnimationPreset.Pop.rawValue
             sender.animate()
+        }
+    }
+    @IBAction func commentPhoto(_ sender: UIButton) {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, commentPhotoAt: self.indexPath)
+        }
+    }
+    @IBAction func favoritePhoto(_ sender: Any) {
+        if self.delegate != nil {
+            self.delegate?.feedPhotoCell(self, favoritePhotoAt: self.indexPath)
         }
     }
 }

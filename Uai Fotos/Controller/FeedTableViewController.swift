@@ -33,7 +33,7 @@ class FeedTableViewController: UIViewController {
         }
         
         self.loadDataStore()
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,7 +70,7 @@ class FeedTableViewController: UIViewController {
                 }
             },onError: { print($0) }).disposed(by: self.disposeBag)
     }
-
+    
     func likePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPah: IndexPath?) {
         guard let row = indexPah?.row else { return }
         guard let _ = self.feedData?[row] else { return }
@@ -84,6 +84,32 @@ class FeedTableViewController: UIViewController {
         feedPhotoCell.photoCaption.text = self.feedData?[row].photo.photoCaption
         self.loadHeartImageButton((self.feedData?[row])!, feedPhotoCell)
     }
+    
+    func commentPhoto( _ indexPath: IndexPath?)  {
+        performSegue(withIdentifier: "segueComments", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? CommentViewController {
+            let indexPath = sender as? IndexPath
+            let photo = self.feedData![(indexPath?.row)!].photo
+            let friend = self.feedData![(indexPath?.row)!].friend
+            dest.photoSelected = photo
+            dest.friendSelected = friend
+        }
+    }
+
+    func favoritePhoto(_ feedPhotoCell: FeedPhotoTableViewCell, _ indexPath: IndexPath?) {
+        guard let row = indexPath?.row else { return }
+        guard let _ = self.feedData?[row] else { return }
+        if self.feedData![row].photo.favorited {
+            self.feedData?[row].photo.favorited = false
+        } else {
+            self.feedData?[row].photo.favorited = true
+        }
+        self.loadFavoriteImageButton((self.feedData?[row])!, feedPhotoCell)
+    }
+    
 }
 
 extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -112,9 +138,15 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
             cell.userAvatar.isHeroEnabled = true
             cell.heartButton.imageView?.image = cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
             self.loadHeartImageButton(feedItem, cell)
+            cell.favoriteButton.imageView?.image = cell.favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+            self.loadFavoriteImageButton(feedItem, cell)
             
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        TipInCellAnimator.fadeIn(cell: cell.contentView)
     }
     
     func loadHeartImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
@@ -131,9 +163,28 @@ extension FeedTableViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.heartButton.animation = Spring.AnimationPreset.FadeIn.rawValue
                 cell.heartButton.animate()
             })
-
+            
         }
         cell.heartButton.setImage(cell.heartButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
+    }
+    
+    func loadFavoriteImageButton(_ feedItem: (photo: PhotoDTO, friend: UserDTO), _ cell: FeedPhotoTableViewCell)  {
+        if feedItem.photo.favorited {
+            cell.favoriteButton.setImage(#imageLiteral(resourceName: "bookmark"), for: .normal)
+            cell.favoriteButton.imageView?.tintColor = UIColor.black
+            cell.favoriteButton.animation = Spring.AnimationPreset.Pop.rawValue
+            cell.favoriteButton.animate()
+        } else {
+            cell.favoriteButton.animation = Spring.AnimationPreset.ZoomOut.rawValue
+            cell.favoriteButton.animateNext(completion: {
+                cell.favoriteButton.setImage(#imageLiteral(resourceName: "bookmark-outline"), for: .normal)
+                cell.favoriteButton.imageView?.tintColor = UIColor.black
+                cell.favoriteButton.animation = Spring.AnimationPreset.FadeIn.rawValue
+                cell.favoriteButton.animate()
+            })
+            
+        }
+        cell.favoriteButton.setImage(cell.favoriteButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for: .normal)
     }
 }
 
@@ -155,4 +206,21 @@ extension FeedTableViewController: FeedPhotoTableViewCellDelegate {
         self.likePhoto(feedPhotoCell, indexPah)
     }
     
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, commentPhotoAt indexPah: IndexPath?) {
+        self.commentPhoto(indexPah)
+    }
+    
+    func feedPhotoCell(_ feedPhotoCell: FeedPhotoTableViewCell, favoritePhotoAt indexPah: IndexPath?) {
+        self.favoritePhoto(feedPhotoCell, indexPah!)
+    }
+    
+    func feedPhotoCell(_ feedPhotocell: FeedPhotoTableViewCell, avatarAndTitleTapAt indexPah: IndexPath?) {
+        if let (_, friend) = self.feedData?[indexPah?.row ?? -1] {
+            let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+            let destinationVC = storyboard.instantiateInitialViewController() as! ProfileViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            destinationDS.user = friend
+            self.show(destinationVC, sender: nil)
+        }
+    }
 }

@@ -26,6 +26,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
     var worker: SearchWorker?
     
     var friends: [UserDTO]?
+        var selectedFriend: UserDTO?
     
     func getAllFriends() {
         self.worker = SearchWorker()
